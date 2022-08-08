@@ -1,0 +1,84 @@
+2022-08-08T15:59:55+00:00 CRITICAL require(): Failed opening required '' (include_path='.:/Applications/MAMP/bin/php/php7.3.8/lib/php') в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php на строке 195
+
+2022-08-08T16:01:16+00:00 CRITICAL require(): Failed opening required '' (include_path='.:/Applications/MAMP/bin/php/php7.3.8/lib/php') в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php на строке 195
+
+2022-08-08T16:01:42+00:00 CRITICAL require(): Failed opening required '' (include_path='.:/Applications/MAMP/bin/php/php7.3.8/lib/php') в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php на строке 195
+
+2022-08-08T16:08:26+00:00 CRITICAL Uncaught Error: Call to undefined function get_title() in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/item.php:4
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php(18): my_get_template_part('banners/item', Object(WP_Post))
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/index.php(18): my_get_template_part('slider/slider', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/template.php(772): require('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-includes/template.php(716): load_template('/Users/eugenebu...', false, Array)
+#6 /Users/eugeneburlak/work/php/pk/wp-includes/general-template.php(204): locate_template(Array, true, false, Array)
+#7 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/index.php(3): get_templ в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/item.php на строке 4
+
+2022-08-08T16:08:31+00:00 CRITICAL Uncaught Error: Call to undefined function get_title() in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/item.php:4
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php(18): my_get_template_part('banners/item', Object(WP_Post))
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/index.php(18): my_get_template_part('slider/slider', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/template.php(772): require('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-includes/template.php(716): load_template('/Users/eugenebu...', false, Array)
+#6 /Users/eugeneburlak/work/php/pk/wp-includes/general-template.php(204): locate_template(Array, true, false, Array)
+#7 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/index.php(3): get_templ в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/item.php на строке 4
+
+2022-08-08T16:27:29+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/item--card.php:2
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php(17): my_get_template_part('slider/item--ca...', Object(WP_Post))
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/index.php(34): my_get_template_part('slider/slider', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/index.php(3): my_get_template_part('banners/index')
+#6 /Users/eugeneburlak/work/php/pk/wp-includes/template-loader.php(106): include('/Users/eugenebu...')
+#7 /Users/eugeneburlak/work/php/pk/wp-blog-header.php(19): require_once( в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/item--card.php на строке 2
+
+2022-08-08T16:27:48+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/item--card.php:2
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php(17): my_get_template_part('slider/item--ca...', Object(WP_Post))
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/index.php(34): my_get_template_part('slider/slider', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/index.php(3): my_get_template_part('banners/index')
+#6 /Users/eugeneburlak/work/php/pk/wp-includes/template-loader.php(106): include('/Users/eugenebu...')
+#7 /Users/eugeneburlak/work/php/pk/wp-blog-header.php(19): require_once( в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/item--card.php на строке 2
+
+2022-08-08T16:27:53+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/item--card.php:2
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php(17): my_get_template_part('slider/item--ca...', Object(WP_Post))
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/index.php(34): my_get_template_part('slider/slider', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/index.php(3): my_get_template_part('banners/index')
+#6 /Users/eugeneburlak/work/php/pk/wp-includes/template-loader.php(106): include('/Users/eugenebu...')
+#7 /Users/eugeneburlak/work/php/pk/wp-blog-header.php(19): require_once( в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/item--card.php на строке 2
+
+2022-08-08T16:28:27+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/item--card.php:2
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php(17): my_get_template_part('slider/item--ca...', Object(WP_Post))
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/banners/index.php(17): my_get_template_part('slider/slider', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/index.php(3): my_get_template_part('banners/index')
+#6 /Users/eugeneburlak/work/php/pk/wp-includes/template-loader.php(106): include('/Users/eugenebu...')
+#7 /Users/eugeneburlak/work/php/pk/wp-blog-header.php(19): require_once( в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/item--card.php на строке 2
+
+2022-08-08T20:14:19+00:00 CRITICAL syntax error, unexpected ''0'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php на строке 27
+
+2022-08-08T20:14:22+00:00 CRITICAL syntax error, unexpected ''0'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php на строке 27
+
+2022-08-08T20:14:41+00:00 CRITICAL syntax error, unexpected ''0'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php на строке 27
+
+2022-08-08T20:14:43+00:00 CRITICAL syntax error, unexpected ''0'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php на строке 27
+
+2022-08-08T20:14:51+00:00 CRITICAL syntax error, unexpected ''0'' (T_CONSTANT_ENCAPSED_STRING) в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php на строке 27
+
+2022-08-08T20:14:53+00:00 CRITICAL syntax error, unexpected ''0'' (T_CONSTANT_ENCAPSED_STRING) в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/slider/slider.php на строке 27
+
