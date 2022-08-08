@@ -1,0 +1,13 @@
+.lazy{
+  overflow: hidden;
+  img{
+    transition: all 0.3s;
+    width: 100%;
+    height: auto;
+  }
+  &:not(.lazy-loaded){
+    img{
+      filter: blur(20px);
+    }
+  }
+}

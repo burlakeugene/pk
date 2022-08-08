@@ -1,0 +1,36 @@
+body {
+  --white: #ffffff;
+  --black: #000000;
+  --gray-lightest: #cccccc;
+  --gray-light: #808080;
+  --gray: #4d4d4d;
+  --gray-dark: #292929;
+  --background: #e6e6e6;
+  --background-dark: #292929;
+  --container-width: 1200px;
+  --theme: #e1a31e;
+  --red: #ff0000;
+  --border-color: #e6e6e6;
+}
+
+@import 'js/swiper/swiper.min.css';
+@import './scss/animations';
+@import './scss/wordpress-fixies';
+@import './scss/fonts';
+@import './scss/preloader';
+@import './scss/lazy';
+@import './scss/form';
+@import './scss/control';
+@import './scss/modal';
+@import './scss/common';
+@import './scss/header';
+@import './scss/banners';
+@import './scss/footer';
+
+// woo
+@import './scss/product';
+@import './scss/cart';
+@import './scss/checkout';
+@import './scss/compare';
+@import './scss/favorite';
+@import './scss/search';

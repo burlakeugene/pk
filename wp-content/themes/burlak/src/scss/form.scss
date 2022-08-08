@@ -1,0 +1,118 @@
+.form {
+  margin: 0 -15px;
+  &__item {
+    padding: 0 15px;
+    margin: 20px 0;
+    display: block;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .wpcf7-not-valid-tip {
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+  }
+  &__item {
+    &--center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__submit {
+      width: auto;
+      display: inline-block;
+      position: relative;
+    }
+    .wpcf7-spinner {
+      position: absolute;
+      background-image: none;
+      top: 50%;
+      left: 50%;
+      margin: 0;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      margin-left: -8px;
+      border: 2px solid var(--theme);
+      border-right-color: transparent;
+      background-color: transparent;
+      &:before {
+        display: none;
+      }
+      opacity: 0;
+      visibility: hidden;
+      border-radius: 50%;
+      animation: rotate 1s linear infinite;
+    }
+  }
+  label,
+  .wpcf7-response-output {
+    font-size: 14px;
+  }
+}
+
+.wpcf7-form.submitting {
+  .wpcf7-spinner {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+input,
+textarea,
+select {
+  padding: 10px;
+  line-height: 1em;
+  background-color: var(--white);
+  border: 2px solid var(--border-color);
+  color: var(--black);
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  border-radius: 0;
+  appearance: none;
+  &::-webkit-input-placeholder {
+    color: var(--gray-light);
+  }
+  &::-moz-placeholder {
+    color: var(--gray-light);
+  }
+  &:-ms-input-placeholder {
+    color: var(--gray-light);
+  }
+  &:-moz-placeholder {
+    color: var(--gray-light);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+textarea {
+  resize: none;
+  height: 130px;
+}
+
+select {
+  -webkit-appearance: none;
+  background-image: url(./images/arrow.svg);
+  background-position: center right;
+  background-position-x: calc(100% - 10px);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+}
+
+.wpcf7-response-output {
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+
+.submitting {
+}
+
+.wpcf7 .wpcf7-response-output {
+  display: none;
+}

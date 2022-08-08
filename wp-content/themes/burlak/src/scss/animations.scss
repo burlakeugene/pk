@@ -1,0 +1,75 @@
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  33.333333% {
+    transform: rotate(5deg);
+  }
+  66.666666% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 110, 200;
+    stroke-dashoffset: -30px;
+  }
+  100% {
+    stroke-dasharray: 110, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-30%);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-1%);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}

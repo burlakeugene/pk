@@ -1,0 +1,53 @@
+.banner {
+  height: 100%;
+  padding: 120px 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  .button {
+    padding: 10px 15px;
+    font-size: 18px;
+  }
+  &__text {
+    color: var(--white);
+    font-size: 18px;
+  }
+  &s {
+    overflow: hidden;
+    .swiper-container {
+      overflow: visible;
+    }
+    .slider__inner {
+      padding: 0;
+      position: relative;
+      max-width: calc(var(--container-width) - 30px);
+      margin: 0 auto;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      bottom: 40px;
+      top: auto;
+      left: auto;
+      right: 40px;
+    }
+    .swiper-button-prev{
+      right: 80px;
+    }
+    .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{
+      position: absolute;
+      bottom: 40px;
+      margin-top: 0;
+      left: 40px;
+    }
+    .progressbar{
+      top: 50%;
+      left: -30px;
+      transform: translateX(-50%) translateY(-50%) rotate(90deg);
+    }
+  }
+}
