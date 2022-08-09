@@ -29,8 +29,8 @@ $categories = getCategories();
 								</div>
 							</div>
 							<div class="products__category__inner__bottom">
-								<div class="products__category__link">
-									Перейти <?php get_template_part('icons/arrow-right') ?>
+								<div class="link">
+									Перейти
 								</div>
 							</div>
 						</div>

@@ -5,7 +5,7 @@
 <?php if(!$noContainer): ?>
 <div class="container">
 <?php endif; ?>
-  <div class="top <?= $borderBottom ? 'top--border' : '' ?>">
+  <div class="top">
     <div class="top__top">
       <div class="title">
         <<?= $title_tag ?>>

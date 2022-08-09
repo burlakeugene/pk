@@ -1,6 +1,5 @@
 <?php
 get_header();
-get_template_part('blocks/breadcrumbs');
 get_template_part('blocks/shipping');
 $query = get_queried_object();
 $link = is_tax() ? get_term_link($query->term_id) : get_permalink(wc_get_page_id('shop'));
@@ -12,10 +11,11 @@ $link = is_tax() ? get_term_link($query->term_id) : get_permalink(wc_get_page_id
 // orderby=price&paged=1
 // orderby=price-desc&paged=1
 $post_per_page = $wp_query->query_vars['posts_per_page'];
-my_get_template_part('blocks/top', array(
+my_get_template_part('sections/header', array(
     'title' => array(
       'text' => $query->name,
     ),
+    'breadcrumbs' => true,
     'select' => array(
       'label' => 'Сортировать по:',
       'items' => array(
