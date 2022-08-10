@@ -17,6 +17,18 @@
                   'index' => $index
                 ]) ?>
               </div>
+              <div class="swiper-slide">
+                <?php my_get_template_part($item['path'], [
+                  'data' => $list_item,
+                  'index' => $index
+                ]) ?>
+              </div>
+              <div class="swiper-slide">
+                <?php my_get_template_part($item['path'], [
+                  'data' => $list_item,
+                  'index' => $index
+                ]) ?>
+              </div>
             <?php endforeach; ?>
           </div>
           <?php if($buttons) get_template_part('slider/buttons') ?>

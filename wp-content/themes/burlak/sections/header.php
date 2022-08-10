@@ -4,11 +4,18 @@ if($data):
   $link = $data['link'];
   $align = $data['align'] ? $data['align'] : '';
   $tag = $data['tag'] ? $data['tag'] : 'h2';
+
+  $classes = 'section__header '.implode(' ', data['classes']);
+  if($data['modificators']){
+    foreach($data['modificators'] as $modificator){
+      $classes.= ' section__header--'.$modificator;
+    }
+  }
   if(!$data['wide']):
   ?>
   <div class="container">
   <?php endif; ?>
-    <div class="section__header section__header--<?= $align ?>">
+    <div class="<?= $classes ?>">
       <?php
         my_get_template_part('blocks/title', [
           'title' => $title['text'],

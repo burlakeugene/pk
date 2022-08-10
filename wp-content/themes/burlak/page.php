@@ -1,10 +1,18 @@
 <?php
   get_header();
-  get_template_part('blocks/breadcrumbs');
-  my_get_template_part('blocks/top', array(
-    'title' => array(
-      'text' => get_the_title(),
-    ),
-  ));
-  get_template_part('page/content');
+  my_get_template_part('blocks/decorator_background', [
+    'background' => get_field('decorator_background')['sizes']['large']
+  ]);
+  my_get_template_part('sections/section', [
+    'classes' => ['decorator_background_next'],
+    'header' => [
+      'breadcrumbs' => true,
+      'title' => [
+        'text' => get_the_title(),
+      ],
+    ],
+    'content' => [
+      'path' => 'page/content'
+    ]
+  ]);
   get_footer();

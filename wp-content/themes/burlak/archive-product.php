@@ -9,6 +9,9 @@ get_header();
 ?>
 <div class="container">
   <?php get_template_part('product/categories'); ?>
+  <?php my_get_template_part('product/list', array(
+    'classes' => ['products--archive']
+  )); ?>
 </div>
 <?php
 get_footer();

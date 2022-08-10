@@ -9,6 +9,10 @@
   justify-content: center;
   flex-direction: column;
   gap: 30px;
+  &__text,
+  .title {
+    text-shadow: 0px 0px 2px var(--black);
+  }
   .button {
     padding: 10px 15px;
     font-size: 18px;
@@ -35,16 +39,16 @@
       left: auto;
       right: 40px;
     }
-    .swiper-button-prev{
+    .swiper-button-prev {
       right: 80px;
     }
-    .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{
+    .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
       position: absolute;
       bottom: 40px;
       margin-top: 0;
       left: 40px;
     }
-    .progressbar{
+    .progressbar {
       top: 50%;
       left: -30px;
       transform: translateX(-50%) translateY(-50%) rotate(90deg);

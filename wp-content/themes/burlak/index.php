@@ -2,6 +2,7 @@
   get_header();
   my_get_template_part('banners/index');
   my_get_template_part('sections/section', [
+    'classes' => ['decorator_background_next'],
     'header' => [
       'title' => [
         'text' => get_post_type_object('product')->labels->name,
@@ -21,5 +22,6 @@
       ]
     ]
   ]);
+  my_get_template_part('brands/index');
   get_footer();
 ?>

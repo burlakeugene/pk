@@ -16,6 +16,7 @@ my_get_template_part('sections/header', array(
       'text' => $query->name,
     ),
     'breadcrumbs' => true,
+    'modificators' => ['dark'],
     'select' => array(
       'label' => 'Сортировать по:',
       'items' => array(

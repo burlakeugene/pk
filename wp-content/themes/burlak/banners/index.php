@@ -13,27 +13,35 @@
     //   ),
   );
   $banners = get_posts($args);
-  if ($banners){
-    my_get_template_part('slider/slider', [
-      'classes' => 'banners',
-      'fullHeightSlide' => true,
-      'buttons' => true,
-      'pagination' => true,
-      'progressBar' => true,
-      'list' => $banners,
-      'item' => [
-        'path' => 'banners/item'
-      ],
-      'config' => [
-        'slidesPerView' => 'auto',
-        'spaceBetween' => 60,
-        'pagination' => [
-          'dynamicBullets' => true
+  if ($banners):
+    ?>
+    <div class="decorator_background">
+    <?php
+      my_get_template_part('slider/slider', [
+        'classes' => 'banners',
+        'fullHeightSlide' => true,
+        'buttons' => true,
+        'pagination' => true,
+        'progressBar' => true,
+        'list' => $banners,
+        'item' => [
+          'path' => 'banners/item'
         ],
-        'autoplay' => [
-          'delay' => 5000
+        'config' => [
+          'parallax' => true,
+          // 'loop' => true,
+          'slidesPerView' => 'auto',
+          'spaceBetween' => 60,
+          'pagination' => [
+            'dynamicBullets' => true
+          ],
+          'autoplay' => [
+            'delay' => 5000
+          ]
         ]
-      ]
-    ]);
-  }
-?>
+      ]);
+    ?>
+    </div>
+    <?php
+  endif;
+  ?>

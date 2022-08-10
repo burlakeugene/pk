@@ -14,8 +14,11 @@ $categories = getCategories();
 				<div class="products__category__wrapper <?= $current_url === $url ? 'products__category--active' : '' ?>">
 					<a
 						class="products__category ajax"
-						style="background-image: url(<?= $background['sizes']['large'] ?>)"
 						href="<?= $url ?>">
+						<div
+							class="products__category__background"
+							style="background-image: url(<?= $background['sizes']['medium'] ?>)">
+						</div>
 						<div class="products__category__inner">
 							<div class="products__category__inner__top">
 								<div class="products__category__name">

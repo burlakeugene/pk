@@ -9,9 +9,7 @@
 ?>
 <section <?= $id ? 'id="'.$id.'"' : '' ?> class="<?= $classes ?>">
     <?php
-      my_get_template_part('sections/header', [
-        'data' => $header
-      ]);
+      my_get_template_part('sections/header', $header);
     ?>
     <?php if($content): ?>
       <?php if(!$content['wide']): ?>

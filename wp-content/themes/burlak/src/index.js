@@ -202,8 +202,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     let sliders = document.querySelectorAll('.slider');
     const progressBarCheck = (swiper, slider) => {
-      console.log(swiper);
-      let percent = (100 / swiper.slides.length) * (swiper.activeIndex + 1);
+      let percent =
+        (100 / (swiper.loopedSlides || swiper.slides.length)) *
+        (swiper.realIndex + 1);
       if (slider.querySelector('.progressbar__line')) {
         slider.querySelector(
           '.progressbar__line div'

@@ -604,3 +604,16 @@ function isAvailable($type){
   ];
   return $settings[$type];
 }
+
+function getBrands(){
+  $items = get_terms('pa_brand', [
+    'hide_empty' => false,
+  ]);
+  return array_map(function($item){
+    $fields = get_fields($item);
+    return [
+      'link' => get_permalink(wc_get_page_id('shop')).'?filter_brand='.$item->slug,
+      'fields' => $fields
+    ];
+  }, $items);
+}
