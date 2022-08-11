@@ -28,6 +28,38 @@
         }
       }
     }
+    .swiper-button-prev,
+    .swiper-button-next {
+      bottom: 0;
+      top: auto;
+      left: 0;
+      right: auto;
+    }
+    .swiper-button-next {
+      left: 40px;
+    }
+    .swiper-button-lock{
+      display: none;
+    }
+    .swiper-pagination {
+      max-width: calc(var(--container-width) / 2 + 115px);
+      padding-right: 15px;
+      text-align: right;
+      &:not(:empty) {
+        margin-top: 40px;
+      }
+      .swiper-pagination-bullet {
+        border: 2px solid var(--gray-light);
+        width: 10px;
+        height: 10px;
+        background-color: transparent;
+        opacity: 1;
+        margin: 0 2px;
+        &-active {
+          background-color: var(--gray-light);
+        }
+      }
+    }
   }
   width: 280px;
   height: 320px;

@@ -109,3 +109,13 @@ Stack trace:
 
 2022-08-10T21:16:01+00:00 CRITICAL syntax error, unexpected '}', expecting ';' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php на строке 618
 
+2022-08-10T21:38:56+00:00 CRITICAL Uncaught Exception: Неверный товар. in /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-data-store-cpt.php:167
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(159): WC_Product_Data_Store_CPT->read(Object(WC_Product))
+#1 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(138): WC_Data_Store->read(Object(WC_Product))
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/item.php(3): WC_Product->__construct(56)
+#3 /Users/eugeneburlak/work/php/pk/wp-includes/template.php(772): require('/Users/eugenebu...')
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/template.php(716): load_template('/Users/eugenebu...', false, Array)
+#5 /Users/eugeneburlak/work/php/pk/wp-includes/general-template.php(204): locate_template(Array, true, false, Array)
+#6 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/list.php(26): get в /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-data-store-cpt.php на строке 167
+
