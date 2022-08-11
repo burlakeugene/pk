@@ -1,0 +1,26 @@
+2022-08-11T16:23:23+00:00 CRITICAL syntax error, unexpected '{' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/index.php на строке 27
+
+2022-08-11T20:03:20+00:00 CRITICAL Uncaught Error: Call to undefined function my_get_tempalate_part() in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/promo/index.php:22
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/sections/section.php(18): my_get_template_part('promo/index', NULL)
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/index.php(28): my_get_template_part('sections/sectio...', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/template-loader.php(106): include('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-blog-header.php(19): require_once('/Users/eugenebu...')
+#6 /Users/eugeneburlak/work/php/pk/index.php(17): require('/Users/eugenebu...')
+#7 {main}
+  thrown в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/promo/index.php на строке 22
+
+2022-08-11T20:04:11+00:00 CRITICAL Uncaught Error: Call to undefined function my_get_tempalate_part() in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/promo/index.php:22
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/sections/section.php(18): my_get_template_part('promo/index', NULL)
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(195): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/index.php(28): my_get_template_part('sections/sectio...', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/template-loader.php(106): include('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-blog-header.php(19): require_once('/Users/eugenebu...')
+#6 /Users/eugeneburlak/work/php/pk/index.php(17): require('/Users/eugenebu...')
+#7 {main}
+  thrown в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/promo/index.php на строке 22
+

@@ -23,5 +23,10 @@
     ]
   ]);
   my_get_template_part('brands/index');
+  my_get_template_part('sections/section', [
+    'content' => [
+      'path' => 'promo/index'
+    ]
+  ]);
   get_footer();
 ?>

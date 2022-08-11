@@ -1,6 +1,6 @@
 <?php
-if($title):
-  $slices = split_half($title);
+if($text):
+  $slices = split_half($text);
   $tag = $tag ? $tag : 'h2';
   $apperance = $apperance ? $apperance : ['light', 'theme'];
   ?>

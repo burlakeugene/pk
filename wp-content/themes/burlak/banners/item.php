@@ -8,7 +8,7 @@
   <div data-swiper-parallax="-100">
     <?php
       my_get_template_part('blocks/title', [
-        'title' => $title,
+        'text' => $title,
         'apperance' => ['theme', 'light']
       ]);
     ?>

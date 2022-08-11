@@ -16,7 +16,7 @@
   <div class="brands__content">
     <?php
       my_get_template_part('blocks/title', [
-        'title' => $title,
+        'text' => $title,
         'apperance' => ['dark', 'theme'],
         'mini' => true
       ])
