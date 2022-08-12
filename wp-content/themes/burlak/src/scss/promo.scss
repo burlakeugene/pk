@@ -28,6 +28,11 @@
     gap: 20px;
     align-items: center;
     justify-content: space-between;
+    img{
+      width: 100%;
+      max-width: 410px;
+      height: auto;
+    }
     &__deliver {
       width: 2px;
       flex-shrink: 0;

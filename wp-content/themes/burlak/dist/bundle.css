@@ -3365,6 +3365,11 @@ body.scrolled .fixed-button--top .icon {
   align-items: center;
   justify-content: space-between;
 }
+.promo__header img {
+  width: 100%;
+  max-width: 410px;
+  height: auto;
+}
 .promo__header__deliver {
   width: 2px;
   flex-shrink: 0;
