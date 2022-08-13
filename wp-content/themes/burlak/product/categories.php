@@ -32,7 +32,7 @@ $categories = getCategories();
 								</div>
 							</div>
 							<div class="products__category__inner__bottom">
-								<div class="link">
+								<div class="link link--theme">
 									Перейти
 								</div>
 							</div>

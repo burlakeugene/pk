@@ -126,6 +126,15 @@ a,
       background-color: var(--black);
     }
   }
+  &--black{
+    background-color: var(--gray-dark);
+    border-color: var(--gray-dark);
+    color: var(--white);
+    &:not([disabled]):hover {
+      color: var(--theme);
+      background-color: var(--gray-dark);
+    }
+  }
   &--ghost {
     background-color: transparent;
     color: var(--black);
@@ -157,6 +166,9 @@ a,
         opacity: 1;
         visibility: visible;
       }
+      &.button--black{
+        background-color: var(--gray-dark);
+      }
     }
   }
 }
@@ -166,6 +178,9 @@ a,
     pointer-events: none;
     background: var(--white);
     color: transparent;
+    &--black{
+      background-color: var(--gray-dark);
+    }
   }
 }
 
@@ -424,6 +439,9 @@ a,
 
 .section {
   padding: 50px 0;
+  &--yellow {
+    background-color: var(--theme);
+  }
   &__header {
     color: var(--black);
     margin-bottom: 50px;
@@ -1362,6 +1380,9 @@ body.scrolled {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    .button{
+      padding: 13px 10px;
+    }
     &__item {
       flex: 0 0 33.333%;
       &:last-child {
@@ -1371,6 +1392,12 @@ body.scrolled {
         width: 100%;
       }
     }
+  }
+  .wpcf7-acceptance input + .wpcf7-list-item-label a{
+    color: var(--white);
+  }
+  .wpcf7-acceptance input + .wpcf7-list-item-label:before{
+    background-color: transparent;
   }
 }
 
@@ -1487,6 +1514,9 @@ body.scrolled {
   &__dark {
     color: var(--gray-dark);
   }
+  &__gray {
+    color: var(--gray-lightest);
+  }
 }
 
 .link,
@@ -1520,6 +1550,9 @@ body.scrolled {
 .link {
   &--dark {
     color: var(--black);
+  }
+  &--theme {
+    color: var(--theme);
   }
 }
 
@@ -1667,4 +1700,12 @@ body.scrolled {
       margin-bottom: 0;
     }
   }
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+  align-items: center;
+  justify-content: center;
 }

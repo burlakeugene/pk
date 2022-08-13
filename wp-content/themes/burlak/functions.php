@@ -186,6 +186,18 @@ function settings(){
       'supports' => array('title', 'custom-fields')
     )
   );
+  register_post_type(
+    'articles',
+    array(
+      'label' => 'Новости и акции',
+      'labels' => array(
+        'menu_name' => 'Новости и акции'
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'custom-fields')
+    )
+  );
 }
 
 add_action('init', 'settings');
@@ -613,6 +625,20 @@ function getBrands(){
     $fields = get_fields($item);
     return [
       'link' => get_permalink(wc_get_page_id('shop')).'?filter_brand='.$item->slug,
+      'fields' => $fields,
+      'name' => $item->name
+    ];
+  }, $items);
+}
+
+function getManufacturers(){
+  $items = get_terms('pa_manufacturer', [
+    'hide_empty' => false,
+  ]);
+  return array_map(function($item){
+    $fields = get_fields($item);
+    return [
+      'link' => get_permalink(wc_get_page_id('shop')).'?filter_manufacturer='.$item->slug,
       'fields' => $fields,
       'name' => $item->name
     ];

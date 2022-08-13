@@ -3,7 +3,7 @@
   $id = $page->ID;
   $fields = get_fields($id);
   $title = $fields['title_index'];
-  $description = $fields['description_index'];
+  $text = $fields['text_index'];
 
   $items = array_filter(array_map(function($item){
     if($item['fields']['index']) return $item;
@@ -22,10 +22,10 @@
       ])
     ?>
     <?php
-      if($description):
+      if($text):
       ?>
-      <div class="brands__description">
-        <?= $description ?>
+      <div class="brands__text">
+        <?= $text ?>
       </div>
       <?php
       endif;
@@ -34,8 +34,8 @@
       Все бренды
     </a>
   </div>
-  <?php if($items): ?>
-    <?php
+  <?php
+    if($items):
       my_get_template_part('slider/slider', [
         'classes' => 'brands',
         'fullHeightSlide' => true,
@@ -49,7 +49,7 @@
           'slidesPerView' => 'auto',
           'spaceBetween' => 40,
         ]
-      ])
-    ?>
-  <?php endif; ?>
+        ]);
+    endif;
+  ?>
 </div>

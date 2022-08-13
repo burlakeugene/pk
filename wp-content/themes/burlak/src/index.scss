@@ -1,7 +1,7 @@
 body {
   --white: #ffffff;
   --black: #000000;
-  --gray-lightest: #cccccc;
+  --gray-lightest: #D9D9D9;
   --gray-light: #808080;
   --gray: #4d4d4d;
   --gray-dark: #292929;
@@ -28,6 +28,9 @@ body {
 @import './scss/banners';
 @import './scss/brands';
 @import './scss/promo';
+@import './scss/manufacturers';
+@import './scss/articles';
+@import './scss/contacts';
 @import './scss/footer';
 
 // woo
