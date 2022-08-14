@@ -43,19 +43,5 @@
     ],
   ]);
   get_template_part('contacts/block');
-  my_get_template_part('sections/section', [
-    'modificators' => ['yellow'],
-    'header' => [
-      'title' => [
-        'text' => 'Поможем с подбором!',
-        'apperance' => ['light', 'light'],
-        'mini' => true,
-      ],
-      'modificators' => ['center']
-    ],
-    'content' => [
-      'path' => 'forms/callback-mini',
-    ]
-  ]);
   get_footer();
 ?>

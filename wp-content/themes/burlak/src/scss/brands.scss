@@ -60,6 +60,15 @@
         }
       }
     }
+    &__list{
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      .brand{
+        flex: 0 0 calc(25% - 30px * 3 / 4);
+      }
+    }
   }
   width: 280px;
   height: 320px;

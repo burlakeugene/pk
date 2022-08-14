@@ -17,7 +17,8 @@
     &__inner {
       background: var(--white);
       padding: 30px;
-      width: 600px;
+      width: 100%;
+      max-width: 550px;
     }
     &__block {
       border-bottom: 2px dotted var(--border-color);

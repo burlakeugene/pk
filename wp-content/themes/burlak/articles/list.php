@@ -3,8 +3,9 @@
   global $wp_query;
   $total_pages = $wp_query->max_num_pages;
   $current_page = $wp_query->query['paged'] ? $wp_query->query['paged'] : 1;
+  $classes = 'load-more';
 ?>
-<div class="load-more">
+<div class="load-more content">
   <div class="articles__list load-more__list">
     <?php
       if ($list):
@@ -28,7 +29,7 @@
         <?php
           if($current_page < $total_pages):
           ?>
-          <button class="button button--loader load-more__pagination__button">
+          <button class="button button--black button--loader load-more__pagination__button">
             Загрузить еще
             <?php get_template_part('icons/loading') ?>
           </button>

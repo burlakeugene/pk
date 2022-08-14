@@ -128,3 +128,18 @@
     }
   }
 }
+
+.content{
+  .articles__list{
+    .article{
+      &:first-child{
+        border-top: none;
+        padding-top: 0;
+      }
+      &:last-child{
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
