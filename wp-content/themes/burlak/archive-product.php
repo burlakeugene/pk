@@ -5,7 +5,6 @@ $path = 'product/categories';
 if($_GET){
   $path = 'product/list';
 }
-
 get_header();
   my_get_template_part('blocks/decorator_background', [
     'background' => get_field('decorator_background', $id)['sizes']['large']
@@ -15,7 +14,7 @@ get_header();
     'header' => [
       'breadcrumbs' => true,
       'title' => [
-        'text' => get_post_type_object(get_post_type())->labels->name,
+        'text' => post_type_archive_title('', false),
       ],
     ],
     'content' => [
