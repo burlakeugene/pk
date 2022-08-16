@@ -3,7 +3,7 @@ $page = get_page_by_path('products');
 $id = $page->ID;
 $path = 'product/categories';
 if($_GET){
-  $path = 'product/list';
+  $path = 'product/list-wrapper';
 }
 get_header();
   my_get_template_part('blocks/decorator_background', [

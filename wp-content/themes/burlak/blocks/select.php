@@ -7,8 +7,15 @@ if($items):
 ?>
 <div class="select">
   <div class="select__current">
-      <span><?= $items_active ? $items_active['text'] : '' ?></span>
-      <?php get_template_part('icons/arrow-bottom') ?>
+    <?php if($label): ?>
+      <div class="select__current__label">
+        <?= $label ?>
+      </div>
+    <?php endif; ?>
+    <div class="select__current__value">
+      <?= $items_active ? $items_active['text'] : '' ?>
+    </div>
+    <?php get_template_part('icons/arrow-bottom') ?>
   </div>
   <div class="select__list">
     <?php foreach ($items as $key => $item):

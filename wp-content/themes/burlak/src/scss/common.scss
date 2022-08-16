@@ -69,7 +69,10 @@ body {
   background-color: var(--background);
   color: var(--black);
   user-select: none;
-  &.page {
+  &.page,
+  &.single,
+  &.tax-product_cat,
+  &.post-type-archive {
     background-color: var(--background-gray);
   }
 }
@@ -126,7 +129,7 @@ a,
       background-color: var(--black);
     }
   }
-  &--black{
+  &--black {
     background-color: var(--gray-dark);
     border-color: var(--gray-dark);
     color: var(--white);
@@ -166,7 +169,7 @@ a,
         opacity: 1;
         visibility: visible;
       }
-      &.button--black{
+      &.button--black {
         background-color: var(--gray-dark);
       }
     }
@@ -178,7 +181,7 @@ a,
     pointer-events: none;
     background: var(--white);
     color: transparent;
-    &--black{
+    &--black {
       background-color: var(--gray-dark);
     }
   }
@@ -697,27 +700,34 @@ a,
   position: relative;
   font-size: 16px;
   min-width: 240px;
+  display: inline-block;
+  z-index: 3;
   &__current {
     padding: 0;
     color: var(--black);
     line-height: 1em;
-    border-radius: 5px;
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     background-color: var(--background);
+    gap: 10px;
+    font-weight: 600;
+    padding: 15px 30px;
+    &__label {
+      color: var(--gray-light);
+    }
+    &__value {
+      color: var(--theme);
+    }
     .icon {
-      margin-left: 15px;
-      width: 10px;
+      width: 15px;
       height: auto;
       font-size: 0;
       display: flex;
       align-items: center;
       transition: all 0.3s;
-      svg {
-        stroke: var(--gray-medium);
-      }
+      color: var(--theme);
     }
   }
   &__list {
@@ -727,22 +737,17 @@ a,
     top: calc(100% + 20px);
     opacity: 0;
     visibility: hidden;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
     transition: all 0.3s;
     background-color: var(--background);
+    padding-bottom: 20px;
     &__item {
       display: block;
-      padding: 10px 15px;
-      color: var(--button-gray);
-      border-bottom: 1px solid var(--border-color);
+      padding: 10px 30px;
+      color: var(--gray-light);
       transition: all 0.3s;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      &:last-child {
-        border-bottom: none;
-      }
       &:hover {
         color: var(--theme);
       }
@@ -751,18 +756,32 @@ a,
   &--active {
     .select {
       &__list {
-        top: calc(100% + 10px);
+        top: 100%;
         opacity: 1;
         visibility: visible;
       }
       &__current {
         .icon {
           transform: rotate(-180deg);
-          svg {
-            stroke: var(--red);
-          }
         }
       }
+    }
+  }
+}
+
+.links {
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--gray-light);
+  a {
+    color: var(--gray-light);
+    transition: all 0.3s;
+    &.active,
+    &:hover {
+      color: var(--theme);
     }
   }
 }
@@ -1365,7 +1384,7 @@ body.scrolled {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    .button{
+    .button {
       padding: 13px 10px;
     }
     &__item {
@@ -1378,10 +1397,10 @@ body.scrolled {
       }
     }
   }
-  .wpcf7-acceptance input + .wpcf7-list-item-label a{
+  .wpcf7-acceptance input + .wpcf7-list-item-label a {
     color: var(--white);
   }
-  .wpcf7-acceptance input + .wpcf7-list-item-label:before{
+  .wpcf7-acceptance input + .wpcf7-list-item-label:before {
     background-color: transparent;
   }
 }
@@ -1601,7 +1620,7 @@ body.scrolled {
   }
   & + .decorator_background_next {
     margin-top: -240px;
-    &_top{
+    &_top {
       margin-top: -600px;
     }
   }
