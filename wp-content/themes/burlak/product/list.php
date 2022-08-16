@@ -37,7 +37,7 @@
 			if($current_page < $total_pages):
 			?>
 			<div class="load-more__pagination">
-				<button class="button button--loader load-more__pagination__button">
+				<button class="button button--black button--loader load-more__pagination__button">
 					Загрузить еще
 					<?php get_template_part('icons/loading') ?>
 				</button>

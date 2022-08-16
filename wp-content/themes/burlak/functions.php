@@ -58,12 +58,21 @@ function getMonth($month)
 }
 
 function my_query($query){
-  if (!is_admin() && (is_post_type_archive('product') || is_tax(get_object_taxonomies('product')))) {
+  if (!is_admin() && (($query->query['post_type'] == 'product') || $query->query['product_cat'])) {
       $query->set('posts_per_page',
       $query->query['numberposts'] ?
         $query->query['numberposts'] : $_GET['posts_per_page'] ?
           $_GET['posts_per_page'] : 12
       );
+      foreach($_GET as $key => $get){
+        if(!str_starts_with($key, 'pa_')) continue;
+        $query->query_vars['tax_query'][] = [
+          'taxonomy'        => $key,
+          'field'           => 'slug',
+          'terms'           =>  explode(',', $get),
+          'operator'        => 'IN',
+        ];
+      }
       return;
   }
   if (!is_admin() && is_post_type_archive('articles')) {
@@ -624,7 +633,7 @@ function getBrands(){
   return array_map(function($item){
     $fields = get_fields($item);
     return [
-      'link' => get_permalink(wc_get_page_id('shop')).'?filter_brand='.$item->slug,
+      'link' => get_permalink(wc_get_page_id('shop')).'?pa_brand='.$item->slug,
       'fields' => $fields,
       'name' => $item->name
     ];
@@ -638,7 +647,7 @@ function getManufacturers(){
   return array_map(function($item){
     $fields = get_fields($item);
     return [
-      'link' => get_permalink(wc_get_page_id('shop')).'?filter_manufacturer='.$item->slug,
+      'link' => get_permalink(wc_get_page_id('shop')).'?pa_manufacturer='.$item->slug,
       'fields' => $fields,
       'name' => $item->name
     ];

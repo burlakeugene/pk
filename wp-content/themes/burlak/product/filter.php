@@ -3,12 +3,6 @@ global $wp_query;
 $attr_query = [
   'status'    => 'publish',
   'limit'     => -1,
-//   'tax_query'      => array( array(
-//     'taxonomy'        => 'pa_model',
-//     'field'           => 'slug',
-//     'terms'           =>  array('passat'),
-//     'operator'        => 'IN',
-// ) )
 ];
 
 $category = $wp_query->query['product_cat'];
