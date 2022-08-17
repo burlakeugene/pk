@@ -3984,6 +3984,7 @@ body.scrolled .fixed-button--top .icon {
 }
 .products--archive .product {
   flex: 0 0 calc(33.33333% - 20px + 6.6666666667px);
+  width: calc(33.33333% - 20px + 6.6666666667px);
 }
 .products--inventory .list {
   gap: 20px;
@@ -4225,6 +4226,7 @@ body.scrolled .fixed-button--top .icon {
   gap: 10px;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .product--regular .product__prices {
   font-size: 18px;

@@ -157,6 +157,7 @@
     }
     .product {
       flex: 0 0 calc(33.33333% - 20px + 20px / 3);
+      width: calc(33.33333% - 20px + 20px / 3);
     }
   }
   &--inventory {
@@ -425,6 +426,7 @@
         gap: 10px;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
       }
       &__prices {
         font-size: 18px;

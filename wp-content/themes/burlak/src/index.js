@@ -538,7 +538,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                   button.disabled = true;
                   cart
                     .add(button.dataset)
-                    .then(() => {
+                    .then((resp) => {
+                      if(resp.error) return;
                       button.classList.add('cart__add--active');
                     })
                     .finally(() => {

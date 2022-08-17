@@ -8323,7 +8323,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
               type: 'click',
               body: function body(e) {
                 button.disabled = true;
-                cart.add(button.dataset).then(function () {
+                cart.add(button.dataset).then(function (resp) {
+                  if (resp.error) return;
                   button.classList.add('cart__add--active');
                 })["finally"](function () {
                   button.disabled = false;
