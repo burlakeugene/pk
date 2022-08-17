@@ -108,19 +108,18 @@
   }
 
   &__add {
-    flex: 1;
     .icon {
-      width: 20px;
-      height: 20px;
-      display: inline-block;
+      width: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     position: relative;
     border: none;
-    background-color: var(--black);
+    background-color: var(--theme);
     color: var(--white);
     font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 500;
     cursor: pointer;
     padding: 0;
     &__default,
@@ -128,17 +127,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      letter-spacing: 2px;
+      gap: 5px;
+      padding: 5px 10px;
       transition: all 0.3s;
-      .icon {
-        margin-right: 10px;
-      }
     }
     &__active {
       position: absolute;
       opacity: 0;
       visibility: hidden;
+      background-color: var(--gray-dark);
       color: var(--theme);
     }
     &__loading {

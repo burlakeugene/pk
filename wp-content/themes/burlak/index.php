@@ -12,7 +12,7 @@
       'link' => [
         'text' => 'Все категории',
         'ajax' => true,
-        'href' => get_permalink(wc_get_page_id('shop')),
+        'href' => get_permalink(get_page_by_path('categories')->ID),
       ]
     ],
     'content' => [

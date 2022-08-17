@@ -33,19 +33,23 @@
 		));
 	?>
 	<?php if(!$is_array): ?>
-		<?php
-			if($current_page < $total_pages):
-			?>
-			<div class="load-more__pagination">
-				<button class="button button--black button--loader load-more__pagination__button">
-					Загрузить еще
-					<?php get_template_part('icons/loading') ?>
-				</button>
+		<div class="load-more__pagination">
+			<div class="load-more__pagination__col">
+				<?php
+					if($current_page < $total_pages):
+					?>
+					<button class="button button--black button--loader load-more__pagination__button">
+						Загрузить еще
+						<?php get_template_part('icons/loading') ?>
+					</button>
+					<?php
+					endif;
+				?>
+			</div>
+			<div class="load-more__pagination__col">
 				<?php the_posts_pagination() ?>
 			</div>
-			<?php
-			endif;
-		?>
+		</div>
 	</div>
 	<?php endif; ?>
 </div>

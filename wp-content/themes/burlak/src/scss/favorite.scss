@@ -2,7 +2,8 @@
   &__add{
     transition: all 0.3s;
     &--active{
-      color: var(--theme);
+      background-color: var(--theme);
+      color: var(--white);
     }
   }
   &__list{

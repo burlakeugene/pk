@@ -6,44 +6,55 @@
   $size = $product->get_weight();
 ?>
 
-<div class="product">
-  <?php if($image[0]): ?>
-    <div class="product__image">
+<div class="product product--regular">
+  <div class="product__image <?= !$image[0] ? 'product__image--empty' : '' ?>">
+    <div class="product__buttons">
+      <?php
+        if(isAvailable('favorite')){
+          my_get_template_part('favorite/button', array(
+            'classes' => ['product__button'],
+            'id' => $product->get_id()
+          ));
+        }
+      ?>
+      <?php
+        if(isAvailable('compare')){
+          my_get_template_part('compare/button', array(
+            'classes' => ['product__button'],
+            'id' => $product->get_id()
+          ));
+        }
+      ?>
+    </div>
+    <?php if($image[0]): ?>
       <a data-overlay="link" title="<?= $product->get_title() ?>" class="ajax" href="<?= $product->get_permalink() ?>">
         <div class="lazy">
           <img src="<?= $image_lazy[0] ?>" data-lazy="<?= $image[0] ?>"/>
         </div>
       </a>
-    </div>
-  <?php endif; ?>
-  <div class="product__prices">
-    <div class="product__price product__price--current">
-      <?= wc_price($product->price) ?>
-    </div>
-    <?php if($product->price != $product->regular_price): ?>
-      <div class="product__price product__price--old">
-        <?= wc_price($product->regular_price) ?>
-      </div>
     <?php endif; ?>
   </div>
-  <div class="product__title">
-    <a class="ajax" href="<?= $product->get_permalink() ?>">
-      <?= $product->get_title() ?>
-    </a>
-  </div>
-  <div class="product__buttons">
-    <?php my_get_template_part('cart/button', array(
-      'classes' => ['product__button', 'product__button--cart'],
-      'title' => $product->get_title(),
-      'id' => $product->get_id()
-    )) ?>
-    <?php my_get_template_part('favorite/button', array(
-      'classes' => ['product__button'],
-      'id' => $product->get_id()
-    )) ?>
-    <?php my_get_template_part('compare/button', array(
-      'classes' => ['product__button'],
-      'id' => $product->get_id()
-    )) ?>
+  <div class="product__body">
+    <div class="product__title">
+      <a class="ajax" href="<?= $product->get_permalink() ?>">
+        <?= $product->get_title() ?>
+      </a>
+    </div>
+    <div class="product__footer">
+      <div class="product__prices">
+        <div class="product__price product__price--current">
+          <?= wc_price($product->price) ?>
+        </div>
+        <?php if($product->price != $product->regular_price): ?>
+          <div class="product__price product__price--old">
+            <?= wc_price($product->regular_price) ?>
+          </div>
+        <?php endif; ?>
+      </div>
+      <?php my_get_template_part('cart/button', array(
+        'title' => $product->get_title(),
+        'id' => $product->get_id()
+      )) ?>
+    </div>
   </div>
 </div>

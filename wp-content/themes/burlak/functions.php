@@ -58,26 +58,45 @@ function getMonth($month)
 }
 
 function my_query($query){
+  $is_product_filter = $query->query['is_product_filter'];
+  if($is_product_filter){
+    $query->set('posts_per_page', -1);
+    foreach($_GET as $key => $get){
+      if(!str_starts_with($key, 'pa_')) continue;
+      $query->query_vars['tax_query'][] = [
+        'taxonomy'        => $key,
+        'field'           => 'slug',
+        'terms'           =>  explode(',', $get),
+        'operator'        => 'IN',
+      ];
+    }
+    return;
+  }
+
   if (!is_admin() && (($query->query['post_type'] == 'product') || $query->query['product_cat'])) {
-      $query->set('posts_per_page',
-      $query->query['numberposts'] ?
-        $query->query['numberposts'] : $_GET['posts_per_page'] ?
+    $query->set('posts_per_page',
+      $query->query['posts_per_page'] ?
+        $query->query['posts_per_page'] : $_GET['posts_per_page'] ?
           $_GET['posts_per_page'] : 12
-      );
-      foreach($_GET as $key => $get){
-        if(!str_starts_with($key, 'pa_')) continue;
-        $query->query_vars['tax_query'][] = [
-          'taxonomy'        => $key,
-          'field'           => 'slug',
-          'terms'           =>  explode(',', $get),
-          'operator'        => 'IN',
-        ];
-      }
-      return;
+    );
+    foreach($_GET as $key => $get){
+      if(!str_starts_with($key, 'pa_')) continue;
+      $query->query_vars['tax_query'][] = [
+        'taxonomy'        => $key,
+        'field'           => 'slug',
+        'terms'           =>  explode(',', $get),
+        'operator'        => 'IN',
+      ];
+    }
+    return;
   }
   if (!is_admin() && is_post_type_archive('articles')) {
-      $query->set('posts_per_page', 8);
-      return;
+    $query->set('posts_per_page',
+      $query->query['posts_per_page'] ?
+        $query->query['posts_per_page'] : $_GET['posts_per_page'] ?
+          $_GET['posts_per_page'] : 8
+    );
+    return;
   }
 }
 add_action('pre_get_posts', 'my_query', 1);

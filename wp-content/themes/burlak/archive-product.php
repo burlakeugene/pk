@@ -2,9 +2,7 @@
 $page = get_page_by_path('products');
 $id = $page->ID;
 $path = 'product/categories';
-if($_GET){
-  $path = 'product/list-wrapper';
-}
+$path = 'product/list-wrapper';
 get_header();
   my_get_template_part('blocks/decorator_background', [
     'background' => get_field('decorator_background', $id)['sizes']['large']
