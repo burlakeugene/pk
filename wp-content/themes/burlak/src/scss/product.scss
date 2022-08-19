@@ -407,7 +407,6 @@
     .product {
       &__title {
         padding: 10px;
-        text-align: center;
         border-top: 5px solid var(--theme);
         a {
           font-size: 16px;
@@ -432,7 +431,7 @@
         font-size: 18px;
         .product__price {
           &--old {
-            display: none;
+            font-size: 14px;
           }
         }
       }

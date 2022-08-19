@@ -16,7 +16,7 @@
     </span>
   </span>
   <button class="favorite__clear">
-    Очистить Все
+    Очистить все
     <?php get_template_part('icons/clear') ?>
   </button>
 </div>

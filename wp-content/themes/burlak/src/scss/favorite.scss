@@ -6,45 +6,40 @@
       color: var(--white);
     }
   }
-  &__list{
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: 40px 0;
-  }
   &__top{
-    display: flex;
+    display: inline-flex;
     font-size: 16px;
-    color: var(--gray);
+    color: var(--gray-light);
     align-items: center;
+    padding: 30px;
+    background-color: var(--background);
+    margin-bottom: 20px;
+    gap: 10px;
+    font-weight: 500;
     .favorite{
-      &__count{
-        margin-left: 15px;
-      }
       &__clear{
         margin-left: 20px;
       }
     }
   }
   &__count{
-    color: var(--gray-dark);
-    font-weight: 600;
-    font-size: 16px;
+    color: var(--theme);
+    
   }
   &__clear{
-    display: flex;
-    color: var(--black);
+    color: var(--gray-light);
     font-size: 16px;
     line-height: 1em;
     display: flex;
     align-items: center;
     background-color: var(--background);
     border: 1px solid var(--border-color);
-    padding: 10px 20px;
+    padding: 10px 15px;
     cursor: pointer;
+    gap: 10px;
     .icon{
-      margin-left: 10px;
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       transition: all 0.3s;
     }
     &:hover{
