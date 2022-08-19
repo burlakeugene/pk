@@ -825,6 +825,7 @@ body:not(.is-using-mouse) .fancybox__container :focus {
 /*!***************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \***************************************************************************************************************************************************/
+@charset "UTF-8";
 body {
   --white: #ffffff;
   --black: #000000;
@@ -3744,6 +3745,83 @@ body.scrolled .fixed-button--top .icon {
   flex-shrink: 0;
   color: var(--theme);
   margin-top: 5px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.about__block {
+  display: flex;
+  background-color: var(--white);
+}
+.about__block__image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  flex-shrink: 0;
+  height: auto;
+}
+.about__block__title {
+  font-weight: 700;
+  font-size: 24px;
+}
+.about__block__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.about__block--first {
+  padding: 30px;
+  gap: 30px;
+  align-items: center;
+}
+.about__block--first .content {
+  padding: 0;
+}
+.about__block--first .about__block__image img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+}
+.about__block--second .about__block__image {
+  width: 50%;
+}
+.about__block--second .about__block__text {
+  font-weight: 700;
+  font-size: 20px;
+}
+.about__block--second .content {
+  position: relative;
+  padding: 70px;
+}
+.about__block--second .content:before, .about__block--second .content:after {
+  content: "“";
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 80px;
+  line-height: 1em;
+  color: var(--gray-lightest);
+}
+.about__block--second .content:after {
+  content: "”";
+  top: auto;
+  left: auto;
+  bottom: -20px;
+  right: 20px;
+}
+.about__block--third {
+  flex-direction: row-reverse;
+}
+.about__block--third .about__block__image {
+  width: 33%;
+}
+.about__block--third .content {
+  padding: 30px;
 }
 
 .footer {
