@@ -1855,6 +1855,9 @@ a:focus,
 .section__header--center {
   justify-content: center;
 }
+.section__header--right {
+  justify-content: flex-end;
+}
 .section__header--dark .link,
 .section__header--dark .breadcrumbs a {
   color: var(--black);
@@ -4063,10 +4066,10 @@ body.scrolled .fixed-button--top .icon {
   flex: 0 0 calc(33.33333% - 20px + 6.6666666667px);
   width: calc(33.33333% - 20px + 6.6666666667px);
 }
-.products--inventory .list {
-  gap: 20px;
+.products--related .list {
+  gap: 15px;
 }
-.products--inventory .product {
+.products--related .product {
   flex: 0 0 calc(25% - 20px + 5px);
 }
 
@@ -4133,40 +4136,14 @@ body.scrolled .fixed-button--top .icon {
 .product__price--old .woocommerce-Price-currencySymbol {
   display: none;
 }
-.product--cart, .product--search, .product--page {
+.product--cart, .product--search {
   border-top: none;
 }
-.product--cart .product__image, .product--search .product__image, .product--page .product__image {
+.product--cart .product__image, .product--search .product__image {
   margin-bottom: 0;
 }
-.product--cart .product__title, .product--search .product__title, .product--page .product__title {
+.product--cart .product__title, .product--search .product__title {
   margin: 0;
-}
-.product--inventory {
-  border-top: none;
-  padding-top: 0;
-}
-.product--inventory .product__image {
-  margin-bottom: 20px;
-  background-color: var(--background-second);
-}
-.product--inventory .product__image a {
-  display: block;
-}
-.product--inventory .product__image a img {
-  max-width: 100%;
-  width: auto;
-}
-.product--inventory .product__title {
-  margin: 0;
-}
-.product--inventory .product__title a {
-  font-family: druk;
-  color: var(--gray-dark);
-  color: 18px;
-}
-.product--inventory .product__title a:hover {
-  color: var(--theme);
 }
 .product--cart {
   display: flex;
@@ -4309,34 +4286,6 @@ body.scrolled .fixed-button--top .icon {
 }
 .product--regular .product__prices .product__price--old {
   font-size: 14px;
-}
-.product--page {
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  padding-bottom: 80px;
-}
-.product--page .product__gallery {
-  flex: 1;
-}
-.product--page .product__info {
-  flex: 0 0 630px;
-  margin-left: 75px;
-}
-.product--page .product__title h1 {
-  font-family: druk;
-  font-size: 36px;
-  text-transform: uppercase;
-}
-.product--page .product__price {
-  font-size: 36px;
-}
-.product--page .product__prices {
-  margin-bottom: 30px;
-}
-.product--page .product__price--old {
-  font-size: 18px;
-  font-weight: 400;
 }
 .product__gallery {
   display: flex;

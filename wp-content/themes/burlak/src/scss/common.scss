@@ -455,6 +455,9 @@ a,
     &--center {
       justify-content: center;
     }
+    &--right {
+      justify-content: flex-end;
+    }
     &--dark {
       .link,
       .breadcrumbs a {

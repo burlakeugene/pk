@@ -6,6 +6,9 @@ if($data):
   $tag = $data['tag'] ? $data['tag'] : 'h2';
 
   $classes = 'section__header '.implode(' ', data['classes']);
+  if($align){
+    $classes .= ' section__header--'.$align;
+  }
   if($data['modificators']){
     foreach($data['modificators'] as $modificator){
       $classes.= ' section__header--'.$modificator;
