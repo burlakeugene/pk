@@ -50,6 +50,9 @@ function phone_replace($string)
 add_image_size('lazy', 50, 50, false);
 add_image_size('lazy-square', 50, 50, true);
 add_image_size('lazy-square', 1450, 650, true);
+add_image_size('product', 300, 300, true);
+add_image_size('product-mini', 140, 140, true);
+add_image_size('product-big', 820, 820, true);
 
 function getMonth($month)
 {

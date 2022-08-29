@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                   cart
                     .add(button.dataset)
                     .then((resp) => {
-                      if(resp.error) return;
+                      if (resp.error) return;
                       button.classList.add('cart__add--active');
                     })
                     .finally(() => {
@@ -767,6 +767,86 @@ document.addEventListener('DOMContentLoaded', (event) => {
             },
           },
         });
+      });
+
+    let productGallery = document.querySelectorAll('.product__gallery');
+    productGallery.length &&
+      productGallery.forEach((gallery) => {
+        let thumbs = gallery.querySelectorAll('.product__gallery__thumb'),
+          items = gallery.querySelectorAll('.product__gallery__item'),
+          buttonPrev = gallery.querySelector('.swiper-button-prev'),
+          buttonNext = gallery.querySelector('.swiper-button-next');
+
+        const goTo = (index) => {
+          thumbs.forEach((thumb) => {
+            if (thumb.dataset.index === index) {
+              thumb.dataset.active = '1';
+            } else {
+              delete thumb.dataset.active;
+            }
+          });
+          items.length &&
+            items.forEach((item) => {
+              if (item.dataset.index === index) {
+                item.dataset.active = '1';
+              } else {
+                let video = item.querySelector('video');
+                if (video) video.pause();
+                delete item.dataset.active;
+              }
+            });
+        };
+
+        const getCurrentIndex = () => {
+          return +[...items].find((item) => {
+            return item.dataset.hasOwnProperty('active');
+          }).dataset.index;
+        };
+
+        buttonPrev &&
+          eventDecorator({
+            target: buttonPrev,
+            event: {
+              type: 'click',
+              body: (e) => {
+                const currentIndex = getCurrentIndex();
+                const nextIndex =
+                  currentIndex == 0 ? items.length - 1 : currentIndex - 1;
+                goTo('' + nextIndex);
+              },
+            },
+          });
+
+        buttonNext &&
+          eventDecorator({
+            target: buttonNext,
+            event: {
+              type: 'click',
+              body: (e) => {
+                const currentIndex = getCurrentIndex();
+                const nextIndex =
+                  currentIndex == items.length - 1 ? 0 : currentIndex + 1;
+                goTo('' + nextIndex);
+              },
+            },
+          });
+
+        thumbs.length &&
+          thumbs.forEach((thumb) => {
+            eventDecorator({
+              target: thumb,
+              event: {
+                type: 'click',
+                body: (e) => {
+                  e.preventDefault();
+                  let { index } = thumb.dataset,
+                    active = thumb.dataset.hasOwnProperty('active');
+                  if (active) return;
+                  goTo(index);
+                },
+              },
+            });
+          });
       });
   };
 

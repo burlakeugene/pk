@@ -7830,6 +7830,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _fancyapps_ui__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @fancyapps/ui */ "./node_modules/@fancyapps/ui/dist/fancybox.esm.js");
 /* harmony import */ var _fancyapps_ui_dist_fancybox_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @fancyapps/ui/dist/fancybox.css */ "./node_modules/@fancyapps/ui/dist/fancybox.css");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -8529,6 +8541,76 @@ document.addEventListener('DOMContentLoaded', function (event) {
             });
           }
         }
+      });
+    });
+    var productGallery = document.querySelectorAll('.product__gallery');
+    productGallery.length && productGallery.forEach(function (gallery) {
+      var thumbs = gallery.querySelectorAll('.product__gallery__thumb'),
+          items = gallery.querySelectorAll('.product__gallery__item'),
+          buttonPrev = gallery.querySelector('.swiper-button-prev'),
+          buttonNext = gallery.querySelector('.swiper-button-next');
+
+      var goTo = function goTo(index) {
+        thumbs.forEach(function (thumb) {
+          if (thumb.dataset.index === index) {
+            thumb.dataset.active = '1';
+          } else {
+            delete thumb.dataset.active;
+          }
+        });
+        items.length && items.forEach(function (item) {
+          if (item.dataset.index === index) {
+            item.dataset.active = '1';
+          } else {
+            var video = item.querySelector('video');
+            if (video) video.pause();
+            delete item.dataset.active;
+          }
+        });
+      };
+
+      var getCurrentIndex = function getCurrentIndex() {
+        return +_toConsumableArray(items).find(function (item) {
+          return item.dataset.hasOwnProperty('active');
+        }).dataset.index;
+      };
+
+      buttonPrev && (0,_js_helpers__WEBPACK_IMPORTED_MODULE_9__.eventDecorator)({
+        target: buttonPrev,
+        event: {
+          type: 'click',
+          body: function body(e) {
+            var currentIndex = getCurrentIndex();
+            var nextIndex = currentIndex == 0 ? items.length - 1 : currentIndex - 1;
+            goTo('' + nextIndex);
+          }
+        }
+      });
+      buttonNext && (0,_js_helpers__WEBPACK_IMPORTED_MODULE_9__.eventDecorator)({
+        target: buttonNext,
+        event: {
+          type: 'click',
+          body: function body(e) {
+            var currentIndex = getCurrentIndex();
+            var nextIndex = currentIndex == items.length - 1 ? 0 : currentIndex + 1;
+            goTo('' + nextIndex);
+          }
+        }
+      });
+      thumbs.length && thumbs.forEach(function (thumb) {
+        (0,_js_helpers__WEBPACK_IMPORTED_MODULE_9__.eventDecorator)({
+          target: thumb,
+          event: {
+            type: 'click',
+            body: function body(e) {
+              e.preventDefault();
+              var index = thumb.dataset.index,
+                  active = thumb.dataset.hasOwnProperty('active');
+              if (active) return;
+              goTo(index);
+            }
+          }
+        });
       });
     });
   };

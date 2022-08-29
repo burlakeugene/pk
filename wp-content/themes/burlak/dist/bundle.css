@@ -4289,14 +4289,15 @@ body.scrolled .fixed-button--top .icon {
 }
 .product__gallery {
   display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .product__gallery__thumbs {
-  flex: 0 0 140px;
-  margin-right: 40px;
   font-size: 0;
+  display: flex;
+  gap: 30px;
 }
 .product__gallery__thumb {
-  margin-bottom: 40px;
   position: relative;
   cursor: pointer;
 }
@@ -4307,7 +4308,7 @@ body.scrolled .fixed-button--top .icon {
 .product__gallery__thumb:last-child {
   margin-bottom: 0;
 }
-.product__gallery__thumb:before, .product__gallery__thumb:after {
+.product__gallery__thumb:before {
   content: "";
   display: block;
   position: absolute;
@@ -4315,14 +4316,9 @@ body.scrolled .fixed-button--top .icon {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--gray-extra-light);
+  background-color: var(--black);
   opacity: 0.5;
   transition: all 0.3s;
-}
-.product__gallery__thumb:before {
-  background-color: var(--black);
-  opacity: 0.8;
-  display: none;
 }
 .product__gallery__thumb .video__control {
   width: 88px;
@@ -4333,17 +4329,27 @@ body.scrolled .fixed-button--top .icon {
   width: 70%;
   height: 70%;
 }
-.product__gallery__thumb[data-type=video]:before {
-  display: block;
-}
 .product__gallery__thumb[data-active] {
   cursor: default;
 }
-.product__gallery__thumb[data-active]:after {
+.product__gallery__thumb[data-active]:before {
   opacity: 0;
 }
 .product__gallery__items {
   flex: 1;
+  position: relative;
+}
+.product__gallery__items .swiper-button-prev,
+.product__gallery__items .swiper-button-next {
+  z-index: 3;
+  right: auto;
+  left: 0;
+}
+.product__gallery__items .swiper-button-prev {
+  top: calc(50% - 20px);
+}
+.product__gallery__items .swiper-button-next {
+  top: calc(50% + 20px);
 }
 .product__gallery__item {
   display: none;
@@ -4415,6 +4421,36 @@ body.scrolled .fixed-button--top .icon {
 .product__attributes--even .product__attribute:nth-last-child(2) {
   border-bottom: none;
   padding-bottom: 0;
+}
+.product--page .product__main {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  position: relative;
+}
+.product--page .product__gallery {
+  width: 480px;
+  flex-shrink: 0;
+}
+.product--page .product__info {
+  flex: 1;
+}
+.product--page .product__title h1 {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 700;
+}
+.product--page .product__button {
+  width: 40px;
+  height: 40px;
+}
+.product--page .product__buttons {
+  top: 50px;
+  left: 50px;
+}
+.product--page .product__button .icon {
+  width: 22px;
+  height: 22px;
 }
 
 .filter {
