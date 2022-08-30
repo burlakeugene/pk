@@ -1,5 +1,8 @@
 <?php
   get_header();
-  get_template_part('blocks/breadcrumbs');
-  get_template_part('checkout/order');
+  my_get_template_part('sections/section', [
+    'content' => [
+      'path' => 'checkout/order'
+    ]
+  ]);
   get_footer();

@@ -848,6 +848,49 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
           });
       });
+
+    let checkouts = document.querySelectorAll('.checkout-form');
+    checkouts.length &&
+      checkouts.forEach((checkout) => {
+        eventDecorator({
+          target: checkout,
+          event: {
+            type: 'submit',
+            body: (e) => {
+              e.preventDefault();
+              let fields = new FormData(e.target),
+                data = Object.fromEntries(fields.entries()),
+                action = e.target.action,
+                method = e.target.method,
+                submits = checkout.querySelectorAll('button[type="submit"]');
+              Notification.loadingOn();
+              submits.length &&
+                submits.forEach((submit) => {
+                  submit.disabled = true;
+                });
+              Request[method]({
+                url: action,
+                data,
+                headers: {
+                  'Content-Type': '',
+                },
+              })
+                .then((resp) => {
+                  if (resp.notification)
+                    Notification.addMessage(resp.notification);
+                  if (resp.redirect) window.router.goTo(resp.redirect);
+                })
+                .finally(() => {
+                  Notification.loadingOff();
+                  submits.length &&
+                    submits.forEach((submit) => {
+                      submit.disabled = false;
+                    });
+                });
+            },
+          },
+        });
+      });
   };
 
   window.router = new Router({

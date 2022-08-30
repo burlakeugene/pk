@@ -6,9 +6,6 @@
     'header' => [
       'breadcrumbs' => true,
       'align' => 'right',
-      'title' => [
-        'text' => post_type_archive_title('', false),
-      ],
     ],
     'content' => [
       'path' => 'product/page'
@@ -16,6 +13,7 @@
   ]);
   if (get_field('related')) {
     my_get_template_part('sections/section', array(
+      'modificators' => ['no-padding-top'],
       'header' => array(
         'title' => [
           'text' => 'Также рекомендуем',

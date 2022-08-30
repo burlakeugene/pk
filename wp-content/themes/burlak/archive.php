@@ -8,6 +8,7 @@ my_get_template_part('sections/section', [
     'breadcrumbs' => true,
     'title' => [
       'text' => post_type_archive_title('', false),
+      'tag' => 'h1'
     ],
   ],
   'content' => [

@@ -9,7 +9,8 @@ my_get_template_part('sections/section', [
   'header' => [
     'breadcrumbs' => true,
     'title' => [
-      'text' => get_queried_object()->name
+      'text' => get_queried_object()->name,
+      'tag' => 'h1'
     ]
   ],
   'content' => [

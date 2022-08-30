@@ -50,7 +50,7 @@ function phone_replace($string)
 add_image_size('lazy', 50, 50, false);
 add_image_size('lazy-square', 50, 50, true);
 add_image_size('lazy-square', 1450, 650, true);
-add_image_size('product', 300, 300, true);
+add_image_size('product', 300, 240, true);
 add_image_size('product-mini', 140, 140, true);
 add_image_size('product-big', 820, 820, true);
 
@@ -616,19 +616,43 @@ function getCategories(){
 function getProductAttributes($product){
   $result = [];
   $attributes = $product->get_attributes();
+
   $sku = $product->get_sku();
   if($sku){
     $result['sku'] = array(
-      'label' => 'SKU',
+      'label' => 'Артикул',
       'value' => $sku
     );
   }
+
+  $weight = $product->get_weight();
+  if($weight){
+    $result['weight'] = array(
+      'label' => 'Вес',
+      'value' => $weight.' кг'
+    );
+  }
+
+  $length = $product->get_length();
+  $width = $product->get_width();
+  $height = $product->get_height();
+
+  if($length && $width && $height) {
+    $result['gabarite'] = array(
+      'label' => 'Габариты упаковки',
+      'value' => $length.'x'.$width.'x'.$height.' см ('.$length * $width * $height / pow(100, 3).' м3)'
+    );
+  }
+
   foreach($attributes as $attribute){
     $result[$attribute->get_name()] = array(
       'label' => wc_attribute_label($attribute->get_name()),
       'value' => $product->get_attribute($attribute->get_name())
     );
   }
+  $result['pa_model']['mini'] = true;
+  $result['pa_manufacturer']['mini'] = true;
+
   return $result;
 }
 

@@ -1,18 +1,17 @@
 
-<div class="container container--mini">
-  <div class="page page--checkout">
-    <?php my_get_template_part('blocks/breadcrumbs', array(
-      'noContainer' => true
-    )); ?>
-    <?php
-      my_get_template_part('blocks/top', array(
-        'noContainer' => true,
-        'borderBottom' => true,
-        'title' => array(
-          'text' => get_the_title(),
-        ),
-      ));
-    ?>
-    <?php get_template_part('checkout/content') ?>
-  </div>
-</div>
+<?php
+  my_get_template_part('blocks/decorator_background');
+  my_get_template_part('sections/section', [
+    'classes' => ['decorator_background_next_top'],
+    'header' => [
+      'breadcrumbs' => true,
+      'title' => [
+        'text' => get_the_title(),
+        'tag' => 'h1'
+      ],
+    ],
+    'content' => [
+      'path' => 'checkout/content'
+    ]
+  ])
+?>

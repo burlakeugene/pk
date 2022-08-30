@@ -1,0 +1,64 @@
+2022-08-30T17:46:21+00:00 CRITICAL require(): Failed opening required '' (include_path='.:/Applications/MAMP/bin/php/php7.3.8/lib/php') в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php на строке 239
+
+2022-08-30T17:46:40+00:00 CRITICAL require(): Failed opening required '' (include_path='.:/Applications/MAMP/bin/php/php7.3.8/lib/php') в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php на строке 239
+
+2022-08-30T18:42:35+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product::get_stock() in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/page.php:111
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(239): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/sections/section.php(18): my_get_template_part('product/page', NULL)
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(239): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/single-product.php(5): my_get_template_part('sections/sectio...', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/template-loader.php(106): include('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-blog-header.php(19): require_once('/Users/eugenebu...')
+#6 /Users/eugeneburlak/work/php/pk/index.php(17): require('/Users/eugenebu...')
+#7 {main}
+  thrown в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/page.php на строке 111
+
+2022-08-30T18:43:25+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product::stock_status() in /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/page.php:111
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(239): require()
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/sections/section.php(18): my_get_template_part('product/page', NULL)
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(239): require('/Users/eugenebu...')
+#3 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/single-product.php(5): my_get_template_part('sections/sectio...', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/template-loader.php(106): include('/Users/eugenebu...')
+#5 /Users/eugeneburlak/work/php/pk/wp-blog-header.php(19): require_once('/Users/eugenebu...')
+#6 /Users/eugeneburlak/work/php/pk/index.php(17): require('/Users/eugenebu...')
+#7 {main}
+  thrown в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/page.php на строке 111
+
+2022-08-30T20:16:37+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный адрес эл. почты для выставления счета in /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:856
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/class-wc-order.php(1142): WC_Data->error('order_invalid_b...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...')
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(575): WC_Order->set_billing_email('dsadas@dsadas')
+#2 /Users/eugeneburlak/work/php/pk/wp-includes/class-wp-hook.php(307): my_checkout('')
+#3 /Users/eugeneburlak/work/php/pk/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/class-wc-ajax.php(90): do_action('wc_ajax_my_chec...')
+#6 /Users/eugeneburlak/work/php/pk/wp-include в /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 856
+
+2022-08-30T20:23:32+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный адрес эл. почты для выставления счета in /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:856
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/class-wc-order.php(1142): WC_Data->error('order_invalid_b...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...')
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(575): WC_Order->set_billing_email('dsadas@dsadas')
+#2 /Users/eugeneburlak/work/php/pk/wp-includes/class-wp-hook.php(307): my_checkout('')
+#3 /Users/eugeneburlak/work/php/pk/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/class-wc-ajax.php(90): do_action('wc_ajax_my_chec...')
+#6 /Users/eugeneburlak/work/php/pk/wp-include в /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 856
+
+2022-08-30T20:23:35+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный адрес эл. почты для выставления счета in /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:856
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/class-wc-order.php(1142): WC_Data->error('order_invalid_b...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...')
+#1 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php(575): WC_Order->set_billing_email('dsadas@dsadas')
+#2 /Users/eugeneburlak/work/php/pk/wp-includes/class-wp-hook.php(307): my_checkout('')
+#3 /Users/eugeneburlak/work/php/pk/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/class-wc-ajax.php(90): do_action('wc_ajax_my_chec...')
+#6 /Users/eugeneburlak/work/php/pk/wp-include в /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 856
+
+2022-08-30T20:28:10+00:00 CRITICAL syntax error, unexpected '=', expecting ']' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/page-order.php на строке 7
+
+2022-08-30T20:28:26+00:00 CRITICAL syntax error, unexpected '=', expecting ']' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/page-order.php на строке 7
+
+2022-08-30T20:29:03+00:00 CRITICAL syntax error, unexpected '=', expecting ']' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/page-order.php на строке 7
+

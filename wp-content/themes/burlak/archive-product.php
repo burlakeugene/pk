@@ -1,7 +1,6 @@
 <?php
 $page = get_page_by_path('products');
 $id = $page->ID;
-$path = 'product/categories';
 $path = 'product/list-wrapper';
 get_header();
   my_get_template_part('blocks/decorator_background', [
@@ -13,6 +12,7 @@ get_header();
       'breadcrumbs' => true,
       'title' => [
         'text' => post_type_archive_title('', false),
+        'tag' => 'h1'
       ],
     ],
     'content' => [

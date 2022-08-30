@@ -18,6 +18,15 @@
     }
   }
   $galleryActiveIndex = 0;
+  $attributes = getProductAttributes($product);
+  $attributes_mini = array_filter($attributes, function($item){
+    return $item['mini'];
+  });
+  $attributes = array_filter($attributes, function($item){
+    return !$item['mini'];
+  });
+
+  $is_stock = $product->stock_status === 'instock' ? true : false;
 ?>
 
 <div class="product product--page">
@@ -85,9 +94,47 @@
     </div>
     <?php endif; ?>
     <div class="product__info">
-      <div class="product__title">
-      <h1><?php the_title() ?></h1>
+      <div class="product__info__top">
+        <div class="product__title">
+          <h1><?php the_title() ?></h1>
+        </div>
+        <?php
+          my_get_template_part('product/attributes', [
+            'list' => $attributes_mini,
+            'mini' => true
+          ]);
+        ?>
+        <div class="product__content content">
+          <?php the_content(); ?>
+        </div>
+      </div>
+      <div class="product__info__bottom">
+        <div class="product__stock <?= !$is_stock ? 'product__stock--false' : '' ?>">
+          Наличие: <span><?= $is_stock ? 'есть в наличии' : 'нет в наличии' ?></span>
+        </div>
+        <div class="product__price-add">
+          <div class="product__prices">
+            <div class="product__price product__price--current">
+              <?= wc_price($product->price) ?>
+            </div>
+            <?php if($product->price != $product->regular_price): ?>
+              <div class="product__price product__price--old">
+                <?= wc_price($product->regular_price) ?>
+              </div>
+            <?php endif; ?>
+          </div>
+          <?php my_get_template_part('cart/button', array(
+            'title' => $product->get_title(),
+            'id' => $product->get_id()
+          )) ?>
+        </div>
       </div>
     </div>
   </div>
+  <?php
+     my_get_template_part('product/attributes', [
+      'list' => $attributes,
+      'title' => 'О товаре'
+     ]);
+  ?>
 </div>

@@ -9,7 +9,8 @@ my_get_template_part('sections/section', [
   'header' => [
     'breadcrumbs' => true,
     'title' => [
-      'text' => get_the_title()
+      'text' => get_the_title(),
+      'tag' => 'h1'
     ]
   ],
   'content' => [

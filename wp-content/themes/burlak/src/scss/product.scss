@@ -142,22 +142,22 @@
       flex-direction: column;
     }
   }
-  &--search {
+  &--search,
+  &--archive{
     .list {
-      gap: 15px;
+      gap: 20px;
       flex-wrap: wrap;
     }
     .product {
-      flex: 0 0 calc(33.3333% - 15px + 15px / 3);
+      flex: 0 0 calc(33.3333% - 20px + 20px / 3);
     }
   }
-  &--archive {
+  &--favorite {
     .list {
       gap: 20px;
     }
     .product {
-      flex: 0 0 calc(33.33333% - 20px + 20px / 3);
-      width: calc(33.33333% - 20px + 20px / 3);
+      flex: 0 0 calc(25% - 15px);
     }
   }
   &--related {
@@ -176,6 +176,10 @@
 
 .product {
   background-color: var(--white);
+  &__content {
+    padding: 0;
+    margin: 20px 0;
+  }
   &__buttons {
     display: flex;
     position: absolute;
@@ -415,10 +419,12 @@
     &__thumbs {
       font-size: 0;
       display: flex;
+      flex-wrap: wrap;
       gap: 30px;
     }
     &__thumb {
       position: relative;
+      flex: 0 0 calc(33.3333% - 20px);
       cursor: pointer;
       img {
         width: 100%;
@@ -459,15 +465,15 @@
       flex: 1;
       position: relative;
       .swiper-button-prev,
-      .swiper-button-next{
+      .swiper-button-next {
         z-index: 3;
         right: auto;
         left: 0;
       }
-      .swiper-button-prev{
+      .swiper-button-prev {
         top: calc(50% - 20px);
       }
-      .swiper-button-next{
+      .swiper-button-next {
         top: calc(50% + 20px);
       }
     }
@@ -514,42 +520,18 @@
       }
     }
   }
-  &__attribute {
-    &s {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0 100px;
-    }
-    flex: 0 0 50%;
-    max-width: 630px;
+  &__stock {
     display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    color: var(--gray-dark);
-    padding: 30px 0;
-    border-bottom: 1px solid var(--border-color);
-    &__label,
-    &__value {
-      flex: 0 0 50%;
+    gap: 5px;
+    color: var(--gray-light);
+    font-size: 16px;
+    font-weight: 700;
+    span {
+      color: var(--theme);
     }
-    &__label {
-      font-weight: 600;
-    }
-    &__value {
-      max-width: 210px;
-    }
-    &:nth-last-child(1) {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-    &s {
-      &--even {
-        .product__attribute {
-          &:nth-last-child(2) {
-            border-bottom: none;
-            padding-bottom: 0;
-          }
-        }
+    &--false {
+      span {
+        color: var(--red);
       }
     }
   }
@@ -562,11 +544,20 @@
         position: relative;
       }
       &__gallery {
-        width: 480px;
+        width: 340px;
         flex-shrink: 0;
       }
       &__info {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &__bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 15px;
+        }
       }
       &__title {
         h1 {
@@ -586,6 +577,17 @@
           width: 22px;
           height: 22px;
         }
+      }
+      &__price-add {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+    .cart__add {
+      &__default,
+      &__active {
+        padding: 10px 15px;
       }
     }
   }
@@ -676,6 +678,52 @@
         .icon {
           color: var(--theme);
         }
+      }
+    }
+  }
+}
+
+.attribute {
+  &s {
+    border-top: 2px solid var(--theme);
+    &__title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1em;
+      padding: 10px 15px;
+    }
+  }
+  display: flex;
+  gap: 10px;
+  line-height: 1em;
+  padding: 8px 15px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-light);
+  &:nth-child(odd) {
+    background-color: var(--gray-extralight);
+  }
+  &__label {
+    width: 340px;
+    flex-shrink: 0;
+  }
+  &s--mini {
+    border-top: none;
+    margin: 20px 0;
+    .attribute {
+      &s {
+        &__list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 25px;
+        }
+      }
+      padding: 0;
+      background-color: transparent;
+      font-weight: 400;
+      &__label {
+        width: auto;
+        font-weight: 700;
       }
     }
   }

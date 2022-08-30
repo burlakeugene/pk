@@ -1,22 +1,31 @@
 <?php
-  if(!$id) $id = get_the_id();
-  $product = new WC_Product($id);
-  $attributes = getProductAttributes($product);
-?>
-
-<div class="product__attributes <?= count($attributes) % 2 == 0 ? 'product__attributes--even' : 'product__attributes--odd' ?>">
-  <?php
-    foreach($attributes as $key => $attribute):
-    ?>
-    <div class="product__attribute">
-      <div class="product__attribute__label">
-        <?= $attribute['label'] ?>
-      </div>
-      <div class="product__attribute__value">
-        <?= $attribute['value']  ?>
-      </div>
-    </div>
-    <?php
-    endforeach;
+  if($list):
+    $classes = 'attributes';
+    if($mini) $classes .=' attributes--mini';
   ?>
-</div>
+  <div class="<?= $classes ?>">
+    <?php if($title): ?>
+      <div class="attributes__title">
+        <?= $title ?>
+      </div>
+    <?php endif; ?>
+    <div class="attributes__list">
+      <?php
+        foreach($list as $key => $item):
+        ?>
+        <div class="attribute">
+          <div class="attribute__label">
+            <?= $item['label'] ?>:
+          </div>
+          <div class="attribute__value">
+            <?= $item['value']  ?>
+          </div>
+        </div>
+        <?php
+        endforeach;
+      ?>
+    </div>
+  </div>
+  <?php
+  endif;
+?>

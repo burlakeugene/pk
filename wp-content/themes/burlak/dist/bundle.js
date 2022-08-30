@@ -8613,6 +8613,42 @@ document.addEventListener('DOMContentLoaded', function (event) {
         });
       });
     });
+    var checkouts = document.querySelectorAll('.checkout-form');
+    checkouts.length && checkouts.forEach(function (checkout) {
+      (0,_js_helpers__WEBPACK_IMPORTED_MODULE_9__.eventDecorator)({
+        target: checkout,
+        event: {
+          type: 'submit',
+          body: function body(e) {
+            e.preventDefault();
+            var fields = new FormData(e.target),
+                data = Object.fromEntries(fields.entries()),
+                action = e.target.action,
+                method = e.target.method,
+                submits = checkout.querySelectorAll('button[type="submit"]');
+            Notification.loadingOn();
+            submits.length && submits.forEach(function (submit) {
+              submit.disabled = true;
+            });
+            _js_request__WEBPACK_IMPORTED_MODULE_8__["default"][method]({
+              url: action,
+              data: data,
+              headers: {
+                'Content-Type': ''
+              }
+            }).then(function (resp) {
+              if (resp.notification) Notification.addMessage(resp.notification);
+              if (resp.redirect) window.router.goTo(resp.redirect);
+            })["finally"](function () {
+              Notification.loadingOff();
+              submits.length && submits.forEach(function (submit) {
+                submit.disabled = false;
+              });
+            });
+          }
+        }
+      });
+    });
   };
 
   window.router = new _js_router_js__WEBPACK_IMPORTED_MODULE_0__["default"]({

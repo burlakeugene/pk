@@ -445,6 +445,12 @@ a,
   &--yellow {
     background-color: var(--theme);
   }
+  &--no-padding-top{
+    padding-top: 0;
+  }
+  &--no-padding-bottom{
+    padding-bottom: 0;
+  }
   &__header {
     color: var(--black);
     margin-bottom: 50px;
