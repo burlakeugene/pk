@@ -63,6 +63,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 15px;
     h2 {
       font-weight: 700;
@@ -175,6 +176,9 @@
         }
       }
     }
+  }
+  .empty {
+    margin: 0;
   }
 }
 

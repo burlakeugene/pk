@@ -39,12 +39,17 @@ $items = array_filter(array_map(function($item){
               'path' => 'manufacturers/item'
             ],
             'config' => [
-              'slidesPerView' => 3,
+              'slidesPerView' => 2,
               'grid' => [
                 'rows' => 2,
                 'fill' => 'row'
               ],
               'spaceBetween' => 20,
+              'breakpoints' => [
+                600 => [
+                  'slidesPerView' => 3,
+                ]
+              ]
             ]
             ]);
         endif;

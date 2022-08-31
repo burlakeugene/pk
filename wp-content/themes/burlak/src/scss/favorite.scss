@@ -1,12 +1,12 @@
-.favorite{
-  &__add{
+.favorite {
+  &__add {
     transition: all 0.3s;
-    &--active{
+    &--active {
       background-color: var(--theme);
       color: var(--white);
     }
   }
-  &__top{
+  &__top {
     display: inline-flex;
     font-size: 16px;
     color: var(--gray-light);
@@ -16,16 +16,17 @@
     margin-bottom: 20px;
     gap: 10px;
     font-weight: 500;
-    .favorite{
-      &__clear{
+    flex-wrap: wrap;
+    .favorite {
+      &__clear {
         margin-left: 20px;
       }
     }
   }
-  &__count{
+  &__count {
     color: var(--theme);
   }
-  &__clear{
+  &__clear {
     color: var(--gray-light);
     font-size: 16px;
     line-height: 1em;
@@ -36,15 +37,31 @@
     padding: 10px 15px;
     cursor: pointer;
     gap: 10px;
-    .icon{
+    .icon {
       width: 24px;
       height: 24px;
       transition: all 0.3s;
     }
-    &:hover{
-      .icon{
+    &:hover {
+      .icon {
         color: var(--theme);
       }
     }
   }
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 768px) {
+  .favorite__top {
+    padding: 15px;
+  }
+  .favorite__top .favorite__clear {
+    margin-left: 0px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 500px) {
 }

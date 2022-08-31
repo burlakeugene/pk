@@ -1,8 +1,8 @@
 body {
   --white: #ffffff;
   --black: #000000;
-  --gray-extralight: #F2F2F2;
-  --gray-lightest: #D9D9D9;
+  --gray-extralight: #f2f2f2;
+  --gray-lightest: #d9d9d9;
   --gray-light: #808080;
   --gray: #4d4d4d;
   --gray-dark: #292929;
@@ -41,3 +41,5 @@ body {
 @import './scss/compare';
 @import './scss/favorite';
 @import './scss/search';
+
+@import './scss/adaptive';

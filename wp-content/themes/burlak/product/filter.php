@@ -115,6 +115,14 @@ usort($filters, function ($a, $b){
 
 ?>
 
+<button
+  class="button filter__toggle"
+  data-active-text="Свернуть фильтр"
+  data-inactive-text="Развернуть фильтр"
+>
+  Развернуть фильтр
+</button>
+
 <div class="filter">
   <?php if($current):
     $link = get_permalink(wc_get_page_id('shop'));

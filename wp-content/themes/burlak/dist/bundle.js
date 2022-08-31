@@ -8649,6 +8649,32 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
       });
     });
+    var filterToggles = document.querySelectorAll('.filter__toggle');
+    filterToggles.length && filterToggles.forEach(function (button) {
+      (0,_js_helpers__WEBPACK_IMPORTED_MODULE_9__.eventDecorator)({
+        target: button,
+        event: {
+          type: 'click',
+          body: function body(e) {
+            e.preventDefault();
+            var isActive = button.dataset.active;
+            var _button$dataset = button.dataset,
+                activeText = _button$dataset.activeText,
+                inactiveText = _button$dataset.inactiveText;
+            button.innerHTML = isActive ? inactiveText : activeText;
+            var target = button.nextSibling.nextSibling;
+
+            if (isActive) {
+              delete button.dataset.active;
+              target.style.display = 'none';
+            } else {
+              button.dataset.active = '1';
+              target.style.display = 'flex';
+            }
+          }
+        }
+      });
+    });
   };
 
   window.router = new _js_router_js__WEBPACK_IMPORTED_MODULE_0__["default"]({

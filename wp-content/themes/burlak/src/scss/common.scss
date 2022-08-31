@@ -445,10 +445,10 @@ a,
   &--yellow {
     background-color: var(--theme);
   }
-  &--no-padding-top{
+  &--no-padding-top {
     padding-top: 0;
   }
-  &--no-padding-bottom{
+  &--no-padding-bottom {
     padding-bottom: 0;
   }
   &__header {
@@ -618,6 +618,7 @@ a,
     align-items: center;
     margin-top: 25px;
     border-top: 1px solid var(--border-color);
+    gap: 25px;
     &:empty {
       margin: 0;
     }
@@ -635,6 +636,7 @@ a,
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
   &,
   & a {
@@ -784,6 +786,7 @@ a,
   padding: 15px 30px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
   font-weight: 600;
   color: var(--gray-light);
@@ -1395,11 +1398,15 @@ body.scrolled {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
+    padding: 0 15px;
     .button {
       padding: 13px 10px;
     }
     &__item {
-      flex: 0 0 33.333%;
+      flex: 0 0 calc(33.3333% - 14px);
+      margin: 0;
+      padding: 0;
       &:last-child {
         flex: 0 0 100%;
       }
@@ -1599,6 +1606,27 @@ body.scrolled {
   body.scrolled .fixed-button--top {
     height: 60px;
     margin-top: 10px;
+  }
+  .modal {
+    padding: 20px;
+  }
+  .modal__title {
+    font-size: 24px;
+  }
+
+  .section .form__item {
+    flex: 0 0 100%;
+  }
+  .load-more__pagination {
+    flex-direction: column;
+  }
+  .section__header {
+    margin-bottom: 30px;
+    flex-direction: column-reverse;
+  }
+  .section {
+    padding: 30px 0;
+    
   }
 }
 

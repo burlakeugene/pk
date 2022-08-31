@@ -12,6 +12,6 @@
   }
   my_get_template_part('product/list', array(
     'items' => $items,
-    'classes' => ['favorite__list', 'products--archive', 'products--favorite'],
+    'classes' => ['favorite__list', 'products--favorite'],
     'empty' => 'В избранном пусто'
   ));

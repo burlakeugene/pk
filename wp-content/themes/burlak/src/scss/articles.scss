@@ -1,4 +1,7 @@
 .articles {
+  .content{
+    padding: 0;
+  }
   &--index {
     display: flex;
     gap: 40px;
@@ -46,6 +49,8 @@
   }
   &__footer {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: space-between;
     font-size: 16px;
     color: var(--gray-dark);

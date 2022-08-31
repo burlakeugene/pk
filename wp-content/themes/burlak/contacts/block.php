@@ -17,6 +17,11 @@
       data-center="<?= $map['coords']['lat'] ?>,<?= $map['coords']['lng'] + 0.11 ?>"
       data-point='<?= json_encode($map) ?>'
       ></div>
+    <div class="map contacts__map--mobile"
+      id="contacts-map-mobile"
+      data-center="<?= $map['coords']['lat'] ?>,<?= $map['coords']['lng'] ?>"
+      data-point='<?= json_encode($map) ?>'
+    ></div>
     <div class="contacts__content">
       <div class="contacts__content__inner">
         <?php

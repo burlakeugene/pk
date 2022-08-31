@@ -31,12 +31,17 @@
           'parallax' => true,
           // 'loop' => true,
           'slidesPerView' => 'auto',
-          'spaceBetween' => 60,
+          'spaceBetween' => 20,
           'pagination' => [
             'dynamicBullets' => true
           ],
           'autoplay' => [
             'delay' => 5000
+          ],
+          'breakpoints' => [
+            992 => [
+              'spaceBetween' => 60,
+            ]
           ]
         ]
       ]);

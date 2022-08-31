@@ -114,3 +114,18 @@
     }
   }
 }
+
+@media(max-width: 991px){
+  .checkout{
+    flex-direction: column-reverse;
+    gap: 20px;
+    .cart{
+      padding-top: 0;
+    }
+    &__side{
+      &:last-child{
+        flex: 1;
+      }
+    }
+  }
+}

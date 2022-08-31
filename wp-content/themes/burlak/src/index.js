@@ -891,6 +891,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
           },
         });
       });
+
+    const filterToggles = document.querySelectorAll('.filter__toggle');
+    filterToggles.length &&
+      filterToggles.forEach((button) => {
+        eventDecorator({
+          target: button,
+          event: {
+            type: 'click',
+            body: (e) => {
+              e.preventDefault();
+              const isActive = button.dataset.active;
+              const { activeText, inactiveText } = button.dataset;
+              button.innerHTML = isActive ? inactiveText : activeText;
+              const target = button.nextSibling.nextSibling;
+              if (isActive) {
+                delete button.dataset.active;
+                target.style.display = 'none';
+              } else {
+                button.dataset.active = '1';
+                target.style.display = 'flex';
+              }
+            },
+          },
+        });
+      });
   };
 
   window.router = new Router({
