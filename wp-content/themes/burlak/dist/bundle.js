@@ -425,6 +425,7 @@ var Map = /*#__PURE__*/function () {
         zoom: 12
       });
       this.map.margin.setDefaultMargin(40);
+      this.map.behaviors.disable('scrollZoom');
       this.clusterer = new ymaps.Clusterer({
         gridSize: 80,
         clusterIcons: [{
@@ -7880,6 +7881,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var isMobile = new burlak__WEBPACK_IMPORTED_MODULE_1__.Detection().isMobile;
   var View = burlak__WEBPACK_IMPORTED_MODULE_1__.InView;
   var Notification = new (notic__WEBPACK_IMPORTED_MODULE_4___default())();
+  var dialogStatus = window.innerWidth > 768;
+  document.addEventListener('wpcf7mailsent', function (event) {
+    _fancyapps_ui__WEBPACK_IMPORTED_MODULE_11__.Fancybox.close();
+    Notification.addMessage({
+      message: event.detail.apiResponse.message,
+      type: 'success',
+      delay: 5000
+    });
+  });
 
   window.callModal = function (name) {
     _fancyapps_ui__WEBPACK_IMPORTED_MODULE_11__.Fancybox.show([{
@@ -7950,7 +7960,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }, 0);
       }
     });
-    var dialogStatus = window.innerWidth > 768;
     var dialogs = document.querySelectorAll('.dialog');
     dialogs.length && dialogs.forEach(function (dialog) {
       if (dialogStatus) {
@@ -8417,6 +8426,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
           var value = instance.getCount(),
               valueDom = count.querySelector('.' + instance.key + '__count__value'),
               labelDom = count.querySelector('.' + instance.key + '__count__label');
+          count.dataset.count = value;
           if (valueDom) valueDom.innerHTML = value;
           if (labelDom) labelDom.innerHTML = (0,_js_helpers__WEBPACK_IMPORTED_MODULE_9__.declension)(value);
         });

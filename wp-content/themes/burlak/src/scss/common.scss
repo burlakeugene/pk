@@ -77,6 +77,10 @@ body {
   }
 }
 
+.allow-select {
+  user-select: text;
+}
+
 button {
   font-family: inherit;
   font-size: 1em;
@@ -1524,7 +1528,9 @@ body.scrolled {
 
 .title {
   font-size: 60px;
-  font-family: supermolot;
+  font-family: montserrat;
+  font-weight: 700;
+  font-style: italic;
   color: var(--theme);
   text-transform: uppercase;
   &--mini {
@@ -1626,7 +1632,6 @@ body.scrolled {
   }
   .section {
     padding: 30px 0;
-    
   }
 }
 
@@ -1645,6 +1650,9 @@ body.scrolled {
     background-position: center center;
     position: relative;
     background-attachment: fixed;
+    @media(max-width: 991px){
+      background-attachment: unset;
+    }
     &:after {
       content: '';
       display: block;

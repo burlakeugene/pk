@@ -17,6 +17,7 @@ class Map {
       zoom: 12,
     });
     this.map.margin.setDefaultMargin(40);
+    this.map.behaviors.disable('scrollZoom');
     this.clusterer = new ymaps.Clusterer({
       gridSize: 80,
       clusterIcons: [

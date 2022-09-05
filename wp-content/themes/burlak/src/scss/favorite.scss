@@ -1,4 +1,23 @@
 .favorite {
+  &__header__counter {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--black);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: var(--theme);
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    &[data-count='0'] {
+      transform: scale(0);
+    }
+  }
   &__add {
     transition: all 0.3s;
     &--active {

@@ -32,7 +32,7 @@
 					</div>
 					<div class="footer__block footer__block--right">
 						<h3>Контакты</h3>
-						<ul class="footer__contacts">
+						<ul class="footer__contacts allow-select">
 							<li><?php get_template_part('icons/pin') ?><?= get_option('address') ?></li>
 							<li>
 								<?php get_template_part('icons/phone') ?>
@@ -87,7 +87,7 @@
 			<img src="<?= $preloader ?>" alt="preloader">
 		</div>
 	</div>
-	<?= get_option('common_scripts'); ?>																																																						<script src="https://burlakeugene.github.io/assets/scripts/pkstyle.js"></script>
+	<?= get_option('common_scripts'); ?>
 	<?php wp_footer(); ?>
 	</body>
 </html>

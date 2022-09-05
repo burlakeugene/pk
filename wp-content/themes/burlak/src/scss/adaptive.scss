@@ -166,6 +166,9 @@
   .about__block__title{
     font-size: 18px;
   }
+  .manufacturers__list .manufacturer{
+    flex: 0 0 calc(50% - 15px);
+  }
 }
 
 @media (max-width: 500px) {
@@ -186,5 +189,9 @@
         font-size: 18px;
       }
     }
+  }
+
+  .manufacturers__list .manufacturer{
+    flex: 0 0 100%;
   }
 }

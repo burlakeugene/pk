@@ -22,7 +22,7 @@
       data-center="<?= $map['coords']['lat'] ?>,<?= $map['coords']['lng'] ?>"
       data-point='<?= json_encode($map) ?>'
     ></div>
-    <div class="contacts__content">
+    <div class="contacts__content allow-select">
       <div class="contacts__content__inner">
         <?php
           my_get_template_part('blocks/title', [

@@ -110,7 +110,7 @@
       </div>
       <div class="product__info__bottom">
         <div class="product__stock <?= !$is_stock ? 'product__stock--false' : '' ?>">
-          Наличие: <span><?= $is_stock ? 'есть в наличии' : 'нет в наличии' ?></span>
+          <!-- Наличие: <span><?= $is_stock ? 'есть в наличии' : 'нет в наличии' ?></span> -->
         </div>
         <div class="product__price-add">
           <div class="product__prices">

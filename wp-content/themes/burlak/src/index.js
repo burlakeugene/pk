@@ -30,6 +30,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const isMobile = new Burlak.Detection().isMobile;
   const View = Burlak.InView;
   const Notification = new Notic();
+  let dialogStatus = window.innerWidth > 768;
+
+  document.addEventListener('wpcf7mailsent', function (event) {
+    Fancybox.close();
+    Notification.addMessage({
+      message: event.detail.apiResponse.message,
+      type: 'success',
+      delay: 5000,
+    });
+  });
 
   window.callModal = function (name) {
     Fancybox.show(
@@ -111,7 +121,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       },
     });
 
-    let dialogStatus = window.innerWidth > 768;
     let dialogs = document.querySelectorAll('.dialog');
     dialogs.length &&
       dialogs.forEach((dialog) => {
@@ -629,6 +638,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
               labelDom = count.querySelector(
                 '.' + instance.key + '__count__label'
               );
+            count.dataset.count = value;
             if (valueDom) valueDom.innerHTML = value;
             if (labelDom) labelDom.innerHTML = declension(value);
           });

@@ -12,6 +12,9 @@
     background-size: cover;
     position: absolute;
     background-attachment: fixed;
+    @media(max-width: 991px){
+      background-attachment: unset;
+    }
     top: 0;
     left: 0;
     width: 100%;

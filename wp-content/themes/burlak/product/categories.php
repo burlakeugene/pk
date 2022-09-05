@@ -15,11 +15,11 @@ $categories = getCategories();
 					<a
 						class="products__category ajax"
 						href="<?= $url ?>">
-						<div
-							class="products__category__background"
-							style="background-image: url(<?= $background['sizes']['medium'] ?>)">
-						</div>
 						<div class="products__category__inner">
+							<div
+								class="products__category__background"
+								style="background-image: url(<?= $background['sizes']['medium'] ?>)">
+							</div>
 							<div class="products__category__inner__top">
 								<div class="products__category__name">
 									<?= $category->name ?>
