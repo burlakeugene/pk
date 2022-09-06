@@ -71,16 +71,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
     );
   };
 
-  let modalBool = localStorage.getItem('modalBool') || false;
-  document.addEventListener('mouseout', function () {
-    let e = event,
-      t = e.relatedTarget || e.toElement;
-    if ((!t || t.nodeName == 'HTML') && !modalBool) {
-      modalBool = true;
-      localStorage.setItem('modalBool', true);
-      window.callModal('Убрали мышь');
-    }
-  });
+  const MOUSE_OUT_DELAY = 40_000;
+  setTimeout(() => {
+    let modalBool = localStorage.getItem('modalBool') || false;
+    document.addEventListener('mouseout', function (event) {
+      const target = event.relatedTarget || event.toElement;
+      if ((!target || target.nodeName == 'HTML') && !modalBool) {
+        modalBool = true;
+        localStorage.setItem('modalBool', true);
+        window.callModal('Убрали мышь');
+      }
+    });
+  }, MOUSE_OUT_DELAY);
 
   window.Notification = Notification;
 

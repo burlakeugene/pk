@@ -7914,17 +7914,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
     });
   };
 
-  var modalBool = localStorage.getItem('modalBool') || false;
-  document.addEventListener('mouseout', function () {
-    var e = event,
-        t = e.relatedTarget || e.toElement;
+  var MOUSE_OUT_DELAY = 40000;
+  setTimeout(function () {
+    var modalBool = localStorage.getItem('modalBool') || false;
+    document.addEventListener('mouseout', function (event) {
+      var target = event.relatedTarget || event.toElement;
 
-    if ((!t || t.nodeName == 'HTML') && !modalBool) {
-      modalBool = true;
-      localStorage.setItem('modalBool', true);
-      window.callModal('Убрали мышь');
-    }
-  });
+      if ((!target || target.nodeName == 'HTML') && !modalBool) {
+        modalBool = true;
+        localStorage.setItem('modalBool', true);
+        window.callModal('Убрали мышь');
+      }
+    });
+  }, MOUSE_OUT_DELAY);
   window.Notification = Notification;
 
   var routerFunc = function routerFunc() {
