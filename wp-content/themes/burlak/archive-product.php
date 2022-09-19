@@ -1,10 +1,10 @@
 <?php
-$page = get_page_by_path('products');
-$id = $page->ID;
+$target_page = get_page_by_path('products');
 $path = 'product/list-wrapper';
+
 get_header();
   my_get_template_part('blocks/decorator_background', [
-    'background' => get_field('decorator_background', $id)['sizes']['large']
+    'background' => get_field('decorator_background', $target_page->ID)['sizes']['large']
   ]);
   my_get_template_part('sections/section', [
     'classes' => ['decorator_background_next'],
