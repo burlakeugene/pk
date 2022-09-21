@@ -4,7 +4,7 @@
   $title = get_the_title($id);
 ?>
 
-<div class="banner" style="background-image: url(<?= $fields['background']['sizes']['large'] ?>)">
+<div class="banner" style="background-image: url(<?= $fields['background']['sizes']['banner'] ?>)">
   <div data-swiper-parallax="-100">
     <?php
       my_get_template_part('blocks/title', [

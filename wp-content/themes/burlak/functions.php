@@ -53,6 +53,8 @@ add_image_size('lazy-square', 1450, 650, true);
 add_image_size('product', 300, 240, true);
 add_image_size('product-mini', 140, 140, true);
 add_image_size('product-big', 820, 820, true);
+add_image_size('category', 400, 400, true);
+add_image_size('banner', 1400, 600, true);
 
 function getMonth($month)
 {
