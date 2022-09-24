@@ -1,0 +1,62 @@
+2022-08-17T08:22:58+00:00 CRITICAL syntax error, unexpected '}' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 18
+
+2022-08-17T08:23:05+00:00 CRITICAL syntax error, unexpected '}' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 18
+
+2022-08-17T08:23:13+00:00 CRITICAL syntax error, unexpected '}' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 18
+
+2022-08-17T08:23:51+00:00 CRITICAL syntax error, unexpected '}' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 18
+
+2022-08-17T15:06:49+00:00 CRITICAL syntax error, unexpected 'const' (T_CONST) в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php на строке 63
+
+2022-08-17T15:07:13+00:00 CRITICAL syntax error, unexpected 'const' (T_CONST) в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php на строке 63
+
+2022-08-17T15:07:17+00:00 CRITICAL syntax error, unexpected 'const' (T_CONST) в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/functions.php на строке 63
+
+2022-08-17T15:47:03+00:00 CRITICAL Object of class WP_Error could not be converted to string в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 45
+
+2022-08-17T15:47:14+00:00 CRITICAL Object of class WP_Error could not be converted to string в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 45
+
+2022-08-17T15:47:27+00:00 CRITICAL Object of class WP_Error could not be converted to string в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 45
+
+2022-08-17T15:47:47+00:00 CRITICAL Object of class WP_Error could not be converted to string в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 39
+
+2022-08-17T15:49:31+00:00 CRITICAL Object of class WP_Error could not be converted to string в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 45
+
+2022-08-17T15:49:36+00:00 CRITICAL Object of class WP_Error could not be converted to string в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 45
+
+2022-08-17T15:49:58+00:00 CRITICAL Object of class WP_Error could not be converted to string в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 45
+
+2022-08-17T15:50:10+00:00 CRITICAL Object of class WP_Error could not be converted to string в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 45
+
+2022-08-17T15:50:12+00:00 CRITICAL Object of class WP_Error could not be converted to string в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 45
+
+2022-08-17T16:29:11+00:00 CRITICAL Only variables can be passed by reference в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 47
+
+2022-08-17T16:29:28+00:00 CRITICAL Only variables can be passed by reference в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 47
+
+2022-08-17T16:29:30+00:00 CRITICAL Only variables can be passed by reference в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 47
+
+2022-08-17T16:29:40+00:00 CRITICAL Only variables can be passed by reference в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 47
+
+2022-08-17T18:11:16+00:00 CRITICAL syntax error, unexpected '}' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 39
+
+2022-08-17T18:15:30+00:00 CRITICAL syntax error, unexpected '}' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 49
+
+2022-08-17T18:15:41+00:00 CRITICAL syntax error, unexpected '}' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 48
+
+2022-08-17T18:15:49+00:00 CRITICAL syntax error, unexpected '}' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 47
+
+2022-08-17T18:17:01+00:00 CRITICAL syntax error, unexpected '}' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 49
+
+2022-08-17T18:19:23+00:00 CRITICAL syntax error, unexpected ']' в /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/filter.php на строке 48
+
+2022-08-17T19:33:20+00:00 CRITICAL Uncaught Exception: Неверный товар. in /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-data-store-cpt.php:167
+Stack trace:
+#0 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(159): WC_Product_Data_Store_CPT->read(Object(WC_Product))
+#1 /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(138): WC_Data_Store->read(Object(WC_Product))
+#2 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/item.php(3): WC_Product->__construct(143)
+#3 /Users/eugeneburlak/work/php/pk/wp-includes/template.php(772): require('/Users/eugenebu...')
+#4 /Users/eugeneburlak/work/php/pk/wp-includes/template.php(716): load_template('/Users/eugenebu...', false, Array)
+#5 /Users/eugeneburlak/work/php/pk/wp-includes/general-template.php(204): locate_template(Array, true, false, Array)
+#6 /Users/eugeneburlak/work/php/pk/wp-content/themes/burlak/product/list.php(26): ge в /Users/eugeneburlak/work/php/pk/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-data-store-cpt.php на строке 167
+

@@ -1,0 +1,15 @@
+<offer id="26" available="true"  >
+<name>Багажник tiguan</name>
+<description><![CDATA[<p>Комплект 2 штуки. Предназначены для установки экспедиционного<br />
+багажника BMS Yukon на автомобильную крышу с водостоком.</p>]]></description>
+<picture>https://pkstyle211.tmweb.ru/wp-content/uploads/2022/08/r-3.jpeg</picture>
+<url>https://pkstyle211.tmweb.ru/?post_type=product&amp;p=26</url>
+<price>999</price>
+<currencyId>RUR</currencyId>
+<weight>34</weight>
+<dimensions>30/10/15</dimensions>
+<store>false</store>
+<pickup>true</pickup>
+<delivery>false</delivery>
+<categoryId>15</categoryId>
+</offer>

@@ -1,12 +1,12 @@
-2022-09-19T14:39:24+00:00 ERROR Spec is invalid because a rule is invalid in feed
-2022-09-19T14:39:24+00:00 ERROR stdClass Object
+2022-09-19T13:51:56+00:00 ERROR Spec is invalid because a rule is invalid in feed
+2022-09-19T13:51:56+00:00 ERROR stdClass Object
 (
     [type] => wcadmin_active_for
     [operation] => >
     [months] => 11
 )
 
-2022-09-19T14:39:24+00:00 ERROR stdClass Object
+2022-09-19T13:51:56+00:00 ERROR stdClass Object
 (
     [slug] => googlelistings_signals2022_hasGLA
     [type] => marketing
@@ -104,15 +104,15 @@
 
 )
 
-2022-09-19T14:39:24+00:00 ERROR Spec is invalid because a rule is invalid in feed
-2022-09-19T14:39:24+00:00 ERROR stdClass Object
+2022-09-19T13:51:56+00:00 ERROR Spec is invalid because a rule is invalid in feed
+2022-09-19T13:51:56+00:00 ERROR stdClass Object
 (
     [type] => wcadmin_active_for
     [operation] => >
     [months] => 11
 )
 
-2022-09-19T14:39:24+00:00 ERROR stdClass Object
+2022-09-19T13:51:56+00:00 ERROR stdClass Object
 (
     [slug] => googlelistings_signals2022_noGLA
     [type] => marketing

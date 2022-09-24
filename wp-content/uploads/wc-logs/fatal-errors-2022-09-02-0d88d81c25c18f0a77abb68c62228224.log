@@ -1,0 +1,24 @@
+2022-09-02T20:18:54+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:18:55+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:18:56+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:18:57+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:19:11+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:19:13+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:19:17+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:20:01+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:20:03+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:20:04+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:20:05+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+
+2022-09-02T20:20:06+00:00 CRITICAL Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` в /home/p/pkstyle211/pkstyle/public_html/wp-content/themes/burlak/functions.php на строке 81
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//pkstyle211.tmweb.ru/main-sitemap.xsl"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>https://pkstyle211.tmweb.ru/page-sitemap.xml</loc>
+		<lastmod>2022-09-23T15:22:27+02:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://pkstyle211.tmweb.ru/product-sitemap.xml</loc>
+		<lastmod>2022-09-23T16:12:29+02:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://pkstyle211.tmweb.ru/articles-sitemap.xml</loc>
+		<lastmod>2022-08-14T22:37:37+02:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://pkstyle211.tmweb.ru/product_cat-sitemap.xml</loc>
+		<lastmod>2022-09-23T16:12:29+02:00</lastmod>
+	</sitemap>
+</sitemapindex>

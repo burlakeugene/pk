@@ -41,7 +41,7 @@ foreach($products as $product){
       if($is_active){
         $current['category'] = [$term->slug];
       }
-      $category_link = is_tax() ? get_permalink(wc_get_page_id('shop')) : get_term_link($term->term_id);
+      $category_link = $is_active ? get_permalink(wc_get_page_id('shop')) : get_term_link($term->term_id);
       $filters['category']['list'][$term->slug] = [
         'label' => $term->name,
         'value' => $term->slug,
