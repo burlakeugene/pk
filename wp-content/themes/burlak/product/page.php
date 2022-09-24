@@ -12,7 +12,8 @@
         'preview-big' => $item['preview'] ? $item['preview']['sizes']['product-big'] : $item['item']['sizes']['product-big'],
         'src' => $item['item']['url'],
         'type' => $type,
-        'alt' => $item['item']['caption'] ? $item['item']['caption'] : $item['item']['title']
+        'alt' => $item['item']['alt'],
+        'caption' => $item['item']['caption']
       );
       $gallery[$key] = $result;
     }
@@ -55,7 +56,10 @@
         <?php
           get_template_part('slider/buttons');
         ?>
-        <?php foreach($gallery as $index => $item): ?>
+        <?php foreach($gallery as $index => $item):
+          $alt = $item['alt'];
+          $caption = $item['caption'];
+          ?>
           <div
             data-index="<?= $index ?>"
             <?= $galleryActiveIndex == $index ? 'data-active' : '' ?>
@@ -68,8 +72,17 @@
                   ))
                 ?>
               <?php else: ?>
-                <a data-fancybox="product" href="<?= $item['src'] ?>">
-                  <img src="<?= $item['preview-big'] ?>" alt="<?= $item['alt'] ?>">
+                <a
+                  data-fancybox="product"
+                  href="<?= $item['src'] ?>"
+                  data-alt="<?= $alt ?>"
+                  title="<?= $caption ?>"
+                  data-title="<?= $caption ?>"
+                  data-caption="<?= $caption ?>">
+                  <img
+                    src="<?= $item['preview-big'] ?>"
+                    alt="<?= $alt ?>"
+                  />
                 </a>
               <?php endif; ?>
           </div>
