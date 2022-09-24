@@ -12,7 +12,7 @@
     ?>
     <div class="product__image">
       <a data-overlay="link" title="<?= $product->get_title() ?>" class="ajax" href="<?= $product->get_permalink() ?>">
-        <img src="<?= $image[0] ?>"/>
+        <img src="<?= $image[0] ?>" alt="<?= $product->get_title() ?>" />
       </a>
     </div>
     <?php
