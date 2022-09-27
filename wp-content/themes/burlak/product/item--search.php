@@ -11,8 +11,8 @@
       if($image):
     ?>
     <div class="product__image">
-      <a data-overlay="link" title="<?= $product->get_title() ?>" class="ajax" href="<?= $product->get_permalink() ?>">
-        <img src="<?= $image[0] ?>" alt="<?= $product->get_title() ?>" />
+      <a data-overlay="link" title="<?= getProductAlt($product) ?>" class="ajax" href="<?= $product->get_permalink() ?>">
+        <img src="<?= $image[0] ?>" alt="<?= getProductAlt($product) ?>" />
       </a>
     </div>
     <?php

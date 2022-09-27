@@ -723,6 +723,10 @@
     width: 340px;
     flex-shrink: 0;
   }
+  &__value{
+    color: var(--black);
+    font-weight: 400;
+  }
   &s--mini {
     border-top: none;
     margin: 20px 0;

@@ -23,11 +23,10 @@
   $attributes_mini = array_filter($attributes, function($item){
     return $item['mini'];
   });
-  $attributes = array_filter($attributes, function($item){
-    return !$item['mini'];
-  });
+  $attributes = get_field('attributes');
 
   $is_stock = $product->stock_status === 'instock' ? true : false;
+  $alt = getProductAlt($product);
 ?>
 
 <div class="product product--page">
@@ -56,10 +55,7 @@
         <?php
           get_template_part('slider/buttons');
         ?>
-        <?php foreach($gallery as $index => $item):
-          $alt = $item['alt'];
-          $caption = $item['caption'];
-          ?>
+        <?php foreach($gallery as $index => $item): ?>
           <div
             data-index="<?= $index ?>"
             <?= $galleryActiveIndex == $index ? 'data-active' : '' ?>
@@ -76,9 +72,9 @@
                   data-fancybox="product"
                   href="<?= $item['src'] ?>"
                   data-alt="<?= $alt ?>"
-                  title="<?= $caption ?>"
-                  data-title="<?= $caption ?>"
-                  data-caption="<?= $caption ?>">
+                  title="<?= $alt ?>"
+                  data-title="<?= $alt ?>"
+                >
                   <img
                     src="<?= $item['preview-big'] ?>"
                     alt="<?= $alt ?>"
@@ -100,7 +96,7 @@
                 <?php get_template_part('icons/play') ?>
               </button>
             <?php endif; ?>
-            <img src="<?= $item['preview'] ?>" alt="<?= $item['alt'] ?>">
+            <img src="<?= $item['preview'] ?>" alt="<?= $alt ?>">
           </div>
         <?php endforeach; ?>
       </div>

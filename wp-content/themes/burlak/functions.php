@@ -701,3 +701,20 @@ function getManufacturers(){
     ];
   }, $items);
 }
+
+function getProductAlt($product){
+  $result = $product->get_title();
+  $category = get_the_terms($product->id, 'product_cat')[0];
+  if($category){
+    $result .= ' - '.$category->name;
+  }
+  $brand = wc_get_product_terms($product->id, 'pa_brand')[0]->name;
+  if($brand){
+    $result .= ' - '.$brand;
+  }
+  $model = wc_get_product_terms($product->id, 'pa_model')[0]->name;
+  if($model){
+    $result .= ' - '.$model;
+  }
+  return $result;
+}

@@ -13,8 +13,8 @@
 <div class="product product--cart">
   <?php if($image): ?>
     <div class="product__image">
-      <a data-overlay="link" href="<?= $link ?>" class="ajax" title="<?= $name ?>">
-        <img src="<?= $image[0] ?>" alt="<?= $name ?>">
+      <a data-overlay="link" href="<?= $link ?>" class="ajax" title="<?= getProductAlt($product_data) ?>">
+        <img src="<?= $image[0] ?>" alt="<?= getProductAlt($product_data) ?>">
       </a>
     </div>
   <?php endif; ?>

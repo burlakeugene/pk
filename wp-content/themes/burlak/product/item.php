@@ -27,9 +27,9 @@
       ?>
     </div>
     <?php if($image[0]): ?>
-      <a data-overlay="link" title="<?= $product->get_title() ?>" class="ajax" href="<?= $product->get_permalink() ?>">
+      <a data-overlay="link" title="<?= getProductAlt($product) ?>" class="ajax" href="<?= $product->get_permalink() ?>">
         <div class="lazy">
-          <img alt="<?= $product->get_title() ?>" src="<?= $image_lazy[0] ?>" data-lazy="<?= $image[0] ?>"/>
+          <img alt="<?= getProductAlt($product) ?>" src="<?= $image_lazy[0] ?>" data-lazy="<?= $image[0] ?>"/>
         </div>
       </a>
     <?php endif; ?>
