@@ -8,7 +8,7 @@
     $path = $slug.'/page';
   }
   my_get_template_part('blocks/decorator_background', [
-    'background' => get_field('decorator_background')['sizes']['large']
+    'background' => get_field('decorator_background')['sizes']['background']
   ]);
   my_get_template_part('sections/section', [
     'classes' => ['decorator_background_next'],

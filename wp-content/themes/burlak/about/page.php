@@ -10,12 +10,12 @@
     <div class="about__block about__block--<?= $block['type'] ?>">
       <div class="about__block__image"
       <?php if($block['type'] !== 'first'): ?>
-        style="background-image: url(<?= $block['image']['sizes']['large'] ?>)"
+        style="background-image: url(<?= $block['image']['sizes']['background'] ?>)"
       <?php endif; ?>
       >
         <?php if($block['type'] === 'first'):
           ?>
-          <img src="<?= $block['image']['sizes']['large'] ?>" alt="<?= $block['image']['alt'] ?>">
+          <img src="<?= $block['image']['sizes']['background'] ?>" alt="<?= $block['image']['alt'] ?>">
         <?php endif; ?>
       </div>
       <div class="about__block__content">

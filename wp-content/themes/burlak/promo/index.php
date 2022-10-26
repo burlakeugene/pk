@@ -1,7 +1,7 @@
 <?php
   $id = 71;
   $fields = get_fields($id);
-  $background = $fields['background']['sizes']['large'];
+  $background = $fields['background']['sizes']['background'];
   $image = $fields['image']['url'];
   $title = $fields['title'];
   $list = $fields['list'];
