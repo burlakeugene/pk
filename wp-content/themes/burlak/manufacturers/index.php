@@ -12,7 +12,7 @@ $items = array_filter(array_map(function($item){
 
 ?>
 
-<section class="manufacturers manufacturers--index" style="background-image: url(<?= $fields['background']['sizes']['large'] ?>);">
+<section class="manufacturers manufacturers--index" style="background-image: url(<?= $fields['background']['sizes']['background'] ?>);">
   <div class="container">
     <?php my_get_template_part('blocks/title', [
       'text' => $title,
