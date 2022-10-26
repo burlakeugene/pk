@@ -52,7 +52,7 @@
                 <?php
                   foreach($phones as $index => $phone):
                     ?>
-                      <?= $index > 0 ? ', ' : '' ?>
+                      <?= $index > 0 ? '<br /> ' : '' ?>
                       <a href="tel:<?= phone_replace($phone) ?>">
                         <?= $phone ?>
                       </a>

@@ -2095,7 +2095,7 @@ a:focus,
   font-size: 16px;
   min-width: 240px;
   display: inline-block;
-  z-index: 3;
+  z-index: 4;
 }
 .select__current {
   padding: 0;
@@ -4336,9 +4336,11 @@ body.scrolled .fixed-button--top .icon {
   flex-direction: column;
   justify-content: space-between;
 }
+.product--regular .product__image {
+  border-bottom: 5px solid var(--theme);
+}
 .product--regular .product__title {
   padding: 10px;
-  border-top: 5px solid var(--theme);
 }
 .product--regular .product__title a {
   font-size: 16px;
