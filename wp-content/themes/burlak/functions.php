@@ -55,7 +55,7 @@ add_image_size('product-mini', 140, 140, true);
 add_image_size('product-big', 820, 820, true);
 add_image_size('category', 450, 450, true);
 add_image_size('banner', 1400, 600, true);
-add_image_size('background', 1920, 650, false);
+add_image_size('background', 1920, 650, true);
 
 function getMonth($month)
 {
