@@ -653,8 +653,12 @@ function getProductAttributes($product){
       'value' => $product->get_attribute($attribute->get_name())
     );
   }
-  $result['pa_model']['mini'] = true;
-  $result['pa_manufacturer']['mini'] = true;
+  if($result['pa_model']){
+    $result['pa_model']['mini'] = true;
+  }
+  if($result['pa_manufacturer']){
+    $result['pa_manufacturer']['mini'] = true;
+  }
 
   return $result;
 }
@@ -676,9 +680,7 @@ function isAvailable($type){
 }
 
 function getBrands(){
-  $items = get_terms('pa_brand', [
-    'hide_empty' => false,
-  ]);
+  $items = get_terms('pa_brand');
   return array_map(function($item){
     $fields = get_fields($item);
     return [
@@ -690,9 +692,7 @@ function getBrands(){
 }
 
 function getManufacturers(){
-  $items = get_terms('pa_manufacturer', [
-    'hide_empty' => false,
-  ]);
+  $items = get_terms('pa_manufacturer');
   return array_map(function($item){
     $fields = get_fields($item);
     return [
