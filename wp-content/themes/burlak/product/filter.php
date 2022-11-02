@@ -106,8 +106,9 @@ if(!$current['pa_brand']){
 
 usort($filters, function ($a, $b){
   $sort = [
-    'pa_brand' => 3,
-    'pa_model' => 2,
+    'pa_brand' => 4,
+    'pa_model' => 3,
+    'pa_yearmodel' => 2,
     'category' => 1,
   ];
   return $sort[$b['key']] > $sort[$a['key']] ? 1 : -1;
