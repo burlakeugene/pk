@@ -389,11 +389,36 @@ function shipping_set(){
 
 add_action('wc_ajax_get_search_result', 'get_search_result');
 function get_search_result(){
-  $items = get_posts(array(
+  $string = esc_attr($_GET['search']);
+
+  $items_title = get_posts(array(
+    'fields' => 'ids',
     'numberposts' => -1,
-    's' => esc_attr($_GET['search']),
-    'post_type' => 'product'
+    'post_type' => 'product',
+    's' => $string
   ));
+
+  $items_sku = get_posts(array(
+    'fields' => 'ids',
+    'numberposts' => -1,
+    'post_type' => 'product',
+    'meta_query' => [
+      [
+        'key' => '_sku',
+        'value' => $string,
+        'compare' => 'LIKE'
+      ]
+    ]
+  ));
+
+  $items_unique = array_unique( array_merge( $items_title, $items_sku ) );
+
+  $items = get_posts(array(
+    'post_type' => 'product',
+    'post__in' => $items_unique,
+    'numberposts' => -1
+  ));
+
   my_get_template_part('product/list', array(
     'items' => $items,
     'product_template' => 'product/item--search',
@@ -486,6 +511,15 @@ function checkout_fields($fields){
       )
     );
     if ($shipping['type'] == 'courier') {
+      $fields['shipping']['city'] = array(
+        'label' => 'Город',
+        'label_hidden' => true,
+        'placeholder' => 'Введите город',
+        'value' => $shipping['city'] ? $shipping['city'] : '',
+        'priority' => 0,
+        'required' => true,
+        'attrs' => array('data-set-shipping="'.($shipping['type'] == 'self' ? 'store' : 'address').'"')
+      );
       $fields['shipping']['address'] = array(
         'label' => 'Адрес доставки',
         'label_hidden' => true,
@@ -567,10 +601,12 @@ function my_checkout(){
     $shipping->set_method_id($_POST['type']);
     $order->add_item($shipping);
 
+    $city = $_POST['city'];
     $address = $_POST['address'];
     if($_POST['type'] === 'self' && $address){
       $address = get_field('address', $address);
     }
+    $order->set_shipping_city($city);
     $order->set_shipping_address_1($address);
     $order->set_billing_first_name($_POST['name']);
     $order->set_billing_phone($_POST['phone']);

@@ -5008,9 +5008,6 @@ body.scrolled .fixed-button--top .icon {
   padding: 0;
   padding-top: 40px;
 }
-.checkout .cart .product__remove {
-  display: none;
-}
 .checkout .cart__header h2 {
   text-transform: uppercase;
 }

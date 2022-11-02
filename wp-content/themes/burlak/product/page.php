@@ -23,6 +23,12 @@
   $attributes_mini = array_filter($attributes, function($item){
     return $item['mini'];
   });
+  if($sku){
+    array_unshift($attributes_mini , [
+      'label' => 'Артикул',
+      'value' => $sku
+    ]);
+  }
   $attributes = get_field('attributes');
 
   $is_stock = $product->stock_status === 'instock' ? true : false;
