@@ -8650,7 +8650,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
               }
             }).then(function (resp) {
               if (resp.notification) Notification.addMessage(resp.notification);
-              if (resp.redirect) window.router.goTo(resp.redirect);
+
+              if (resp.redirect) {
+                window.location.href = resp.redirect;
+              }
             })["finally"](function () {
               Notification.loadingOff();
               submits.length && submits.forEach(function (submit) {

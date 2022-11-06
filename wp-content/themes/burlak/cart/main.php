@@ -7,7 +7,7 @@
   <div class="cart__footer">
     <?php get_template_part('cart/totals') ?>
     <div class="cart__buttons">
-      <a class="button button--black ajax" href="<?= get_permalink(get_page_by_path('checkout')) ?>" class="ajax">Оформить заказ</a>
+      <a class="button button--black" href="<?= get_permalink(get_page_by_path('checkout')) ?>" class="ajax">Оформить заказ</a>
     </div>
   </div>
 </div>

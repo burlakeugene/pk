@@ -890,7 +890,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 .then((resp) => {
                   if (resp.notification)
                     Notification.addMessage(resp.notification);
-                  if (resp.redirect) window.router.goTo(resp.redirect);
+                  if (resp.redirect) {
+                    window.location.href = resp.redirect;
+                  }
                 })
                 .finally(() => {
                   Notification.loadingOff();
