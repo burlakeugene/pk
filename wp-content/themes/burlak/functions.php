@@ -416,7 +416,7 @@ function get_search_result(){
   $items = get_posts(array(
     'post_type' => 'product',
     'post__in' => $items_unique,
-    'numberposts' => -1
+    'posts_per_page' => -1
   ));
 
   my_get_template_part('product/list', array(

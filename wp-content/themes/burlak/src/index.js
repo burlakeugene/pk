@@ -957,6 +957,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
       images.forEach((img, index) => {
         img.outerHTML = img.outerHTML;
       });
+
+      if (ym) {
+        ym(49313680, 'hit', location.href, {
+          title: document.title,
+          referer: window.history?.state?.referer,
+        });
+      }
     },
     afterInit: function () {},
   });

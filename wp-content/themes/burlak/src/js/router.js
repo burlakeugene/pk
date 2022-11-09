@@ -134,7 +134,14 @@
         return;
       }
       replaced.parentNode.replaceChild(replacement, replaced);
-      if (addToHistory) history.pushState(null, null, href);
+      if (addToHistory)
+        history.pushState(
+          {
+            referer: location.href,
+          },
+          null,
+          href
+        );
       self.addLinksEvent(self.options.navItems);
       if (self.afterRendered) {
         const media = replacement.querySelectorAll('img, video');

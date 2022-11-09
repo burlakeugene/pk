@@ -704,7 +704,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
 
       replaced.parentNode.replaceChild(replacement, replaced);
-      if (addToHistory) history.pushState(null, null, href);
+      if (addToHistory) history.pushState({
+        referer: location.href
+      }, null, href);
       self.addLinksEvent(self.options.navItems);
 
       if (self.afterRendered) {
@@ -8719,6 +8721,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
       images.forEach(function (img, index) {
         img.outerHTML = img.outerHTML;
       });
+
+      if (ym) {
+        var _window$history, _window$history$state;
+
+        ym(49313680, 'hit', location.href, {
+          title: document.title,
+          referer: (_window$history = window.history) === null || _window$history === void 0 ? void 0 : (_window$history$state = _window$history.state) === null || _window$history$state === void 0 ? void 0 : _window$history$state.referer
+        });
+      }
     },
     afterInit: function afterInit() {}
   });
