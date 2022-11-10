@@ -96,7 +96,7 @@ function my_query($query){
     }
     return;
   }
-  if (!is_admin() && is_post_type_archive('articles')) {
+  if (!is_admin() && (is_post_type_archive('articles') || is_post_type_archive('services'))) {
     $query->set('posts_per_page',
       $query->query['posts_per_page'] ?
         $query->query['posts_per_page'] : $_GET['posts_per_page'] ?
@@ -226,6 +226,18 @@ function settings(){
       'label' => 'Новости и акции',
       'labels' => array(
         'menu_name' => 'Новости и акции'
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'custom-fields')
+    )
+  );
+  register_post_type(
+    'services',
+    array(
+      'label' => 'Услуги',
+      'labels' => array(
+        'menu_name' => 'Услуги'
       ),
       'public' => true,
       'has_archive' => true,

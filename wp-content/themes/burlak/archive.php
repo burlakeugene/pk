@@ -1,6 +1,6 @@
 <?php
 get_header();
-$post_type = get_post_type();
+$post_type = get_queried_object()->name;
 my_get_template_part('blocks/decorator_background');
 my_get_template_part('sections/section', [
   'classes' => ['decorator_background_next_top'],
