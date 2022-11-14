@@ -663,7 +663,23 @@
         &__count {
           color: var(--theme);
         }
+        &--hidden {
+          display: none;
+        }
       }
+      &--visible {
+        overflow: auto;
+        max-height: 295px;
+        .filter__block__list__item {
+          &--hidden {
+            display: flex;
+          }
+        }
+      }
+    }
+    &__button {
+      padding: 10px;
+      border-top: 2px solid var(--theme);
     }
   }
   &__header {

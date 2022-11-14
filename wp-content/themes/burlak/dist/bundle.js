@@ -8692,6 +8692,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
       });
     });
+    var filterCollapse = document.querySelectorAll('.filter__block__button .button');
+    filterCollapse.length && filterCollapse.forEach(function (button) {
+      (0,_js_helpers__WEBPACK_IMPORTED_MODULE_9__.eventDecorator)({
+        target: button,
+        event: {
+          type: 'click',
+          body: function body(e) {
+            e.preventDefault();
+            var currentText = e.target.innerHTML;
+            var nextText = e.target.dataset.nextText;
+            e.target.innerHTML = nextText;
+            e.target.dataset.nextText = currentText;
+            var list = e.target.closest('.filter__block').querySelector('.filter__block__list');
+            list.classList.toggle('filter__block__list--visible');
+          }
+        }
+      });
+    });
   };
 
   window.router = new _js_router_js__WEBPACK_IMPORTED_MODULE_0__["default"]({

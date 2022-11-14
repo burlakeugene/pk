@@ -151,24 +151,38 @@ usort($filters, function ($a, $b){
   </div>
   <?php endif; ?>
   <?php
+    $COUNT_LIMIT = 5;
     foreach($filters as $filter):
     if($filter['type'] === 'list'):
+      $count = count($filter['list']);
     ?>
       <div class="filter__block">
         <div class="filter__block__label">
           <?= $filter['label'] ?>
         </div>
         <div class="filter__block__list">
-          <?php foreach($filter['list'] as $item): ?>
+          <?php
+          $index = 0;
+          foreach($filter['list'] as $item):
+            ?>
             <a
-              class="filter__block__list__item ajax <?= $item['active'] ? 'filter__block__list__item--active' : '' ?>"
+              class="filter__block__list__item ajax <?= $item['active'] ? 'filter__block__list__item--active' : '' ?> <?= $index >= $COUNT_LIMIT ? 'filter__block__list__item--hidden' : '' ?>"
               href="<?= $item['link'] ?>"
             >
               <span class="filter__block__list__item__label"><?= $item['label'] ?></span>
               <span class="filter__block__list__item__count"><?= $item['count'] ?></span>
             </a>
-          <?php endforeach; ?>
+          <?php
+          $index++;
+        endforeach; ?>
         </div>
+        <?php if($COUNT_LIMIT < $count): ?>
+          <div class="filter__block__button">
+            <button class="button" data-next-text="Скрыть все">
+              Показать все
+            </button>
+          </div>
+        <?php endif; ?>
       </div>
     <?php
     endif;

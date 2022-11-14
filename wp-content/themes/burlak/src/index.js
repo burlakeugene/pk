@@ -930,6 +930,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
           },
         });
       });
+
+    const filterCollapse = document.querySelectorAll('.filter__block__button .button');
+    filterCollapse.length &&
+      filterCollapse.forEach((button) => {
+        eventDecorator({
+          target: button,
+          event: {
+            type: 'click',
+            body: (e) => {
+              e.preventDefault();
+              const currentText = e.target.innerHTML;
+              const nextText = e.target.dataset.nextText;
+              e.target.innerHTML = nextText;
+              e.target.dataset.nextText = currentText;
+              const list = e.target
+                .closest('.filter__block')
+                .querySelector('.filter__block__list');
+              list.classList.toggle('filter__block__list--visible');
+            },
+          },
+        });
+      });
   };
 
   window.router = new Router({
