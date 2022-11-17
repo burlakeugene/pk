@@ -3,19 +3,18 @@
   $product = new WC_Product($id);
   $sku = $product->get_sku();
   $quantity = 1;
-  $gallery = get_field('gallery');
+  $gallery = $product->get_gallery_image_ids();
   if($gallery){
-    foreach($gallery as $key => $item){
-      $type = $item['item']['type'];
-      $result = array(
-        'preview' => $item['preview'] ? $item['preview']['sizes']['product-mini'] : $item['item']['sizes']['product-mini'],
-        'preview-big' => $item['preview'] ? $item['preview']['sizes']['product-big'] : $item['item']['sizes']['product-big'],
-        'src' => $item['item']['url'],
-        'type' => $type,
-        'alt' => $item['item']['alt'],
-        'caption' => $item['item']['caption']
-      );
-      $gallery[$key] = $result;
+    foreach($gallery as $index => $item){
+      $image = get_post($item);
+      $gallery[$index] = [
+        'alt' => get_post_meta( $image->ID, '_wp_attachment_image_alt', true ),
+        'title' => $image->post_title,
+        'caption' => $item['item']['caption'],
+        'src' => wp_get_attachment_image_url($image->ID, 'full'),
+        'preview' => wp_get_attachment_image_url($image->ID, 'product-mini'),
+        'preview-big' =>  wp_get_attachment_image_url($image->ID, 'product-big'),
+      ];
     }
   }
   $galleryActiveIndex = 0;
@@ -66,27 +65,18 @@
             data-index="<?= $index ?>"
             <?= $galleryActiveIndex == $index ? 'data-active' : '' ?>
             class="product__gallery__item">
-              <?php if($item['type'] == 'video'): ?>
-                <?php
-                  my_get_template_part('blocks/video', array(
-                    'src' => $item['src'],
-                    'preview' => $item['preview-big']
-                  ))
-                ?>
-              <?php else: ?>
-                <a
-                  data-fancybox="product"
-                  href="<?= $item['src'] ?>"
-                  data-alt="<?= $alt ?>"
-                  title="<?= $alt ?>"
-                  data-title="<?= $alt ?>"
-                >
-                  <img
-                    src="<?= $item['preview-big'] ?>"
-                    alt="<?= $alt ?>"
-                  />
-                </a>
-              <?php endif; ?>
+              <a
+                data-fancybox="product"
+                href="<?= $item['src'] ?>"
+                data-alt="<?= $alt ?>"
+                title="<?= $alt ?>"
+                data-title="<?= $alt ?>"
+              >
+                <img
+                  src="<?= $item['preview-big'] ?>"
+                  alt="<?= $alt ?>"
+                />
+              </a>
           </div>
         <?php endforeach; ?>
       </div>
@@ -94,14 +84,8 @@
         <?php foreach($gallery as $index => $item): ?>
           <div
             class="product__gallery__thumb"
-            data-type="<?= $item['type'] ?>"
             data-index="<?= $index ?>"
             <?= $galleryActiveIndex == $index ? 'data-active' : '' ?>>
-            <?php if($item['type'] == 'video'): ?>
-              <button class="video__control">
-                <?php get_template_part('icons/play') ?>
-              </button>
-            <?php endif; ?>
             <img src="<?= $item['preview'] ?>" alt="<?= $alt ?>">
           </div>
         <?php endforeach; ?>
