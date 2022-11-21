@@ -148,8 +148,13 @@
         Promise.all(
           [...media].map((item) => {
             return new Promise((resolve, reject) => {
-              item.onload = resolve;
-              if (item.tagName === 'IMG') item.onload = resolve;
+              if (item.tagName === 'IMG') {
+                item.onload = resolve;
+                item.onerror = () => {
+                  console.warn('Warning, media can\'t resolve: ', item);
+                  resolve();
+                };
+              }
               if (item.tagName === 'VIDEO') {
                 item.addEventListener('loadedmetadata', () => {
                   resolve();
