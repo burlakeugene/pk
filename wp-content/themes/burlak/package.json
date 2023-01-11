@@ -12,7 +12,7 @@
   "dependencies": {
     "@fancyapps/ui": "^4.0.31",
     "burlak": "^2.0.3",
-    "maskit": "^1.0.11",
+    "maskit": "^1.0.12",
     "notic": "^2.0.6"
   },
   "devDependencies": {
