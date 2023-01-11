@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     maskits.length &&
       maskits.forEach((maskit) => {
         new Maskit(maskit, {
-          mask: maskit.getAttribute('data-maskit') || '+{7}(000) 000-00-00',
+          mask: maskit.getAttribute('data-maskit') || '0(000) 000-00-00',
           // notFilledClear: true,
           onFilled: (scope) => {},
           offFilled: (scope) => {},

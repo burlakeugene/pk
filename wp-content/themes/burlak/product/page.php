@@ -122,6 +122,12 @@
               </div>
             <?php endif; ?>
           </div>
+          <button
+            class="button button--black"
+            data-callback="Быстрый заказ: <?= $product->get_title() ?> #<?= $product->get_id() ?> "
+          >
+            Быстрый заказ
+          </button>
           <?php my_get_template_part('cart/button', array(
             'title' => $product->get_title(),
             'id' => $product->get_id()
