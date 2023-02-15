@@ -11,11 +11,6 @@
   <?= get_option('head_additions'); ?>
 </head>
 
-<?php
-  global $is_theme;
-  $is_theme = true;
-?>
-
 <body data-home="<?= esc_url(home_url('/')); ?>" <?php body_class(); ?>>
   <div id="app">
     <div id="top"></div>

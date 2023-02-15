@@ -10,7 +10,6 @@ $link = is_tax() ? get_term_link($query->term_id) : get_permalink(wc_get_page_id
 // orderby=price&paged=1
 // orderby=price-desc&paged=1
 $post_per_page = $wp_query->query_vars['posts_per_page'];
-
 ?>
 
 <div class="filter filter--top">

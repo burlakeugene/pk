@@ -57,10 +57,13 @@ add_image_size('category', 450, 450, true);
 add_image_size('banner', 1400, 600, true);
 add_image_size('background', 1920, 650, true);
 
-function getMonth($month)
-{
+function getMonth($month){
     $months = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
     return $months[$month - 1];
+}
+
+function is_theme() {
+  return str_contains(get_page_template(), 'themes/burlak');
 }
 
 function my_query($query){
@@ -247,19 +250,6 @@ function settings(){
 }
 
 add_action('init', 'settings');
-
-global $is_theme;
-
-function globals(){
-  $is_theme = false;
-}
-
-add_action('init', 'globals');
-
-function is_theme() {
-  global $is_theme;
-  return $is_theme;
-}
 
 function my_get_template_part($template, $data = array()){
   extract($data);
