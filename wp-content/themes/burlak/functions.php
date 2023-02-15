@@ -79,7 +79,7 @@ function my_query($query){
     return;
   }
 
-  if (!is_admin() && (($query->query['post_type'] == 'product') || $query->query['product_cat'])) {
+  if (is_theme() && (($query->query['post_type'] == 'product') || $query->query['product_cat'])) {
     $query->set('posts_per_page',
       $query->query['posts_per_page'] ?
         $query->query['posts_per_page'] : $_GET['posts_per_page'] ?
@@ -96,7 +96,7 @@ function my_query($query){
     }
     return;
   }
-  if (!is_admin() && (is_post_type_archive('articles') || is_post_type_archive('services'))) {
+  if (is_theme() && (is_post_type_archive('articles') || is_post_type_archive('services'))) {
     $query->set('posts_per_page',
       $query->query['posts_per_page'] ?
         $query->query['posts_per_page'] : $_GET['posts_per_page'] ?
@@ -248,6 +248,19 @@ function settings(){
 
 add_action('init', 'settings');
 
+global $is_theme;
+
+function globals(){
+  $is_theme = false;
+}
+
+add_action('init', 'globals');
+
+function is_theme() {
+  global $is_theme;
+  return $is_theme;
+}
+
 function my_get_template_part($template, $data = array()){
   extract($data);
   require locate_template($template . '.php');
@@ -315,7 +328,7 @@ function split_half($string, $center = 0.1) {
 // woo
 
 function woo_settings(){
-  if (!is_admin() && WC() && WC()->session) {
+  if (is_theme() && WC() && WC()->session) {
     WC()->session->set_customer_session_cookie(true);
     // WC()->session->set('shipping', null);
     if (!WC()->session->get('shipping')) {
