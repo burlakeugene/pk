@@ -62,9 +62,10 @@ function getMonth($month){
     return $months[$month - 1];
 }
 
-function is_theme() {
-  return str_contains(get_page_template(), 'themes/burlak');
-}
+// function yfymp_func($args){
+//   $args['yfym'] = true;
+// };
+// add_filter('yfym_query_arg_filter', 'yfymp_func', 15);
 
 function my_query($query){
   $is_product_filter = $query->query['is_product_filter'];
@@ -82,7 +83,7 @@ function my_query($query){
     return;
   }
 
-  if (is_theme() && (($query->query['post_type'] == 'product') || $query->query['product_cat'])) {
+  if (!is_admin() && (($query->query['post_type'] == 'product') || $query->query['product_cat'])) {
     $query->set('posts_per_page',
       $query->query['posts_per_page'] ?
         $query->query['posts_per_page'] : $_GET['posts_per_page'] ?
@@ -99,7 +100,7 @@ function my_query($query){
     }
     return;
   }
-  if (is_theme() && (is_post_type_archive('articles') || is_post_type_archive('services'))) {
+  if (!is_admin() && (is_post_type_archive('articles') || is_post_type_archive('services'))) {
     $query->set('posts_per_page',
       $query->query['posts_per_page'] ?
         $query->query['posts_per_page'] : $_GET['posts_per_page'] ?
@@ -318,7 +319,7 @@ function split_half($string, $center = 0.1) {
 // woo
 
 function woo_settings(){
-  if (is_theme() && WC() && WC()->session) {
+  if (!is_admin() && WC() && WC()->session) {
     WC()->session->set_customer_session_cookie(true);
     // WC()->session->set('shipping', null);
     if (!WC()->session->get('shipping')) {
