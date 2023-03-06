@@ -4592,10 +4592,6 @@ body.scrolled .fixed-button--top .icon {
 .filter__block__list__item--hidden {
   display: none;
 }
-.filter__block__list--visible {
-  overflow: auto;
-  max-height: 295px;
-}
 .filter__block__list--visible .filter__block__list__item--hidden {
   display: flex;
 }
