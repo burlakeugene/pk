@@ -145,6 +145,23 @@ add_action('admin_init', function () {
     register_setting('theme-page-settings', 'phone');
     register_setting('theme-page-settings', 'email');
     register_setting('theme-page-settings', 'copyrights');
+
+    // $products = wc_get_products([
+    //   'return' => 'ids',
+    //   'limit' => -1,
+    // ]);
+
+    // foreach($products as $id){
+    //   $product = wc_get_product($id);
+    //   $thumb_id = get_post_thumbnail_id($product->get_id());
+    //   $galleries = $product->get_gallery_image_ids();
+    //   if(!in_array($thumb_id, $galleries)){
+    //     echo '_______________<br />';
+    //     echo $thumb_id.'<br />';
+    //     print_r($galleries);
+    //     echo '<br />';
+    //   }
+    // }
 });
 
 function theme_settings_page()
