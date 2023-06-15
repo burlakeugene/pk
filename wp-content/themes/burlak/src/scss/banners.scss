@@ -1,6 +1,6 @@
 .banner {
   height: 100%;
-  padding: 120px 40px;
+  padding: 60px 40px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -34,7 +34,7 @@
     }
     .swiper-button-prev,
     .swiper-button-next {
-      bottom: 40px;
+      bottom: 30px;
       top: auto;
       left: auto;
       right: 40px;
@@ -44,7 +44,7 @@
     }
     .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
       position: absolute;
-      bottom: 40px;
+      bottom: 25px;
       margin-top: 0;
       left: 40px;
     }

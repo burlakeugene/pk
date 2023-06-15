@@ -1,20 +1,13 @@
 .brand {
   &s {
     &--index {
-      padding: 50px 0 250px calc(50% - var(--container-width) / 2);
-      background-color: var(--background-gray);
-      display: flex;
-      gap: 40px;
-    }
-    &__content {
-      padding-left: 15px;
       display: flex;
       flex-direction: column;
-      gap: 30px;
-      flex: 0 0 450px;
+      gap: 40px;
     }
     &__text {
-      color: var(--gray);
+      color: var(--white);
+      mix-blend-mode: difference;
     }
     &.slider {
       flex: 1;

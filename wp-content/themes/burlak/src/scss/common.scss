@@ -1671,6 +1671,9 @@ body.scrolled {
       margin-top: -600px;
     }
   }
+  &--gray{
+    background: var(--background-gray);
+  }
 }
 
 .content {

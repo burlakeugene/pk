@@ -9,7 +9,8 @@
     <?php
       my_get_template_part('blocks/title', [
         'text' => $title,
-        'apperance' => ['theme', 'light']
+        'apperance' => ['theme', 'light'],
+        'mini' => true
       ]);
     ?>
   </div>

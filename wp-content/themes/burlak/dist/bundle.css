@@ -2982,6 +2982,9 @@ body.scrolled .fixed-button--top .icon {
 .decorator_background + .decorator_background_next_top {
   margin-top: -600px;
 }
+.decorator_background--gray {
+  background: var(--background-gray);
+}
 
 .content {
   font-size: 16px;
@@ -3228,7 +3231,7 @@ body.scrolled .fixed-button--top .icon {
 }
 .banner {
   height: 100%;
-  padding: 120px 40px;
+  padding: 60px 40px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -3264,7 +3267,7 @@ body.scrolled .fixed-button--top .icon {
 }
 .banners .swiper-button-prev,
 .banners .swiper-button-next {
-  bottom: 40px;
+  bottom: 30px;
   top: auto;
   left: auto;
   right: 40px;
@@ -3274,7 +3277,7 @@ body.scrolled .fixed-button--top .icon {
 }
 .banners .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
   position: absolute;
-  bottom: 40px;
+  bottom: 25px;
   margin-top: 0;
   left: 40px;
 }
@@ -3292,20 +3295,13 @@ body.scrolled .fixed-button--top .icon {
   overflow: hidden;
 }
 .brands--index {
-  padding: 50px 0 250px calc(50% - var(--container-width) / 2);
-  background-color: var(--background-gray);
-  display: flex;
-  gap: 40px;
-}
-.brands__content {
-  padding-left: 15px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  flex: 0 0 450px;
+  gap: 40px;
 }
 .brands__text {
-  color: var(--gray);
+  color: var(--white);
+  mix-blend-mode: difference;
 }
 .brands.slider {
   flex: 1;
@@ -3444,9 +3440,6 @@ body.scrolled .fixed-button--top .icon {
   background-color: var(--black);
   color: var(--white);
   position: relative;
-}
-.promo--index {
-  margin-top: -240px;
 }
 .promo__background {
   background-position: center center;
