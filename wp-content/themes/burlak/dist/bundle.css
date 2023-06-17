@@ -4525,6 +4525,21 @@ body.scrolled .fixed-button--top .icon {
 .product--page .cart__add__default, .product--page .cart__add__active {
   padding: 10px 15px;
 }
+.product__featured {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--white);
+  background: var(--red);
+  text-transform: uppercase;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
 
 .filter {
   width: 300px;
@@ -4677,6 +4692,25 @@ body.scrolled .fixed-button--top .icon {
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 70px;
+}
+.products__with-filters .products {
+  transition: all 0.3s;
+}
+.products__with-filters--loading {
+  cursor: progress;
+}
+.products__with-filters--loading a,
+.products__with-filters--loading button {
+  pointer-events: none;
+}
+.products__with-filters--loading .products {
+  filter: blur(5px);
+}
+
+.filter__steps {
+  width: 100%;
+  background: var(--white);
+  padding: 15px;
 }
 
 @media (max-width: 1100px) {

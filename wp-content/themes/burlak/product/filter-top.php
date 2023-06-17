@@ -23,62 +23,71 @@ $post_per_page = $wp_query->query_vars['posts_per_page'];
               'orderby' => false
             ]),
             'text' => 'По умолчанию',
-            'active' => !$_GET['orderby']
+            'active' => !$_GET['orderby'],
+            'attributes' => ['data-filter-link'],
           ],
           [
             'link' => $link.mergeQueryString([
               'orderby' => 'title'
             ]),
             'text' => 'Название (А - Я)',
-            'active' => $_GET['orderby'] == 'title'
+            'active' => $_GET['orderby'] == 'title',
+            'attributes' => ['data-filter-link'],
           ],
           [
             'link' => $link.mergeQueryString([
               'orderby' => 'title-desc'
             ]),
             'text' => 'Название (Я - А)',
-            'active' => $_GET['orderby'] == 'title-desc'
+            'active' => $_GET['orderby'] == 'title-desc',
+            'attributes' => ['data-filter-link'],
           ],
           [
             'link' => $link.mergeQueryString([
               'orderby' => 'price'
             ]),
             'text' => 'Цена (от найменьшей)',
-            'active' => $_GET['orderby'] == 'price'
+            'active' => $_GET['orderby'] == 'price',
+            'attributes' => ['data-filter-link'],
           ],
           [
             'link' => $link.mergeQueryString([
               'orderby' => 'price-desc'
             ]),
             'text' => 'Цена (от наибольшей)',
-            'active' => $_GET['orderby'] == 'price-desc'
+            'active' => $_GET['orderby'] == 'price-desc',
+            'attributes' => ['data-filter-link'],
           ]
         ]
       ]);
 
       my_get_template_part('blocks/links', [
         'label' => 'Товаров на странице:',
+        'item_attributes' => ['data-filter-link'],
         'items' => [
           [
             'link' => $link.mergeQueryString([
               'posts_per_page' => '12'
             ]),
             'text' => '12',
-            'active' => $post_per_page == '12'
+            'active' => $post_per_page == '12',
+            'attributes' => ['data-filter-link'],
           ],
           [
             'link' => $link.mergeQueryString([
               'posts_per_page' => '24'
             ]),
             'text' => '24',
-            'active' => $post_per_page == '24'
+            'active' => $post_per_page == '24',
+            'attributes' => ['data-filter-link'],
           ],
           [
             'link' => $link.mergeQueryString([
               'posts_per_page' => '48'
             ]),
             'text' => '48',
-            'active' => $post_per_page == '48'
+            'active' => $post_per_page == '48',
+            'attributes' => ['data-filter-link'],
           ]
         ]
       ]);

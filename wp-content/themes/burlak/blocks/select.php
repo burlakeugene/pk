@@ -22,8 +22,10 @@ if($items):
       if ($key === $items_active_index) {
           continue;
       }
+      $attributes = $item['attributes'] ? implode(' ', $item['attributes']) : '';
+      $ajax = $item['ajax'];
       ?>
-      <a class="select__list__item ajax" href="<?= $item['link'] ?>">
+      <a class="select__list__item <?= $ajax ? 'ajax' : '' ?>" href="<?= $item['link'] ?>" <?= $attributes ?>>
         <?= $item['text'] ?>
       </a>
     <?php endforeach; ?>

@@ -129,7 +129,7 @@ usort($filters, function ($a, $b){
     $link = get_permalink(wc_get_page_id('shop'));
     ?>
   <div class="filter__header">
-    <a class="ajax button button--black" href="<?= $link ?>">
+    <a class="button button--black" href="<?= $link ?>" data-filter-link>
       Очистить фильтр
     </a>
     <div class="filter__header__buttons">
@@ -139,7 +139,7 @@ usort($filters, function ($a, $b){
             $filters_index = array_search($key, array_column($filters, 'key'));
             $filter = $filters[$filters_index];
           ?>
-              <a class="ajax filter__header__button" href="<?= $filter['list'][$item]['link'] ?>">
+              <a class="filter__header__button" href="<?= $filter['list'][$item]['link'] ?>" data-filter-link>
                 <?= $filter['label'] ?>: <?= $filter['list'][$item]['label'] ?>
                 <?php get_template_part('icons/clear') ?>
               </a>
@@ -166,8 +166,9 @@ usort($filters, function ($a, $b){
           foreach($filter['list'] as $item):
             ?>
             <a
-              class="filter__block__list__item ajax <?= $item['active'] ? 'filter__block__list__item--active' : '' ?> <?= $index >= $COUNT_LIMIT ? 'filter__block__list__item--hidden' : '' ?>"
+              class="filter__block__list__item <?= $item['active'] ? 'filter__block__list__item--active' : '' ?> <?= $index >= $COUNT_LIMIT ? 'filter__block__list__item--hidden' : '' ?>"
               href="<?= $item['link'] ?>"
+              data-filter-link
             >
               <span class="filter__block__list__item__label"><?= $item['label'] ?></span>
               <span class="filter__block__list__item__count"><?= $item['count'] ?></span>

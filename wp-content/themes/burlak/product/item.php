@@ -4,10 +4,12 @@
   $image_lazy = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'lazy-square');
   $image = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'product');
   $size = $product->get_weight();
+  $is_featured = $product->is_featured();
 ?>
 
 <div class="product product--regular">
   <div class="product__image <?= !$image[0] ? 'product__image--empty' : '' ?>">
+    <?php my_get_template_part('product/featured', $is_featured); ?>
     <div class="product__buttons">
       <?php
         if(isAvailable('favorite')){

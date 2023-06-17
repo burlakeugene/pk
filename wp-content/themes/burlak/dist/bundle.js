@@ -8546,7 +8546,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
           body: function body(e) {
             var key = e.target.dataset['setShipping'],
                 updateCheckout = e.target.dataset.updateCheckout;
-            if (updateCheckout) window.Notification.loadingOn();
+
+            if (updateCheckout) {
+              window.Notification.loadingOn();
+            }
+
             setShippingField({
               key: key,
               value: e.target.value
@@ -8732,6 +8736,48 @@ document.addEventListener('DOMContentLoaded', function (event) {
             e.target.dataset.nextText = currentText;
             var list = e.target.closest('.filter__block').querySelector('.filter__block__list');
             list.classList.toggle('filter__block__list--visible');
+          }
+        }
+      });
+    });
+    var filterLinks = document.querySelectorAll('[data-filter-link]');
+    filterLinks.length && filterLinks.forEach(function (link) {
+      (0,_js_helpers__WEBPACK_IMPORTED_MODULE_9__.eventDecorator)({
+        target: link,
+        event: {
+          type: 'click',
+          body: function body(event) {
+            event.preventDefault();
+            var target = event.currentTarget;
+            var href = target.href;
+            var container = target.closest('.products__with-filters');
+
+            if (!container) {
+              return;
+            }
+
+            container.classList.add('products__with-filters--loading');
+            window.Notification.loadingOn();
+            _js_request__WEBPACK_IMPORTED_MODULE_8__["default"].get({
+              url: href,
+              headers: {
+                'Content-Type': 'text/html; charset=utf-8'
+              }
+            }).then(function (html) {
+              var parser = new DOMParser();
+              html = parser.parseFromString(html, 'text/html');
+              var containerNext = html.querySelector('.products__with-filters');
+
+              if (containerNext) {
+                container.parentNode.replaceChild(containerNext, container);
+              } else {
+                container.remove();
+              }
+
+              history.pushState(null, null, href);
+              routerFunc();
+              window.Notification.loadingOff();
+            });
           }
         }
       });

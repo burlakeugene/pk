@@ -755,7 +755,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             body: (e) => {
               let key = e.target.dataset['setShipping'],
                 updateCheckout = e.target.dataset.updateCheckout;
-              if (updateCheckout) window.Notification.loadingOn();
+
+              if (updateCheckout) {
+                window.Notification.loadingOn();
+              }
+
               setShippingField({
                 key,
                 value: e.target.value,
@@ -962,6 +966,55 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 .closest('.filter__block')
                 .querySelector('.filter__block__list');
               list.classList.toggle('filter__block__list--visible');
+            },
+          },
+        });
+      });
+
+    const filterLinks = document.querySelectorAll('[data-filter-link]');
+    filterLinks.length &&
+      filterLinks.forEach((link) => {
+        eventDecorator({
+          target: link,
+          event: {
+            type: 'click',
+            body: (event) => {
+              event.preventDefault();
+              const target = event.currentTarget;
+              const { href } = target;
+              const container = target.closest('.products__with-filters');
+
+              if (!container) {
+                return;
+              }
+
+              container.classList.add('products__with-filters--loading');
+
+              window.Notification.loadingOn();
+
+              Request.get({
+                url: href,
+                headers: {
+                  'Content-Type': 'text/html; charset=utf-8',
+                },
+              }).then((html) => {
+                let parser = new DOMParser();
+                html = parser.parseFromString(html, 'text/html');
+
+                const containerNext = html.querySelector(
+                  '.products__with-filters'
+                );
+
+                if (containerNext) {
+                  container.parentNode.replaceChild(containerNext, container);
+                } else {
+                  container.remove();
+                }
+
+                history.pushState(null, null, href);
+                routerFunc();
+                window.Notification.loadingOff();
+              });
             },
           },
         });
