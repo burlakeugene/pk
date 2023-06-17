@@ -37,7 +37,7 @@
           endif;
         ?>
       </div>
-      <div class="load-more__pagination__col">
+      <div class="load-more__pagination__col ajax">
         <?php the_posts_pagination() ?>
       </div>
     </div>
