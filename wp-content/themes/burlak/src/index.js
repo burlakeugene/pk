@@ -971,7 +971,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
       });
 
-    const filterLinks = document.querySelectorAll('[data-filter-link]');
+    const filterLinks = document.querySelectorAll(
+      '[data-filter-link], .pagination a'
+    );
     filterLinks.length &&
       filterLinks.forEach((link) => {
         eventDecorator({
@@ -1007,6 +1009,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                 if (containerNext) {
                   container.parentNode.replaceChild(containerNext, container);
+                  let offset = 0,
+                    header = document.querySelector('header.header');
+                  if (header) {
+                    offset += header.clientHeight;
+                  }
+                  let top =
+                    containerNext.getBoundingClientRect().top +
+                    window.scrollY -
+                    offset;
+                  window.scrollTo({ top, behavior: 'smooth' });
                 } else {
                   container.remove();
                 }
@@ -1023,7 +1035,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   window.router = new Router({
     container: '#app',
-    navItems: '.ajax, .ajax a, .pagination a, .breadcrumbs a',
+    navItems: '.ajax, .ajax a, .breadcrumbs a',
     preloader: true,
     beforeInit: function () {},
     beforeRendered: function () {
