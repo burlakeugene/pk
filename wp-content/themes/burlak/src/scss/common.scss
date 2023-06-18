@@ -119,6 +119,9 @@ a,
   font-weight: 700;
   position: relative;
   display: inline-block;
+  &--no-pointer-events {
+    pointer-events: none;
+  }
   &[disabled] {
     cursor: progress;
   }
@@ -148,6 +151,15 @@ a,
     &:not([disabled]):hover {
       color: var(--white);
       background-color: var(--theme);
+    }
+  }
+  &--gray {
+    background-color: var(--gray-light);
+    border-color: var(--gray-light);
+    color: var(--white);
+    &:not([disabled]):hover {
+      color: var(--theme);
+      background-color: var(--gray-light);
     }
   }
   &--loader {
@@ -834,43 +846,9 @@ a,
 
 .tabs {
   &__buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
     gap: 20px;
   }
   &__button {
-    position: relative;
-    padding: 8px;
-    text-transform: uppercase;
-    font-family: grandis;
-    display: block;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    font-size: 24px;
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 3px;
-      width: 0;
-      transition: all 0.3s;
-      background-image: linear-gradient(
-        to left,
-        var(--gradient-start),
-        var(--gradient-end)
-      );
-    }
-    &:hover,
-    &[data-active] {
-      &:after {
-        width: 100%;
-      }
-    }
   }
   &__contents {
     position: relative;
@@ -1382,7 +1360,6 @@ body.scrolled {
     transform: translate(-50%, -50%);
     text-transform: uppercase;
     font-size: 24px;
-    font-family: grandis;
     font-weight: 800;
     text-align: center;
     padding: 10px;
@@ -1650,7 +1627,7 @@ body.scrolled {
     background-position: center center;
     position: relative;
     background-attachment: fixed;
-    @media(max-width: 991px){
+    @media (max-width: 991px) {
       background-attachment: unset;
     }
     &:after {
@@ -1671,7 +1648,7 @@ body.scrolled {
       margin-top: -600px;
     }
   }
-  &--gray{
+  &--gray {
     background: var(--background-gray);
   }
 }

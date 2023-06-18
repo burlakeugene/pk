@@ -171,10 +171,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 .querySelectorAll('.tabs__content');
             if (!name) return;
             buttons.forEach((button, index) => {
-              button.removeAttribute('data-active');
-              // button.classList.remove('tabs__button--active');
+              const { activeClass, inactiveClass, active, tabId } =
+                button.dataset;
+
+              const getClasses = (classes = '') =>
+                classes.split(' ').filter(Boolean);
+
+              if (tabId === name) {
+                button.dataset.active = true;
+                button.classList.remove(...getClasses(inactiveClass));
+                button.classList.add(...getClasses(activeClass));
+              } else {
+                delete button.dataset.active;
+                button.classList.remove(...getClasses(activeClass));
+                button.classList.add(...getClasses(inactiveClass));
+              }
             });
-            e.target.setAttribute('data-active', '');
 
             targets.forEach((target, index) => {
               if (target.getAttribute('data-tab-id') === name) {

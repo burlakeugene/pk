@@ -7843,6 +7843,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _fancyapps_ui__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @fancyapps/ui */ "./node_modules/@fancyapps/ui/dist/fancybox.esm.js");
 /* harmony import */ var _fancyapps_ui_dist_fancybox_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @fancyapps/ui/dist/fancybox.css */ "./node_modules/@fancyapps/ui/dist/fancybox.css");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -7854,12 +7860,6 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symb
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -8017,9 +8017,35 @@ document.addEventListener('DOMContentLoaded', function (event) {
               targets = e.target.closest('.tabs').querySelectorAll('.tabs__content');
           if (!name) return;
           buttons.forEach(function (button, index) {
-            button.removeAttribute('data-active'); // button.classList.remove('tabs__button--active');
+            var _button$dataset = button.dataset,
+                activeClass = _button$dataset.activeClass,
+                inactiveClass = _button$dataset.inactiveClass,
+                active = _button$dataset.active,
+                tabId = _button$dataset.tabId;
+
+            var getClasses = function getClasses() {
+              var classes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+              return classes.split(' ').filter(Boolean);
+            };
+
+            if (tabId === name) {
+              var _button$classList, _button$classList2;
+
+              button.dataset.active = true;
+
+              (_button$classList = button.classList).remove.apply(_button$classList, _toConsumableArray(getClasses(inactiveClass)));
+
+              (_button$classList2 = button.classList).add.apply(_button$classList2, _toConsumableArray(getClasses(activeClass)));
+            } else {
+              var _button$classList3, _button$classList4;
+
+              delete button.dataset.active;
+
+              (_button$classList3 = button.classList).remove.apply(_button$classList3, _toConsumableArray(getClasses(activeClass)));
+
+              (_button$classList4 = button.classList).add.apply(_button$classList4, _toConsumableArray(getClasses(inactiveClass)));
+            }
           });
-          e.target.setAttribute('data-active', '');
           targets.forEach(function (target, index) {
             if (target.getAttribute('data-tab-id') === name) {
               target.setAttribute('data-active', '');
@@ -8705,9 +8731,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
           body: function body(e) {
             e.preventDefault();
             var isActive = button.dataset.active;
-            var _button$dataset = button.dataset,
-                activeText = _button$dataset.activeText,
-                inactiveText = _button$dataset.inactiveText;
+            var _button$dataset2 = button.dataset,
+                activeText = _button$dataset2.activeText,
+                inactiveText = _button$dataset2.inactiveText;
             button.innerHTML = isActive ? inactiveText : activeText;
             var target = button.nextSibling.nextSibling;
 

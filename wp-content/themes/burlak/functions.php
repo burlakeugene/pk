@@ -788,3 +788,125 @@ function getProductAlt($product){
   }
   return $result;
 }
+
+function getFilters(){
+  global $wp_query;
+  $attr_query = [
+    'status'    => 'publish',
+    'is_product_filter' => 1
+  ];
+
+  $category = $wp_query->query['product_cat'];
+
+  if($category){
+    $attr_query['category'] = [$category];
+  }
+
+  $products = wc_get_products($attr_query);
+
+  $query = get_queried_object();
+  $link = is_tax() ? get_term_link($query->term_id) : get_permalink(wc_get_page_id('shop'));
+
+  $current = [];
+  foreach($_GET as $key => $get){
+    if(!str_starts_with($key, 'pa_')) continue;
+    $current[$key] = explode(',', $get);
+  }
+
+  $list = [];
+  foreach($products as $product){
+
+    //categories
+    if(!$list['category']){
+      $list['category'] = [
+        'label' => 'Категория',
+        'key' => 'category',
+        'type' => 'list',
+        'list' => []
+      ];
+    }
+    $terms = get_the_terms($product->id, 'product_cat');
+    foreach ($terms as $term) {
+      if(!$list['category']['list'][$term->slug]){
+        $is_active = $query->term_id === $term->term_id;
+        if($is_active){
+          $current['category'] = [$term->slug];
+        }
+        $category_link = $is_active ? get_permalink(wc_get_page_id('shop')) : get_term_link($term->term_id);
+        $list['category']['list'][$term->slug] = [
+          'label' => $term->name,
+          'value' => $term->slug,
+          'count' => 1,
+          'active' => $is_active,
+          'href' => $category_link.mergeQueryString()
+        ];
+      }
+      else{
+        ++$list['category']['list'][$term->slug]['count'];
+      }
+    }
+
+    //attributes
+    foreach( $product->get_attributes() as $taxonomy => $attribute ){
+      $attribute_name = wc_attribute_label( $taxonomy );
+      if(!$list[$taxonomy]){
+        $list[$taxonomy] = [
+          'label' => $attribute_name,
+          'key' => $taxonomy,
+          'type' => 'list',
+          'list' => []
+        ];
+      }
+      foreach($attribute->get_terms() as $term){
+        if(!$list[$taxonomy]['list'][$term->slug]){
+          $is_active = in_array($term->slug, $current[$taxonomy]);
+          $next = $current[$taxonomy] ? $current[$taxonomy] : [];
+          if($is_active){
+            $index = array_search($term->slug, $next);
+            unset($next[$index]);
+          }
+          else{
+            array_push($next, $term->slug);
+          }
+          $next = implode(',', $next);
+          $list[$taxonomy]['list'][$term->slug] = [
+            'label' => $term->name,
+            'value' => $term->slug,
+            'count' => 1,
+            'active' => $is_active,
+            'href' => $link.mergeQueryString([
+              'pa_model' => $taxonomy === 'pa_brand' && $is_active ? false : implode(',', $current['pa_model']),
+              $taxonomy => $next,
+            ])
+          ];
+        }
+        else{
+          ++$list[$taxonomy]['list'][$term->slug]['count'];
+        }
+      }
+    }
+  }
+
+  foreach($list as $key => $item){
+    if(!$item['list']) unset($list[$key]);
+  }
+
+  if(!$current['pa_brand']){
+    unset($list['pa_model']);
+  }
+
+  usort($list, function ($a, $b){
+    $sort = [
+      'pa_brand' => 4,
+      'pa_model' => 3,
+      'pa_yearmodel' => 2,
+      'category' => 1,
+    ];
+    return $sort[$b['key']] > $sort[$a['key']] ? 1 : -1;
+  });
+
+  return [
+    'list' => $list,
+    'current' => $current
+  ];
+}
