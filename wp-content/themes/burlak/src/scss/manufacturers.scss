@@ -1,12 +1,18 @@
 .manufacturer {
-  &s{
-    &__list{
+  &s {
+    &__list {
       display: flex;
       gap: 30px;
       flex-wrap: wrap;
       justify-content: center;
-      .manufacturer{
-        flex: 0 0 calc(20% - 30px * 4 / 5);
+      --items: 5;
+      --gap: 30px;
+      gap: var(--gap);
+      .preview {
+        flex-shrink: 0;
+        width: calc(
+          100% / var(--items) - ((var(--items) - 1) * var(--gap)) / var(--items)
+        );
       }
     }
     &--index {
@@ -15,19 +21,19 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-attachment: fixed;
-      @media(max-width: 991px){
+      @media (max-width: 991px) {
         background-attachment: unset;
       }
       padding: 50px 0;
       display: flex;
       flex-direction: column;
       gap: 25px;
-      .manufacturers__list{
+      .manufacturers__list {
         position: relative;
         max-width: 460px;
         display: block;
-        .manufacturer{
-          flex: auto;
+        .preview {
+          width: auto;
         }
       }
     }
@@ -35,51 +41,33 @@
       margin: 25px 0;
       color: var(--white);
     }
-    .slider{
-      &__inner{
+    .slider {
+      &__inner {
         padding: 0;
         position: static;
       }
       .swiper-button-prev,
-      .swiper-button-next{
+      .swiper-button-next {
         bottom: 0;
         top: auto;
         left: auto;
         right: auto;
-        &.swiper-button-lock{
+        &.swiper-button-lock {
           display: none;
         }
       }
-      .swiper-button-next{
+      .swiper-button-next {
         left: 40px;
       }
     }
-    &__link{
+    &__link {
       display: flex;
       justify-content: flex-end;
       margin-top: 40px;
       padding-left: 80px;
-      .link{
+      .link {
         transform: translateY(-50%);
       }
-    }
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--white);
-  overflow: hidden;
-  height: 130px;
-  img{
-    max-height: 120px;
-    max-width: 120px;
-    width: auto;
-    height: auto;
-    transition: all 0.3s;
-  }
-  &:hover{
-    img{
-      transform: scale(0.9);
     }
   }
 }

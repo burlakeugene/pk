@@ -750,12 +750,15 @@ function isAvailable($type){
 
 function getBrands(){
   $items = get_terms('pa_brand');
+
   return array_map(function($item){
     $fields = get_fields($item);
+
     return [
       'link' => get_permalink(wc_get_page_id('shop')).'?pa_brand='.$item->slug,
-      'fields' => $fields,
-      'name' => $item->name
+      'name' => $item->name,
+      'preview' => $fields['preview'],
+      'ajax' => true,
     ];
   }, $items);
 }
@@ -766,8 +769,9 @@ function getManufacturers(){
     $fields = get_fields($item);
     return [
       'link' => get_permalink(wc_get_page_id('shop')).'?pa_manufacturer='.$item->slug,
-      'fields' => $fields,
-      'name' => $item->name
+      'name' => $item->name,
+      'preview' => $fields['preview'],
+      'ajax' => true,
     ];
   }, $items);
 }
@@ -838,7 +842,9 @@ function getFilters(){
           'value' => $term->slug,
           'count' => 1,
           'active' => $is_active,
-          'href' => $category_link.mergeQueryString()
+          'href' => $category_link.mergeQueryString(),
+          'permalink' => get_term_link($term->term_id),
+          'term' => $term,
         ];
       }
       else{
@@ -874,8 +880,12 @@ function getFilters(){
             'value' => $term->slug,
             'count' => 1,
             'active' => $is_active,
+            'term' => $term,
             'href' => $link.mergeQueryString([
               'pa_model' => $taxonomy === 'pa_brand' && $is_active ? false : implode(',', $current['pa_model']),
+              $taxonomy => $next,
+            ]),
+            'permalink' => $link.mergeQueryString([
               $taxonomy => $next,
             ])
           ];

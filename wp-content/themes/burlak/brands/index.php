@@ -6,23 +6,13 @@
   $text = $fields['text_index'];
 
   $items = array_filter(array_map(function($item){
-    if($item['fields']['index']) return $item;
+    if($item['preview']['index']) return $item;
     return null;
   }, getBrands()));
 
+  my_get_template_part('previews/list', [
+    'modificators' => ['index'],
+    'text' => $text,
+    'items' => $items,
+  ])
 ?>
-
-<div class="brands brands--index">
-  <?php
-    if($text):
-    ?>
-    <div class="brands__text">
-      <?= $text ?>
-    </div>
-    <?php
-    endif;
-  ?>
-  <?php
-    my_get_template_part('brands/list', $items);
-  ?>
-</div>

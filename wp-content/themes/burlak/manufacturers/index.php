@@ -6,10 +6,9 @@ $title = $fields['title_index'];
 $text = $fields['text_index'];
 
 $items = array_filter(array_map(function($item){
-  if($item['fields']['index']) return $item;
+  if($item['preview']['index']) return $item;
   return null;
 }, getManufacturers()));
-
 ?>
 
 <section class="manufacturers manufacturers--index" style="background-image: url(<?= $fields['background']['sizes']['background'] ?>);">
@@ -36,7 +35,7 @@ $items = array_filter(array_map(function($item){
             'buttons' => true,
             'list' => $items,
             'item' => [
-              'path' => 'manufacturers/item'
+              'path' => 'previews/item--mini'
             ],
             'config' => [
               'slidesPerView' => 2,

@@ -802,7 +802,10 @@
 .filter__steps{
   width: 100%;
   background: var(--white);
-  padding: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 @media (max-width: 1100px) {

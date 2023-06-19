@@ -26,7 +26,7 @@
             $list_index = array_search($key, array_column($list, 'key'));
             $filter = $list[$list_index];
           ?>
-              <a class="filter__header__button" href="<?= $filter['list'][$item]['link'] ?>" data-filter-link>
+              <a class="filter__header__button" href="<?= $filter['list'][$item]['href'] ?>" data-filter-link>
                 <?= $filter['label'] ?>: <?= $filter['list'][$item]['label'] ?>
                 <?php get_template_part('icons/clear') ?>
               </a>

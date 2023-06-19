@@ -1,4 +1,4 @@
-.brand {
+.preview {
   &s {
     &--index {
       display: flex;
@@ -107,7 +107,8 @@
     transition: all 0.3s;
     background-color: var(--white);
   }
-  .brand__logo {
+  &__logo,
+  &__text {
     position: absolute;
     left: 20px;
     top: 60px;
@@ -123,6 +124,14 @@
     }
   }
   &__text {
+    padding: 10px;
+    color: var(--black);
+    font-weight: 600;
+    font-size: 18px;
+    transform: translateY(0%);
+    top: 20px;
+  }
+  &__footer {
     position: absolute;
     bottom: 0;
     left: 20px;
@@ -137,8 +146,9 @@
     &:after {
       height: 6px;
     }
-    .brand {
-      &__logo {
+    .preview {
+      &__logo,
+      &__text {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -146,9 +156,34 @@
       &__image {
         transform: scale(1.1);
       }
-      &__text {
+      &__footer {
         bottom: 20px;
         opacity: 1;
+      }
+    }
+  }
+  &--mini {
+    &:before,
+    &:after {
+      display: none;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    overflow: hidden;
+    height: 130px;
+    width: 100%;
+    img {
+      max-height: 120px;
+      max-width: 120px;
+      width: auto;
+      height: auto;
+      transition: all 0.3s;
+    }
+    &:hover {
+      img {
+        transform: scale(0.9);
       }
     }
   }
