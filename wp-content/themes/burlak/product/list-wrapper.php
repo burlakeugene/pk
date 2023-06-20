@@ -1,7 +1,9 @@
 <div class="products__with-filters">
   <?php
   $filters = getFilters();
-  my_get_template_part('product/filter-steps', $filters);
+  if($_GET['xyu']){
+    my_get_template_part('product/filter-steps', $filters);
+  }
   my_get_template_part('product/filter-top');
   my_get_template_part('product/filter', $filters);
   my_get_template_part('product/list', [

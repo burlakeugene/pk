@@ -55,11 +55,16 @@
     }
     &__list {
       display: flex;
-      gap: 30px;
       justify-content: center;
       flex-wrap: wrap;
-      .brand {
-        flex: 0 0 calc(25% - 23px);
+      --items: 4;
+      --gap: 30px;
+      gap: var(--gap);
+      .preview {
+        flex-shrink: 0;
+        width: calc(
+          100% / var(--items) - ((var(--items) - 1) * var(--gap)) / var(--items)
+        );
         min-width: 240px;
       }
     }

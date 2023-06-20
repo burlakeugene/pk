@@ -551,7 +551,7 @@ function checkout_fields($fields){
         'value' => $shipping['city'] ? $shipping['city'] : '',
         'priority' => 0,
         'required' => true,
-        'attrs' => array('data-set-shipping="'.($shipping['type'] == 'self' ? 'store' : 'address').'"')
+        'attrs' => array('data-set-shipping="city"')
       );
       $fields['shipping']['address'] = array(
         'label' => 'Адрес доставки',
@@ -797,7 +797,8 @@ function getFilters(){
   global $wp_query;
   $attr_query = [
     'status'    => 'publish',
-    'is_product_filter' => 1
+    'is_product_filter' => 1,
+    'orderby'  => ['menu_order' => 'ASC']
   ];
 
   $category = $wp_query->query['product_cat'];
@@ -920,3 +921,5 @@ function getFilters(){
     'current' => $current
   ];
 }
+
+//wc_get_featured_product_ids

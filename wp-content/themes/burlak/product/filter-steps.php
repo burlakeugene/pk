@@ -3,6 +3,11 @@
   $current = $data['current'];
 ?>
 <div class="filter__steps tabs">
+  <?php my_get_template_part('blocks/title', [
+      'text' => 'Визуальный подбор',
+      'mini' => true,
+      'apperance' => ['', 'dark'],
+    ]) ?>
   <div class="tabs__buttons">
   <?php
     $list_keys = array_column($list, 'key');
@@ -68,7 +73,6 @@
               'attributes' => ['data-filter-link'],
               'link' => $href,
               'preview' => $preview,
-              'type' => 'medium',
             ];
           endforeach;
           my_get_template_part('previews/list', [

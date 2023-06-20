@@ -173,6 +173,10 @@
   .manufacturers__list {
     --items: 2;
   }
+  .filter__steps{
+    padding: 15px;
+    gap: 15px;
+  }
 }
 
 @media (max-width: 500px) {
