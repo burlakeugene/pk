@@ -8796,14 +8796,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
               if (containerNext) {
                 container.parentNode.replaceChild(containerNext, container);
-                var offset = 0,
+                var offset = 20,
                     header = document.querySelector('header.header');
 
                 if (header) {
                   offset += header.clientHeight;
                 }
 
-                var top = containerNext.getBoundingClientRect().top + window.scrollY - offset;
+                var top = containerNext.querySelector('.products').getBoundingClientRect().top + window.scrollY - offset;
                 window.scrollTo({
                   top: top,
                   behavior: 'smooth'

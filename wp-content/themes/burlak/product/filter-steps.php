@@ -67,7 +67,8 @@
             $items[] = [
               'attributes' => ['data-filter-link'],
               'link' => $href,
-              'preview' => $preview
+              'preview' => $preview,
+              'type' => 'medium',
             ];
           endforeach;
           my_get_template_part('previews/list', [

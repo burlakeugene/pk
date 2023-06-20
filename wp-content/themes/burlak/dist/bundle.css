@@ -2215,7 +2215,8 @@ a:focus,
 }
 
 .tabs__buttons {
-  gap: 20px;
+  display: flex;
+  gap: 10px;
 }
 .tabs__contents {
   position: relative;
@@ -3423,6 +3424,9 @@ body.scrolled .fixed-button--top .icon {
 .preview:hover .preview__footer {
   bottom: 20px;
   opacity: 1;
+}
+.preview--medium {
+  height: 280px;
 }
 .preview--mini {
   display: flex;
