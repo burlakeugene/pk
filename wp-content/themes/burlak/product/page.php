@@ -32,6 +32,7 @@
 
   $is_stock = $product->stock_status === 'instock' ? true : false;
   $alt = getProductAlt($product);
+  $is_featured = $product->is_featured();
 ?>
 
 <div class="product product--page">
@@ -53,6 +54,7 @@
           ));
         }
       ?>
+      <?php my_get_template_part('product/featured', $is_featured); ?>
     </div>
     <?php if($gallery): ?>
     <div class="product__gallery">

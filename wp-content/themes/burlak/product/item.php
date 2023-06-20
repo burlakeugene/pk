@@ -9,7 +9,6 @@
 
 <div class="product product--regular">
   <div class="product__image <?= !$image[0] ? 'product__image--empty' : '' ?>">
-    <?php my_get_template_part('product/featured', $is_featured); ?>
     <div class="product__buttons">
       <?php
         if(isAvailable('favorite')){
@@ -26,6 +25,9 @@
             'id' => $product->get_id()
           ));
         }
+      ?>
+      <?php
+        my_get_template_part('product/featured', $is_featured);
       ?>
     </div>
     <?php if($image[0]): ?>
