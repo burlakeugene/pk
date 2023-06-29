@@ -49,7 +49,7 @@
           foreach($tab['list'] as $link):
             $query = get_queried_object();
             $href = $link['permalink'];
-            $href = array_search('category', $list_prev) || $tab['key'] === 'category' ? $href : get_permalink(wc_get_page_id('shop'));
+            $href = in_array('category', $list_prev) || $tab['key'] === 'category' ? $href : get_permalink(wc_get_page_id('shop'));
             $href = strtok($href, '?');
             $params = [];
             if($tab['key'] !== 'category'){
