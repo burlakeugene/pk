@@ -25,6 +25,7 @@
   if($sku){
     array_unshift($attributes_mini , [
       'label' => 'Артикул',
+      'select' => true,
       'value' => $sku
     ]);
   }
@@ -96,7 +97,7 @@
     <?php endif; ?>
     <div class="product__info">
       <div class="product__info__top">
-        <div class="product__title">
+        <div class="product__title allow-select">
           <h1><?php the_title() ?></h1>
         </div>
         <?php

@@ -693,6 +693,7 @@ function getProductAttributes($product){
   if($sku){
     $result['sku'] = array(
       'label' => 'Артикул',
+      'select' => true,
       'value' => $sku
     );
   }

@@ -17,7 +17,7 @@
           <div class="attribute__label">
             <?= $item['label'] ?>:
           </div>
-          <div class="attribute__value">
+          <div class="attribute__value <?= $item['select'] ? 'allow-select' : '' ?>">
             <?= $item['value']  ?>
           </div>
         </div>
