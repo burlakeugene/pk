@@ -8795,19 +8795,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
               var containerNext = html.querySelector('.products__with-filters');
 
               if (containerNext) {
+                var _target$dataset;
+
                 container.parentNode.replaceChild(containerNext, container);
-                var offset = 20,
-                    header = document.querySelector('header.header');
 
-                if (header) {
-                  offset += header.clientHeight;
+                if (((_target$dataset = target.dataset) === null || _target$dataset === void 0 ? void 0 : _target$dataset.filterLink) !== 'false') {
+                  var offset = 20,
+                      header = document.querySelector('header.header');
+
+                  if (header) {
+                    offset += header.clientHeight;
+                  }
+
+                  var top = containerNext.querySelector('.products').getBoundingClientRect().top + window.scrollY - offset;
+                  window.scrollTo({
+                    top: top,
+                    behavior: 'smooth'
+                  });
                 }
-
-                var top = containerNext.querySelector('.products').getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({
-                  top: top,
-                  behavior: 'smooth'
-                });
               } else {
                 container.remove();
               }

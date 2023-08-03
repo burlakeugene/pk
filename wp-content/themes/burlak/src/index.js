@@ -1021,18 +1021,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                 if (containerNext) {
                   container.parentNode.replaceChild(containerNext, container);
-                  let offset = 20,
-                    header = document.querySelector('header.header');
-                  if (header) {
-                    offset += header.clientHeight;
+
+                  if (target.dataset?.filterLink !== 'false') {
+                    let offset = 20,
+                      header = document.querySelector('header.header');
+                    if (header) {
+                      offset += header.clientHeight;
+                    }
+                    let top =
+                      containerNext
+                        .querySelector('.products')
+                        .getBoundingClientRect().top +
+                      window.scrollY -
+                      offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
                   }
-                  let top =
-                    containerNext
-                      .querySelector('.products')
-                      .getBoundingClientRect().top +
-                    window.scrollY -
-                    offset;
-                  window.scrollTo({ top, behavior: 'smooth' });
                 } else {
                   container.remove();
                 }

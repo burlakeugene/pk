@@ -1432,8 +1432,8 @@ select {
 
 ::-webkit-scrollbar {
   background: 0 0;
-  width: 2px;
-  height: 2px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -1443,7 +1443,7 @@ select {
 ::-webkit-scrollbar-thumb {
   background: var(--theme);
   opacity: 1;
-  border-radius: 3px;
+  border-radius: 0;
 }
 
 html {
@@ -4722,6 +4722,11 @@ body.scrolled .fixed-button--top .icon {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+.filter__steps__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .filter__steps .previews__list {
   max-height: 670px;
