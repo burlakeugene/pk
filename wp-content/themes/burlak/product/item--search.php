@@ -25,9 +25,11 @@
       </a>
     </div>
     <div class="product__prices">
-      <div class="product__price product__price--current">
-        <?= wc_price($product->price) ?>
-      </div>
+      <?php if($product->price): ?>
+        <div class="product__price product__price--current">
+          <?= wc_price($product->price) ?>
+        </div>
+      <?php endif; ?>
       <?php if($product->price != $product->regular_price): ?>
         <div class="product__price product__price--old">
           <?= wc_price($product->regular_price) ?>

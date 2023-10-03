@@ -458,6 +458,7 @@ function get_search_result(){
     'classes' => ['products--search'],
     'empty' => 'Нет результата поиска'
   ));
+
   die();
 }
 
