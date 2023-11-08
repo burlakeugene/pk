@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
     position: relative;
   }
   &__deliver {
@@ -108,6 +108,12 @@
     justify-content: center;
     border-top: 2px solid var(--theme);
   }
+
+  .sites__button {
+    margin-top: 15px;
+    margin: 15px auto 0 auto;
+  }
+
   .navigation {
     padding: 0;
     ul {
@@ -155,6 +161,9 @@
       .header__deliver {
         display: block;
       }
+    }
+    .sites__button{
+      display: none;
     }
   }
 }

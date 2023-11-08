@@ -78,11 +78,20 @@ $table_prefix = 'pk_';
  *
  * @link https://ru.wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
 
 /* Произвольные значения добавляйте между этой строкой и надписью "дальше не редактируем". */
 
+define( 'WP_DEBUG', false );
+// define( 'WP_DEBUG', true );
+// define( 'WP_DEBUG_LOG', true );
 
+define( 'WP_ALLOW_MULTISITE', true );
+define( 'MULTISITE', true );
+define( 'SUBDOMAIN_INSTALL', true );
+define( 'DOMAIN_CURRENT_SITE', 'pk.loc' );
+define( 'PATH_CURRENT_SITE', '/' );
+define( 'SITE_ID_CURRENT_SITE', 1 );
+define( 'BLOG_ID_CURRENT_SITE', 1 );
 
 /* Это всё, дальше не редактируем. Успехов! */
 

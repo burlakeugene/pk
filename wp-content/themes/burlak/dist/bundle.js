@@ -8825,6 +8825,32 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
       });
     });
+    var buttonsModal = document.querySelectorAll('[data-modal]');
+    buttonsModal.length && buttonsModal.forEach(function (target) {
+      (0,_js_helpers__WEBPACK_IMPORTED_MODULE_9__.eventDecorator)({
+        target: target,
+        event: {
+          type: 'click',
+          body: function body(event) {
+            event.preventDefault();
+            var target = event.currentTarget;
+            var modal = target.dataset.modal;
+            var modalSelector = "#".concat(modal);
+
+            if (!document.querySelector(modalSelector)) {
+              return;
+            }
+
+            _fancyapps_ui__WEBPACK_IMPORTED_MODULE_11__.Fancybox.show([{
+              src: modalSelector,
+              type: 'inline'
+            }], {
+              mainClass: "".concat(modal, "__modal")
+            });
+          }
+        }
+      });
+    });
   };
 
   window.router = new _js_router_js__WEBPACK_IMPORTED_MODULE_0__["default"]({

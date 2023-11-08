@@ -36,6 +36,9 @@
                 get_template_part('compare/button--header');
               }
               get_template_part('cart/button--header');
+              my_get_template_part('sites/button', [
+                'modal' => true
+              ]);
             ?>
             <div class="header__deliver"></div>
             <?php get_template_part('blocks/toggle') ?>
@@ -50,7 +53,10 @@
         ]) ?>
       </div>
       <div class="sidebar__footer">
-        <?php get_template_part('blocks/socials') ?>
+        <?php
+          get_template_part('sites/button');
+          get_template_part('blocks/socials');
+        ?>
       </div>
     </sidebar>
     <main>

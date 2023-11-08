@@ -1048,6 +1048,39 @@ document.addEventListener('DOMContentLoaded', (event) => {
           },
         });
       });
+
+    const buttonsModal = document.querySelectorAll('[data-modal]');
+    buttonsModal.length &&
+      buttonsModal.forEach((target) => {
+        eventDecorator({
+          target,
+          event: {
+            type: 'click',
+            body: (event) => {
+              event.preventDefault();
+              const target = event.currentTarget;
+              const modal = target.dataset.modal;
+              const modalSelector = `#${modal}`;
+
+              if (!document.querySelector(modalSelector)) {
+                return;
+              }
+
+              Fancybox.show(
+                [
+                  {
+                    src: modalSelector,
+                    type: 'inline',
+                  },
+                ],
+                {
+                  mainClass: `${modal}__modal`,
+                }
+              );
+            },
+          },
+        });
+      });
   };
 
   window.router = new Router({

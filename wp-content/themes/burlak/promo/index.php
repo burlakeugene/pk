@@ -1,5 +1,7 @@
 <?php
-  $id = 71;
+  $promo = get_posts(array('title' => 'Промо', 'post_type' => 'static-block'));
+  if($promo[0]):
+  $id = $promo[0]->ID;
   $fields = get_fields($id);
   $background = $fields['background']['sizes']['background'];
   $image = $fields['image']['url'];
@@ -8,7 +10,7 @@
 ?>
 
 <div class="promo promo--index">
-  <?php if(background): ?>
+  <?php if($background): ?>
   <div class="promo__background" style="background-image: url(<?= $background ?>)"></div>
   <?php endif; ?>
   <div class="promo__content">
@@ -56,3 +58,6 @@
     <?php endif; ?>
   </div>
 </div>
+<?php
+  endif;
+?>

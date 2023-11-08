@@ -145,6 +145,7 @@ add_action('admin_init', function () {
     register_setting('theme-page-settings', 'phone');
     register_setting('theme-page-settings', 'email');
     register_setting('theme-page-settings', 'copyrights');
+    register_setting('theme-page-settings', 'name');
 
     // $products = wc_get_products([
     //   'return' => 'ids',
@@ -173,6 +174,10 @@ function theme_settings_page()
       <?php
         settings_fields('theme-page-settings');
         do_settings_sections('theme-page-settings'); ?>
+      <label>
+        <div>Name</div>
+        <input type="text" name="name" value="<?= esc_attr(get_option('name')) ?>" />
+      </label>
       <label>
         <div>Common scripts</div>
         <textarea name="common_scripts"><?= esc_attr(get_option('common_scripts')); ?></textarea>
@@ -213,7 +218,6 @@ function theme_settings_page()
         <div>Copyrights</div>
         <input type="text" name="copyrights" value="<?= esc_attr(get_option('copyrights')) ?>" />
       </label>
-      <label>
       <?php submit_button(); ?>
     </form>
   </div>
@@ -336,7 +340,7 @@ function split_half($string, $center = 0.1) {
 // woo
 
 function woo_settings(){
-  if (!is_admin() && WC() && WC()->session) {
+  if (!is_admin() && function_exists('WC') && WC() && WC()->session) {
     WC()->session->set_customer_session_cookie(true);
     // WC()->session->set('shipping', null);
     if (!WC()->session->get('shipping')) {
@@ -448,8 +452,7 @@ function get_search_result(){
 
   $items = get_posts(array(
     'post_type' => 'product',
-    'post__in' => $items_unique,
-    'posts_per_page' => -1
+    'post__in' => array_slice($items_unique, 0, 30),
   ));
 
   my_get_template_part('product/list', array(
@@ -922,6 +925,20 @@ function getFilters(){
     'list' => $list,
     'current' => $current
   ];
+}
+
+function getSites(){
+  $items = get_sites();
+
+  return array_map(function($item){
+    return [
+      'data' => $item,
+      'id' => $item->blog_id,
+      'link' => untrailingslashit('//' . $item->domain . $item->path ),
+      'text' => get_blog_option($item->blog_id, 'name'),
+      'active' => get_current_blog_id() == $item->blog_id
+    ];
+  }, $items);
 }
 
 //wc_get_featured_product_ids
