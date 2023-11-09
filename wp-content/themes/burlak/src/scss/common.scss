@@ -1745,3 +1745,8 @@ body.scrolled {
   align-items: center;
   justify-content: center;
 }
+
+.grecaptcha-badge{
+  opacity: 0;
+  visibility: hidden;
+}

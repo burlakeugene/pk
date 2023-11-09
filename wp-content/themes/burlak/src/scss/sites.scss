@@ -29,9 +29,14 @@
     }
   }
   &__item {
+    color: var(--theme);
     a {
-      color: var(--theme);
+      color: var(--gray-dark);
       outline: none !important;
+      transition: all 0.3s;
+      &:hover{
+        color: var(--theme);
+      }
     }
   }
   &__modal {

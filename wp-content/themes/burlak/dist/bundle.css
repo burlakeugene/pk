@@ -3056,6 +3056,11 @@ body.scrolled .fixed-button--top .icon {
   justify-content: center;
 }
 
+.grecaptcha-badge {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .header {
   position: sticky;
   width: 100%;
@@ -4046,9 +4051,16 @@ body.scrolled .fixed-button--top .icon {
   background-color: var(--black);
   color: var(--theme);
 }
-.sites__item a {
+.sites__item {
   color: var(--theme);
+}
+.sites__item a {
+  color: var(--gray-dark);
   outline: none !important;
+  transition: all 0.3s;
+}
+.sites__item a:hover {
+  color: var(--theme);
 }
 .sites__modal .sites {
   display: flex;
