@@ -54,7 +54,6 @@
       </div>
       <div class="sidebar__footer">
         <?php
-          get_template_part('sites/button');
           get_template_part('blocks/socials');
         ?>
       </div>
