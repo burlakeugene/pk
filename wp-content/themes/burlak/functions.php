@@ -928,14 +928,23 @@ function getFilters(){
 }
 
 function getSites(){
+  if(!function_exists('get_sites')){
+    return [];
+  }
+
   $items = get_sites();
 
   return array_map(function($item){
+    $name = get_blog_option($item->blog_id, 'name');
+    if(!$name){
+      $name = $item->domain . $item->path;
+    }
+
     return [
       'data' => $item,
       'id' => $item->blog_id,
       'link' => untrailingslashit('//' . $item->domain . $item->path ),
-      'text' => get_blog_option($item->blog_id, 'name'),
+      'text' => $name,
       'active' => get_current_blog_id() == $item->blog_id
     ];
   }, $items);

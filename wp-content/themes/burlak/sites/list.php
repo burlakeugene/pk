@@ -13,7 +13,7 @@
       else:
         ?>
         <a href="<?= $site['link'] ?>">
-          <?= $site['text'] ?>
+          <?= $site['text']  ?>
         </a>
         <?php
       endif;
