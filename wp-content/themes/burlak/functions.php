@@ -450,10 +450,10 @@ function get_search_result(){
 
   $items_unique = array_unique( array_merge( $items_title, $items_sku ) );
 
-  $items = get_posts(array(
+  $items = count($items_unique) ? get_posts(array(
     'post_type' => 'product',
     'post__in' => array_slice($items_unique, 0, 30),
-  ));
+  )) : [];
 
   my_get_template_part('product/list', array(
     'items' => $items,
