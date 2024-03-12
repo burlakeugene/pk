@@ -1,7 +1,9 @@
 <div class="cart">
   <div class="cart__header">
     <h2>Корзина</h2>
-    <div>В вашей корзине <?php get_template_part('cart/count') ?></div>
+    <div><?php my_get_template_part('cart/count', [
+      'prefix' => 'В вашей корзине '
+    ]) ?></div>
   </div>
   <?php get_template_part('cart/list') ?>
   <div class="cart__footer">

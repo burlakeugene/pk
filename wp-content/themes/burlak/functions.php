@@ -229,7 +229,9 @@ function theme_settings_page()
 
 function declension($value = 1, $wordForms = ['товар', 'товара', 'товаров']){
     $array = [2,0,1,1,1,2];
-    return $wordForms[($value%100>4&&$value%100<20)?2:$array[($value%10<5)?$value%10:5]];
+    $index = ($value%100>4&&$value%100<20)?2:$array[($value%10<5)?$value%10:5];
+
+    return $wordForms[$index];
 }
 
 function settings(){
