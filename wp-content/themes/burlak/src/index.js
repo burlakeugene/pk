@@ -1091,8 +1091,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     beforeRendered: function () {
       Fancybox.close();
     },
-    afterRendered: function (appContainer) {
+    afterHistoryChange: () => {
       window.scrollTo(0, 0);
+    },
+    afterRendered: function (appContainer) {
       routerFunc();
       var hash = window.location.hash,
         item = null;

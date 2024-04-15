@@ -600,6 +600,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 // 	beforeRendered: function, run before ajax request send,
 // 	afterRendered: function, run after render,
 //	afterInit: function, run after init
+//  afterHistoryChange: function: ren after history change
 // }
 (function (w) {
   w.BurlakNavigation = function (options) {
@@ -613,6 +614,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     this.afterInit = this.options.afterInit ? this.options.afterInit : false;
     this.beforeRendered = this.options.beforeRendered ? this.options.beforeRendered : false;
     this.afterRendered = this.options.afterRendered ? this.options.afterRendered : false;
+    this.afterHistoryChange = this.options.afterHistoryChange ? this.options.afterHistoryChange : false;
     this.app = document.querySelector(this.options.container);
     this.isLoadProcess = false;
     this.exact = this.options.exact ? true : false;
@@ -709,6 +711,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }, null, href);
       self.addLinksEvent(self.options.navItems);
 
+      if (self.afterHistoryChange) {
+        self.afterHistoryChange(replacement);
+      }
+
       if (self.afterRendered) {
         var media = replacement.querySelectorAll('img, video');
         Promise.all(_toConsumableArray(media).map(function (item) {
@@ -797,19 +803,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       if (this.beforeInit) this.beforeInit();
       this.addLinksEvent(this.options.navItems);
       this.popStateListener();
-      window.addEventListener('load', function () {
-        var preloader = document.querySelector('.preloader');
-
-        if (preloader) {
-          preloader.classList.remove('preloader__visible');
-          setTimeout(function () {
-            preloader.parentNode.removeChild(preloader);
-          }, 400);
-        }
-
-        if (self.afterRendered) self.afterRendered(document.querySelector(self.options.container));
-        if (self.afterInit) self.afterInit();
-      });
+      if (self.afterRendered) self.afterRendered(document.querySelector(self.options.container));
+      if (self.afterInit) self.afterInit(self.options.container);
       return this;
     };
   };
@@ -8861,8 +8856,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
     beforeRendered: function beforeRendered() {
       _fancyapps_ui__WEBPACK_IMPORTED_MODULE_11__.Fancybox.close();
     },
-    afterRendered: function afterRendered(appContainer) {
+    afterHistoryChange: function afterHistoryChange() {
       window.scrollTo(0, 0);
+    },
+    afterRendered: function afterRendered(appContainer) {
       routerFunc();
       var hash = window.location.hash,
           item = null;

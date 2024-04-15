@@ -20,6 +20,7 @@
 // 	beforeRendered: function, run before ajax request send,
 // 	afterRendered: function, run after render,
 //	afterInit: function, run after init
+//  afterHistoryChange: function: ren after history change
 // }
 
 (function (w) {
@@ -39,6 +40,9 @@
       : false;
     this.afterRendered = this.options.afterRendered
       ? this.options.afterRendered
+      : false;
+    this.afterHistoryChange = this.options.afterHistoryChange
+      ? this.options.afterHistoryChange
       : false;
     this.app = document.querySelector(this.options.container);
     this.isLoadProcess = false;
@@ -143,6 +147,11 @@
           href
         );
       self.addLinksEvent(self.options.navItems);
+
+      if (self.afterHistoryChange) {
+        self.afterHistoryChange(replacement);
+      }
+
       if (self.afterRendered) {
         const media = replacement.querySelectorAll('img, video');
         Promise.all(
@@ -240,18 +249,10 @@
       if (this.beforeInit) this.beforeInit();
       this.addLinksEvent(this.options.navItems);
       this.popStateListener();
-      window.addEventListener('load', function () {
-        var preloader = document.querySelector('.preloader');
-        if (preloader) {
-          preloader.classList.remove('preloader__visible');
-          setTimeout(function () {
-            preloader.parentNode.removeChild(preloader);
-          }, 400);
-        }
-        if (self.afterRendered)
-          self.afterRendered(document.querySelector(self.options.container));
-        if (self.afterInit) self.afterInit();
-      });
+
+      if (self.afterRendered)
+        self.afterRendered(document.querySelector(self.options.container));
+      if (self.afterInit) self.afterInit(self.options.container);
 
       return this;
     };

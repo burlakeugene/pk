@@ -3988,7 +3988,10 @@ body.scrolled .fixed-button--top .icon {
   margin-bottom: 25px;
 }
 .footer__block--right {
-  margin-left: auto;
+  flex: 1;
+  justify-content: flex-end;
+  padding-top: 0;
+  display: flex;
 }
 .footer__block--wide {
   flex: 0 0 100%;

@@ -26,7 +26,8 @@
 					get_template_part($product_template);
 				endwhile;
 			endif;
-		?></div>
+		?>
+	</div>
 	<?php
 		my_get_template_part('blocks/empty', array(
 			'text' => $empty
