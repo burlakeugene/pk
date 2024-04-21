@@ -23,7 +23,10 @@
     <div class="previews__list">
       <?php
         foreach ($items as $item):
-          my_get_template_part('previews/item', $item);
+          my_get_template_part('previews/item', [
+            'data' => $item,
+            'hide_text' => $hide_text
+          ]);
         endforeach;
       ?>
     </div>

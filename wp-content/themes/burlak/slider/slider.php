@@ -12,10 +12,10 @@
           <div class="swiper-wrapper">
             <?php foreach($list as $index => $list_item): ?>
               <div class="swiper-slide">
-                <?php my_get_template_part($item['path'], [
+                <?php my_get_template_part($item['path'], array_merge([
                   'data' => $list_item,
                   'index' => $index
-                ]) ?>
+                ], $item['props'] ? $item['props'] : [])) ?>
               </div>
             <?php endforeach; ?>
           </div>

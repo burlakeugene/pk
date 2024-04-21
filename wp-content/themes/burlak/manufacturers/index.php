@@ -6,7 +6,6 @@ $title = $fields['title_index'];
 $text = $fields['text_index'];
 
 $items = array_filter(array_map(function($item){
-  $item['type'] = 'mini';
   if($item['preview']['index']) return $item;
   return null;
 }, getManufacturers()));
@@ -36,7 +35,10 @@ $items = array_filter(array_map(function($item){
             'buttons' => true,
             'list' => $items,
             'item' => [
-              'path' => 'previews/item'
+              'path' => 'previews/item',
+              'props' => [
+                'hide_text' => true
+              ]
             ],
             'config' => [
               'slidesPerView' => 2,

@@ -4,6 +4,7 @@
   $image_lazy = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'lazy-square');
   $image = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'product');
   $size = $product->get_weight();
+  $title = $product->get_title();
 ?>
 
 <div class="product product--search">
@@ -20,8 +21,8 @@
   ?>
   <div class="product__info">
     <div class="product__title">
-      <a class="ajax" href="<?= $product->get_permalink() ?>">
-        <?= $product->get_title() ?>
+      <a class="ajax" href="<?= $product->get_permalink() ?>" title="<?= $title ?>">
+        <?= mb_strimwidth($title, 0, 30, "..."); ?>
       </a>
     </div>
     <div class="product__prices">

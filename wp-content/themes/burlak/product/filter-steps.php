@@ -94,11 +94,11 @@
           }
           $href = $href.mergeQueryString($params);
           $preview = get_fields($link['term'])['preview'];
-          $preview['link_text'] = 'Выбрать';
           $items[] = [
             'attributes' => ['data-filter-link="false"'],
             'link' => $href,
             'preview' => $preview,
+            'name' => $link['label']
           ];
         endforeach;
         my_get_template_part('previews/list', [

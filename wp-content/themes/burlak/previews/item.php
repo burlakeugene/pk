@@ -1,37 +1,23 @@
 <?php
-  $link_text = $data['preview']['link_text'];
-  if(!$link_text) $link_text = 'Перейти';
   $attributes = $data['attributes'] ? implode(' ', $data['attributes']) : '';
-  $logo = $data['preview']['logo']['sizes'];
+  $image = $data['preview']['logo']['sizes'];
+  $text = $data['name'] ? $data['name'] : $data['preview']['text'];
+
   if(!$ajax && $data['ajax']){
     $ajax = $data['ajax'];
   }
-  if(!$type && $data['type']){
-    $type = $data['type'];
-  }
-  $mini = $type === 'mini';
 ?>
-<a class="preview <?= $type ? 'preview--'.$type : '' ?> <?= $ajax ? 'ajax' : '' ?>" <?= $attributes ?> href="<?= $data['link'] ?>">
-  <?php if($mini): ?>
-    <div class="lazy">
-      <img data-lazy="<?= $logo['medium'] ?>" src="<?= $logo['lazy'] ?>" alt="<?= $data['name'] ?>">
+<a class="preview <?= $ajax ? 'ajax' : '' ?>" <?= $attributes ?> href="<?= $data['link'] ?>">
+  <?php
+    if($image):
+  ?>
+    <div class="preview__image lazy">
+      <img data-lazy="<?= $image['medium'] ?>" src="<?= $image['lazy'] ?>" alt="<?= $text ?>">
     </div>
-  <?php else: ?>
-    <div
-      class="preview__image"
-      style="background-image: url(<?= $data['preview']['background']['sizes']['medium'] ?>)">
-    </div>
-    <?php if($data['preview']['text']): ?>
-      <div class="preview__text">
-        <?= $data['preview']['text'] ?>
-      </div>
-    <?php elseif($logo): ?>
-      <div class="preview__logo">
-        <img src="<?= $logo['medium'] ?>" alt="<?= $data['name'] ?>">
-      </div>
-    <?php endif; ?>
-    <div class="preview__footer link link--dark">
-      <?= $link_text ?>
+  <?php endif; ?>
+  <?php if(!$hide_text && $text): ?>
+    <div class="preview__text">
+      <?= $text ?>
     </div>
   <?php endif; ?>
 </a>
