@@ -1,4 +1,9 @@
 <?php
+
+
+
+
+define( 'WP_MEMORY_LIMIT', '100M' );
 /**
  * Основные параметры WordPress.
  *
@@ -20,13 +25,13 @@
 
 // ** Параметры базы данных: Эту информацию можно получить у вашего хостинг-провайдера ** //
 /** Имя базы данных для WordPress */
-define( 'DB_NAME', 'pk' );
+define( 'DB_NAME', 'pkstyle211_dbs' );
 
 /** Имя пользователя базы данных */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'pkstyle211_dbs' );
 
 /** Пароль к базе данных */
-define( 'DB_PASSWORD', 'root' );
+define( 'DB_PASSWORD', '1MoFB@e9RD' );
 
 /** Имя сервера базы данных */
 define( 'DB_HOST', 'localhost' );
@@ -82,20 +87,21 @@ $table_prefix = 'pk_';
 /* Произвольные значения добавляйте между этой строкой и надписью "дальше не редактируем". */
 
 define( 'WP_DEBUG', false );
-// define( 'WP_DEBUG', true );
-// define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_LOG', false );
 
 define( 'WP_ALLOW_MULTISITE', true );
 define( 'MULTISITE', true );
 define( 'SUBDOMAIN_INSTALL', true );
-define( 'DOMAIN_CURRENT_SITE', 'pk.loc' );
+define( 'DOMAIN_CURRENT_SITE', 'pkstyle.ru' );
 define( 'PATH_CURRENT_SITE', '/' );
 define( 'SITE_ID_CURRENT_SITE', 1 );
 define( 'BLOG_ID_CURRENT_SITE', 1 );
+define( 'WPCF7_AUTOP', false );
 
 /* Это всё, дальше не редактируем. Успехов! */
 
 /** Абсолютный путь к директории WordPress. */
+define( 'DUPLICATOR_AUTH_KEY', '6{Y%x}GX|`{6Zk&jK5wA$^Z2S9:kQb3kZ rs#/tAC~p!/by9KKy!oaiNJ`_0u;_?' );
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
 }

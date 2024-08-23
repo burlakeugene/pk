@@ -5,6 +5,8 @@
   $image = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'product');
   $size = $product->get_weight();
   $is_featured = $product->is_featured();
+  $is_new = $product->get_attribute('pa_new');
+  $is_sale = $product->get_attribute('pa_sale');
 ?>
 
 <div class="product product--regular">
@@ -28,6 +30,8 @@
       ?>
       <?php
         my_get_template_part('product/featured', $is_featured);
+        my_get_template_part('product/new', $is_new);
+        my_get_template_part('product/sale', $is_sale);
       ?>
     </div>
     <?php if($image[0]): ?>

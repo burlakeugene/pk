@@ -1,8 +1,22 @@
 <?php
-  $list = $data['list'];
-  $current = $data['current'];
+  $except = explode(',', get_option('except_filter_steps'));
+  $list = [];
+  foreach($data['list'] as $item){
+    if(!in_array($item['key'], $except)){
+      $list[] = $item;
+    }
+  }
+
+  $current = [];
+  foreach($data['current'] as $key => $item){
+    if(!in_array($key, $except)){
+      $current[$key] = $item;
+    }
+  }
+
   $current_url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   $hidePanel = (is_tax() && !$_GET['pa_brand']) || (!$_GET['pa_brand'] && $_GET['pa_manufacturer']);
+
   if(!$hidePanel):
 ?>
 <div class="filter__steps">

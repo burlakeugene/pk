@@ -146,6 +146,8 @@ add_action('admin_init', function () {
     register_setting('theme-page-settings', 'email');
     register_setting('theme-page-settings', 'copyrights');
     register_setting('theme-page-settings', 'name');
+    register_setting('theme-page-settings', 'except_filter_steps');
+    register_setting('theme-page-settings', 'except_filter');
 
     // $products = wc_get_products([
     //   'return' => 'ids',
@@ -217,6 +219,14 @@ function theme_settings_page()
       <label>
         <div>Copyrights</div>
         <input type="text" name="copyrights" value="<?= esc_attr(get_option('copyrights')) ?>" />
+      </label>
+      <label>
+        <div>Скрывать аттрибуты из подбора</div>
+        <input type="text" name="except_filter_steps" value="<?= esc_attr(get_option('except_filter_steps')) ?>" />
+      </label>
+      <label>
+        <div>Скрывать аттрибуты из фильтра</div>
+        <input type="text" name="except_filter" value="<?= esc_attr(get_option('except_filter')) ?>" />
       </label>
       <?php submit_button(); ?>
     </form>
@@ -434,7 +444,8 @@ function get_search_result(){
     'fields' => 'ids',
     'numberposts' => -1,
     'post_type' => 'product',
-    's' => $string
+    's' => $string,
+    'search_columns' => ['post_title']
   ));
 
   $items_sku = get_posts(array(

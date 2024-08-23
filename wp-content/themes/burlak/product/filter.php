@@ -1,6 +1,14 @@
 <?php
+  $except = explode(',', get_option('except_filter'));
   $list = $data['list'];
   $current = $data['current'];
+  $renderList = [];
+
+  foreach($list as $item){
+    if(!in_array($item['key'], $except)){
+      $renderList[] = $item;
+    }
+  }
 ?>
 
 <button
@@ -39,8 +47,8 @@
   <?php endif; ?>
   <?php
     $COUNT_LIMIT = 5;
-    foreach($list as $item):
-    if($item['type'] === 'list'):
+    foreach($renderList as $item):
+    if($item['type'] === 'list' && !$hidden):
       $count = count($item['list']);
     ?>
       <div class="filter__block">

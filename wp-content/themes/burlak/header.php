@@ -24,7 +24,7 @@
             ])
           ?>
           <div class="header__deliver"></div>
-          <?php get_template_part('blocks/socials') ?>
+          <?php get_template_part('blocks/phones') ?>
           <div class="header__deliver"></div>
           <div class="header__buttons">
             <?php
@@ -52,6 +52,7 @@
           'type' => 'header'
         ]) ?>
       </div>
+      <?php get_template_part('blocks/phones') ?>
       <div class="sidebar__footer">
         <?php
           get_template_part('blocks/socials');

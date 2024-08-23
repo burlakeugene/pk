@@ -65,6 +65,14 @@
       margin-right: 0;
     }
   }
+  .phones{
+    a{
+      color: var(--white);
+      &:hover{
+        color: var(--theme);
+      }
+    }
+  }
 }
 
 .scrolled {
@@ -109,6 +117,17 @@
     border-top: 2px solid var(--theme);
   }
 
+  .phones{
+    margin-top: 15px;
+    justify-content: center;
+    a{
+      color: var(--white);
+      &:hover{
+        color: var(--theme);
+      }
+    }
+  }
+
   .navigation {
     padding: 0;
     ul {
@@ -146,7 +165,8 @@
     }
     .navigation,
     &__deliver,
-    .socials {
+    .socials,
+    .phones{
       display: none;
     }
     .toggle {

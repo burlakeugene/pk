@@ -110,36 +110,6 @@
         width: 15px;
       }
     }
-    &:hover {
-      .products {
-        &__category {
-          &__background {
-            transform: scale(1.1);
-          }
-          &__inner {
-            &:after {
-              transition: all 0.6s;
-              height: 0px;
-            }
-            &:before {
-              height: 6px;
-            }
-          }
-          &__image {
-            opacity: 0;
-          }
-          &__name,
-          &__description {
-            color: var(--white);
-          }
-        }
-      }
-      .link {
-        &:after {
-          transform: translateX(-15%);
-        }
-      }
-    }
   }
   .list {
     display: flex;
@@ -177,6 +147,41 @@
     }
     .product {
       flex: 0 0 calc(25% - 20px + 20px / 4);
+    }
+  }
+}
+
+@media (min-width: 501px) {
+  .products__category {
+    &:hover {
+      .products {
+        &__category {
+          &__background {
+            transform: scale(1.1);
+          }
+          &__inner {
+            &:after {
+              transition: all 0.6s;
+              height: 0px;
+            }
+            &:before {
+              height: 6px;
+            }
+          }
+          &__image {
+            opacity: 0;
+          }
+          &__name,
+          &__description {
+            color: var(--white);
+          }
+        }
+      }
+      .link {
+        &:after {
+          transform: translateX(-15%);
+        }
+      }
     }
   }
 }
@@ -592,11 +597,16 @@
         }
       }
 
-      &__featured {
+      &__featured,
+      &__new,
+      &__sale {
         width: 40px;
         height: 40px;
         line-height: 40px;
         font-size: 14px;
+      }
+      &__sale{
+        font-size: 24px;
       }
       &__price-add {
         display: flex;
@@ -612,7 +622,9 @@
       }
     }
   }
-  &__featured {
+  &__featured,
+  &__new,
+  &__sale {
     font-size: 10px;
     font-weight: 800;
     color: var(--white);
@@ -622,6 +634,9 @@
     height: 30px;
     text-align: center;
     line-height: 30px;
+  }
+  &__sale{
+    font-size: 18px;
   }
 }
 
@@ -809,12 +824,12 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  &__buttons{
+  &__buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
   }
-  .previews__list{
+  .previews__list {
     max-height: 670px;
     overflow: auto;
   }

@@ -204,8 +204,30 @@
 }
 
 @media (max-width: 500px) {
+  .products__categories {
+    margin: -5px;
+  }
   .products__category__wrapper {
-    flex: 0 0 100%;
+    padding: 5px;
+    width: 50%;
+    flex-shrink: 0;
+    .products__category {
+      &__inner {
+        padding: 10px;
+      }
+      &__description {
+        display: none;
+      }
+      &__image {
+        font-size: 0;
+      }
+      &__name {
+        font-size: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: none;
+      }
+    }
   }
   .promo__title {
     text-align: center;
