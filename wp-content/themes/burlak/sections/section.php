@@ -5,9 +5,17 @@
       $classes.= ' section--'.$modificator;
     }
   }
+
+  if($background){
+    $classes.= ' section--imaged';
+  }
+
   if(!$render || $render === 1):
 ?>
-<section <?= $id ? 'id="'.$id.'"' : '' ?> class="<?= $classes ?>">
+<section
+<?= $id ? 'id="'.$id.'"' : '' ?> class="<?= $classes ?>"
+<?php if($background) echo 'style="background-image: url('.$background.')"'; ?>
+>
     <?php
       my_get_template_part('sections/header', $header);
     ?>

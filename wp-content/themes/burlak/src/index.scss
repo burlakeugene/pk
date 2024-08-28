@@ -15,6 +15,22 @@ body {
   --border-color: #e6e6e6;
 }
 
+@mixin flexContainer($gap, $items) {
+  display: flex;
+  flex-wrap: wrap;
+  --gap: #{$gap};
+  --items: #{$items};
+  gap: var(--gap);
+}
+
+@mixin flexItem {
+  flex-shrink: 0;
+  --width: calc(
+    100% / var(--items) - (var(--items) - 1) * var(--gap) / var(--items)
+  );
+  width: var(--width);
+}
+
 @import 'js/swiper/swiper.min.css';
 @import './scss/animations';
 @import './scss/wordpress-fixies';
@@ -35,6 +51,7 @@ body {
 @import './scss/about';
 @import './scss/footer';
 @import './scss/sites';
+@import './scss/landing';
 // woo
 @import './scss/product';
 @import './scss/cart';
