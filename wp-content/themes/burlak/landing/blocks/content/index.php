@@ -8,7 +8,7 @@
   my_get_template_part('sections/section', [
     'modificators' => [$dark ? 'dark': 'light'],
     'background' => $background,
-    'header' => [
+    'header' => $title ? [
       'modificators' => ['center'],
       'title' => [
         'text' => $title,
@@ -16,7 +16,7 @@
         'mini' => true,
         'apperance' => $dark ? ['light', 'light'] : ['dark', 'dark']
       ],
-    ],
+    ] : null,
     'content' => [
       'path' => 'landing/blocks/content/'.$type,
       'props' => [

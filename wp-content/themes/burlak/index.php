@@ -3,6 +3,7 @@
   my_get_template_part('banners/index');
 
   $brand_id = get_page_by_path('brands')->ID;
+
   my_get_template_part('sections/section', [
     'classes' => ['decorator_background_next'],
     'header' => [

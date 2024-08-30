@@ -835,6 +835,12 @@
   }
 }
 
+.slider--full-height-slide{
+  .product{
+    height: 100%;
+  }
+}
+
 @media (max-width: 1100px) {
   .products--archive .product {
     flex: 0 0 calc(50% - 10px);

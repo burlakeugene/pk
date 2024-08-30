@@ -31,21 +31,21 @@
     @include flexItem;
     display: flex;
     gap: 16px;
-    &__image{
+    &__image {
       width: 80px;
       flex-shrink: 0;
-      img{
+      img {
         width: 100%;
         height: auto;
       }
     }
-    &__content{
+    &__content {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-    &__title{
+    &__title {
       font-size: 18px;
       line-height: 1em;
       font-weight: 600;
@@ -53,9 +53,53 @@
   }
 }
 
-@media(max-width: 991px){
+.grid {
+  @include flexContainer(20px, 4);
+  justify-content: center;
+  &__item {
+    @include flexItem;
+    color: var(--white);
+    background: var(--black);
+    position: relative;
+    border-bottom: 6px solid var(--theme);
+    padding: 15px 20px;
+    box-shadow: 4px 4px 11px rgba(0, 0, 0, 0.11);
+    min-height: 300px;
+    &__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      opacity: 0.4;
+    }
+    &__content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    &__title {
+      font-weight: 700;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+    &__text {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
   .list {
     @include flexContainer(20px, 2);
+  }
+  .grid {
+    @include flexContainer(20px, 3);
   }
 }
 
@@ -69,15 +113,42 @@
       }
     }
   }
+  .grid {
+    @include flexContainer(20px, 2);
+  }
 }
 
-@media(max-width: 600px){
+@media (max-width: 600px) {
   .list {
     @include flexContainer(20px, 1);
-    &__item{
-      &__image{
+    &__item {
+      &__image {
         width: 60px;
       }
     }
+  }
+  .grid {
+    @include flexContainer(10px, 2);
+    &__item {
+      padding: 10px;
+      &__content {
+        gap: 10px;
+      }
+      &__title {
+        font-size: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: none;
+      }
+      &__text {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .grid {
+    @include flexContainer(10px, 1);
   }
 }
