@@ -468,6 +468,9 @@ function get_search_result(){
     'post__in' => array_slice($items_unique, 0, 30),
   )) : [];
 
+  ?>
+  <div style="display: none;"><?php print_r($items); ?></div>
+  <?php
   my_get_template_part('product/list', array(
     'items' => $items,
     'product_template' => 'product/item--search',
